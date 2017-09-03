@@ -47,6 +47,10 @@ class Login extends CI_Controller {
 		redirect('login');
 	}
 
+  public function register() {
+		$this->load->view('Register');
+	}
+
 	public function proses_login() {
 		$cek=$this->M_Login->login();
 		if($cek==true){

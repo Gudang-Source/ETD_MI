@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
   <meta name="description" content="bootstrap admin template">
   <meta name="author" content="">
-  <title>Jalan</title>
+  <title>Semua Skripsi/Tugas Akhir</title>
   <?php echo $this->load->view('common/head', '', TRUE);?>
   <!-- Stylesheets -->
   <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/css/bootstrap.min.css">
@@ -52,7 +52,7 @@
 
   <div class="page animsition">
     <div class="page-header">
-      <h1 class="page-title">Data Jalan</h1>
+      <h1 class="page-title">Baru Upload </h1>
 
     </div>
     <div class="page-content">
@@ -68,23 +68,22 @@
             <thead>
               <tr>
                 <th>NO</th>
-                <th>Kode Ruas</th>
-                <th>Nama Jalan</th>
-                <th>Kabupaten</th>
-                <th>Kecamatan</th>
-                <th>Detail</th>
-                <th>Hapus</th>
+                <th>NPM</th>
+                <th>Judul</th>
+                <th>Prodi</th>
+                <th>Konfirmasi</th>
+                <th>Batalkan</th>
+
               </tr>
             </thead>
             <tfoot>
               <tr>
                 <th>NO</th>
-                <th>Kode Ruas</th>
-                <th>Nama Jalan</th>
-                <th>Kabupaten</th>
-                <th>Kecamatan</th>
-                <th>Detail</th>
-                <th>Hapus</th>
+                <th>NPM</th>
+                <th>Judul</th>
+                <th>Prodi</th>
+                <th>Konfirmasi</th>
+                <th>Batalkan</th>
               </tr>
             </tfoot>
             <tbody>

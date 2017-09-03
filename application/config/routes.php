@@ -52,38 +52,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /*-----------------------------------------------------------------------*/
 $route['default_controller'] = 'Home';
 $route['home'] = 'Home';
-$route['help'] = 'Home/help';
-$route['home_admin'] = 'Home_admin';
-$route['peta'] = 'Peta';
-$route['popup'] = 'Peta/popup';
+$route['register'] = 'Login/register';
+$route['upload'] = 'Upload';
+$route['konfirmasi'] = 'Konfirmasi';
+$route['judul'] = 'judul';
+$route['cari'] = 'Cari';
 
-/*-----------------------------------------------------------------------*/
-$route['pengaduan'] = 'Pengaduan';
-$route['tambah_pengaduan'] = 'Pengaduan/tambah_pengaduan';
-$route['detail_pengaduan'] = 'Pengaduan/detail_pengaduan';
-$route['verifikasi_pengaduan'] = 'Pengaduan/verifikasi_pengaduan';
 
-/*-----------------------------------------------------------------------*/
-$route['kabupaten'] = 'Kabupaten';
-$route['tambah_kabupaten'] = 'Kabupaten/tambah_kabupaten';
-$route['ubah_kabupaten'] = 'Kabupaten/ubah_kabupaten';
-
-/*-----------------------------------------------------------------------*/
-$route['kecamatan'] = 'Kecamatan';
-$route['tambah_kecamatan'] = 'Kecamatan/tambah_kecamatan';
-$route['ubah_kecamatan'] = 'Kecamatan/ubah_kecamatan';
-
-/*-----------------------------------------------------------------------*/
-$route['jalan'] = 'Jalan';
-$route['tambah_jalan'] = 'Jalan/tambah_jalan';
-$route['edit_jalan'] = 'Jalan/edit_jalan';
-$route['detail_jalan'] = 'Jalan/detail_jalan';
-
-/*-----------------------------------------------------------------------*/
-$route['tambah_jalan_rusak'] = 'Jalan_rusak/tambah_jalan_rusak';
-$route['jalan_rusak'] = 'Jalan_rusak';
-$route['detail_jalan_rusak'] = 'Jalan_rusak/detail_jalan_rusak';
-$route['edit_jalan_rusak'] = 'Jalan_rusak/edit_jalan_rusak';
 
 
 /*-----------------------------------------------------------------------*/

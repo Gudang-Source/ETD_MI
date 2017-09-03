@@ -114,6 +114,20 @@
 
             </a>
           </li>
+          <li class="site-menu-item has-sub <?php $link=uri_string(); if($link =="help"){ echo "active";} ?>">
+            <a href="<?php echo site_url(); ?>Konfirmasi" data-dropdown-toggle="false">
+              <i class="site-menu-icon  md-pin-help" aria-hidden="true"></i>
+              <span class="site-menu-title">Konfirmasi</span>
+
+            </a>
+          </li>
+          <li class="site-menu-item has-sub <?php $link=uri_string(); if($link =="help"){ echo "active";} ?>">
+            <a href="<?php echo site_url(); ?>judul" data-dropdown-toggle="false">
+              <i class="site-menu-icon  md-pin-help" aria-hidden="true"></i>
+              <span class="site-menu-title">Semua TA/Skripsi</span>
+
+            </a>
+          </li>
 
 
 
