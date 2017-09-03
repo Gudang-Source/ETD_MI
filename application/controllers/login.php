@@ -41,8 +41,8 @@ class Login extends CI_Controller {
 	}
 
 	public function logout() {
-		$this->session->unset_userdata('admin');
-		$this->session->unset_userdata('super_admin');
+		$this->session->unset_userdata('login');
+		$this->session->unset_userdata('level');
 		$this->session->sess_destroy();
 		redirect('login');
 	}
@@ -55,10 +55,10 @@ class Login extends CI_Controller {
 		$cek=$this->M_Login->login();
 		if($cek==true){
 			$username= $cek[0]->username;
+			$level= $cek[0]->level;
 			session_save_path();
-			$this->session->set_userdata('admin',$username);
-			$data="document.getElementById('exampleTopFullWidth').click();";
-			$this->session->set_flashdata('pesan', 'onload="'.$data.'"');
+			$this->session->set_userdata('login',$username);
+			$this->session->set_userdata('level',$level);
 			redirect('home');
 
 		}else{

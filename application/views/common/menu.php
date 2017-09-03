@@ -1,4 +1,8 @@
  <?php echo $this->session->flashdata('login');?>
+ <?php
+ $admin=$this->session->userdata('login');
+ $level=$this->session->userdata('level');
+ ?>
 <nav class="site-navbar navbar navbar-inverse navbar-fixed-top navbar-mega" role="navigation">
   <div class="navbar-header">
     <button type="button" class="navbar-toggle hamburger hamburger-close navbar-toggle-left hided"
@@ -29,7 +33,7 @@
           data-animation="scale-up" role="button">
 
               <?php
-              $admin=$this->session->userdata('admin');
+              $admin=$this->session->userdata('login');
                if(empty($admin)==0){
               ?>
               <span class="avatar avatar-online">
@@ -46,7 +50,7 @@
           </a>
           <ul class="dropdown-menu" role="menu">
             <?php
-            $admin=$this->session->userdata('admin');
+            $admin=$this->session->userdata('login');
              if(empty($admin)==0){
             ?>
               <li role="presentation">
@@ -106,7 +110,9 @@
             </a>
 
           </li>
-
+          <?php
+           if(!empty($admin) && $level==0 ){
+          ?>
           <li class="site-menu-item has-sub <?php $link=uri_string(); if($link =="help"){ echo "active";} ?>">
             <a href="<?php echo site_url(); ?>help" data-dropdown-toggle="false">
               <i class="site-menu-icon  md-pin-help" aria-hidden="true"></i>
@@ -114,6 +120,12 @@
 
             </a>
           </li>
+          <?php
+            }
+          ?>
+          <?php
+           if(!empty($admin) && $level==1 || $level==2 || $level==3  ){
+          ?>
           <li class="site-menu-item has-sub <?php $link=uri_string(); if($link =="help"){ echo "active";} ?>">
             <a href="<?php echo site_url(); ?>Konfirmasi" data-dropdown-toggle="false">
               <i class="site-menu-icon  md-pin-help" aria-hidden="true"></i>
@@ -128,13 +140,15 @@
 
             </a>
           </li>
-
+          <?php
+          }
+          ?>
 
 
 
           <?php
-          $admin=$this->session->userdata('admin');
-           if(empty($admin)==0){
+
+           if(!empty($admin) && $level==3 ){
           ?>
           <li class="site-menu-item has-sub <?php $link=uri_string(); if($link =="admin"||$link =="kabupaten"||$link =="kecamatan"){ echo "active";} ?>">
             <a href="javascript:void(0)" data-dropdown-toggle="false">

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
   <meta name="description" content="bootstrap admin template">
   <meta name="author" content="">
-  <title>User | Remark Admin Template</title>
+  <title>Login</title>
   <?php echo $this->load->view('common/head', '', TRUE);?>
   <!-- Stylesheets -->
   <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/css/bootstrap.min.css">
@@ -62,22 +62,21 @@
           <div class="page-content container-fluid ">
             <div class="brand">
               <img class="brand-img" src="<?php echo site_url(); ?>assets/assets/images/logo.png" width="100px" alt="...">
-              <h2 class="brand-text font-size-18">Remark</h2>
+              <h2 class="brand-text font-size-18">Login</h2>
             </div>
-            <form method="post" action="#" autocomplete="off">
+            <form method="post" action="<?php echo site_url(); ?>login/proses_login/" autocomplete="off">
               <div class="form-group form-material floating">
-                <input type="email" class="form-control" name="email" />
-                <label class="floating-label">Email</label>
+                <input type="text" class="form-control" name="username" />
+                <label class="floating-label">NPM/NIP</label>
               </div>
               <div class="form-group form-material floating">
                 <input type="password" class="form-control" name="password" />
                 <label class="floating-label">Password</label>
               </div>
 
-              <button type="submit" class="btn btn-primary btn-block btn-lg margin-top-40">Sign in</button>
+              <button type="submit" class="btn btn-primary btn-block btn-lg margin-top-40">Masuk</button>
             </form>
-            <p><a href="register-v3.html">Sign up</a> |
-            <a href="forgot-password.html">Forgot password?</a></p>
+            <p><a href="<?php echo site_url(); ?>daftar">Daftar</a>
           </div>
         </div>
 
