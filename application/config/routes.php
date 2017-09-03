@@ -52,7 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /*-----------------------------------------------------------------------*/
 $route['default_controller'] = 'Home';
 $route['home'] = 'Home';
-$route['register'] = 'Login/register';
+$route['daftar'] = 'Login/register';
 $route['upload'] = 'Upload';
 $route['konfirmasi'] = 'Konfirmasi';
 $route['judul'] = 'judul';
