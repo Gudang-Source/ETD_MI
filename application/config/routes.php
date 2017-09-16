@@ -55,9 +55,20 @@ $route['home'] = 'Home';
 $route['daftar'] = 'Login/register';
 $route['upload'] = 'Upload';
 $route['konfirmasi'] = 'Konfirmasi';
-$route['judul'] = 'judul';
+$route['judul'] = 'judul';//hanya bisa lihat judul per jurusan jika adamin
 $route['cari'] = 'Cari';
 
+/*-----------------------------------------------------------------------*/
+$route['dosen'] = 'Dosen';
+$route['tambah_dosen'] = 'Dosen/tambah_dosen';
+$route['edit_dosen'] = 'Dosen/edit_dosen';
+$route['hapus_dosen'] = 'Dosen/hapus_dosen';
+
+/*-----------------------------------------------------------------------*/
+$route['bidang'] = 'Bidang_minat';
+$route['tambah_bidang'] = 'Bidang_minat/tambah_dosen';
+$route['edit_bidang'] = 'Bidang_minat/edit_dosen';
+$route['hapus_bidang'] = 'Bidang_minat/hapus_dosen';
 
 
 

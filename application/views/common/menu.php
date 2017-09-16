@@ -113,8 +113,8 @@
           <?php
            if(!empty($admin) && $level==0 ){
           ?>
-          <li class="site-menu-item has-sub <?php $link=uri_string(); if($link =="help"){ echo "active";} ?>">
-            <a href="<?php echo site_url(); ?>help" data-dropdown-toggle="false">
+          <li class="site-menu-item has-sub <?php $link=uri_string(); if($link =="upload"){ echo "active";} ?>">
+            <a href="<?php echo site_url(); ?>upload" data-dropdown-toggle="false">
               <i class="site-menu-icon  md-pin-help" aria-hidden="true"></i>
               <span class="site-menu-title">Upload</span>
 
@@ -144,6 +144,20 @@
           }
           ?>
 
+          <?php
+           if(empty($admin)  ){
+          ?>
+          <li class="site-menu-item has-sub <?php $link=uri_string(); if($link =="daftar"){ echo "active";} ?>">
+            <a href="<?php echo site_url(); ?>daftar" data-dropdown-toggle="false">
+              <i class="site-menu-icon  md-pin-help" aria-hidden="true"></i>
+              <span class="site-menu-title">Daftar</span>
+
+            </a>
+          </li>
+
+          <?php
+          }
+          ?>
 
 
           <?php
@@ -163,13 +177,13 @@
                   <span class="site-menu-title">Admin</span>
                 </a>
               </li>
-              <li class="site-menu-item <?php $link=uri_string(); if($link =="kabupaten"){ echo "active";} ?>">
-                <a class="animsition-link" href="<?php echo site_url(); ?>kabupaten">
+              <li class="site-menu-item <?php $link=uri_string(); if($link =="bidang_minat"){ echo "active";} ?>">
+                <a class="animsition-link" href="<?php echo site_url(); ?>bidang_minat">
                   <span class="site-menu-title">Bidang Minat</span>
                 </a>
               </li>
-              <li class="site-menu-item <?php $link=uri_string(); if($link =="kecamatan"){ echo "active";} ?>">
-                <a class="animsition-link" href="<?php echo site_url(); ?>kecamatan">
+              <li class="site-menu-item <?php $link=uri_string(); if($link =="dosen"){ echo "active";} ?>">
+                <a class="animsition-link" href="<?php echo site_url(); ?>dosen">
                   <span class="site-menu-title">Dosen</span>
                 </a>
               </li>

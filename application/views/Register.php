@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
   <meta name="description" content="bootstrap admin template">
   <meta name="author" content="">
-  <title>User | Remark Admin Template</title>
+  <title>Daftar</title>
   <?php echo $this->load->view('common/head', '', TRUE);?>
   <!-- Stylesheets -->
   <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/css/bootstrap.min.css">
@@ -62,15 +62,15 @@
           <div class="page-content container-fluid ">
             <div class="brand">
               <img class="brand-img" src="<?php echo site_url(); ?>assets/assets/images/logo.png" width="100px" alt="...">
-              <h2 class="brand-text font-size-18">Remark</h2>
+              <h2 class="brand-text font-size-18">Daftar </h2>
             </div>
             <form method="post" action="#" autocomplete="off">
               <div class="form-group form-material floating">
-                <input type="email" class="form-control" name="email" />
+                <input type="number" class="form-control" name="email" />
                 <label class="floating-label">NIM</label>
               </div>
               <div class="form-group form-material floating">
-                <input type="password" class="form-control" name="password" />
+                <input type="text" class="form-control" name="password" />
                 <label class="floating-label">Nama</label>
               </div>
               <div class="form-group form-material floating">
@@ -81,11 +81,37 @@
                 <input type="password" class="form-control" name="password" />
                 <label class="floating-label"> Ulangi Password</label>
               </div>
+              <div class="form-group form-material floating">
+                <input type="email" class="form-control" name="password" />
+                <label class="floating-label">Email</label>
+              </div>
+              <div class="form-group form-material floating">
+                <input type="number" class="form-control" name="password" />
+                <label class="floating-label">No HP</label>
+              </div>
+              <div class="example-wrap form-group form-material floating">
+
+                <textarea class="form-control" id="textareaDefault" rows="3"></textarea>
+                  <label class="floating-label">Alamat</label>
+              </div>
+
+              <div class="form-group form-material floating">
+
+                  <select class="form-control" id="select">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                  <label class="floating-label" for="select">Prodi</label>
+                  
+                </div>
 
               <button type="submit" class="btn btn-primary btn-block btn-lg margin-top-40">Daftar</button>
             </form>
-            <p><a href="register-v3.html">Login</a> |
-            <a href="forgot-password.html">Forgot password?</a></p>
+            <p><a href="<?php echo site_url(); ?>login">Login</a> |
+            <a href="<?php echo site_url(); ?>lupa_password">Forgot password?</a></p>
           </div>
         </div>
 

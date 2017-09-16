@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
   <meta name="description" content="bootstrap admin template">
   <meta name="author" content="">
-  <title>Administratif</title>
+  <title>Upload Skripsi/ Tugas Akhir</title>
   <?php echo $this->load->view('common/head', '', TRUE);?>
   <!-- Stylesheets -->
   <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/css/bootstrap.min.css">
@@ -52,7 +52,7 @@
 
   <div class="page animsition">
     <div class="page-header">
-      <h1 class="page-title">Administrator</h1>
+      <h1 class="page-title">Tugas Akhir / Skripsi</h1>
 
 
     </div>
@@ -62,31 +62,71 @@
         <div class="panel-body container-fluid">
           <div class="row row-lg">
             <div class="clearfix hidden-xs"></div>
-            <div class="col-sm-6 col-md-6">
+            <div class="col-sm-10 col-md-10">
               <!-- Example Horizontal Form -->
-              <div class="example-wrap">
-                <h4 class="example-title">Administrator</h4>
+
+
 
                 <div class="example">
                   <form class="form-horizontal" action="admin/proses_tambah_admin" method="post">
                     <div class="form-group form-material">
-                      <label class="col-sm-3 control-label">Nama Lengkap</label>
+                      <label class="col-sm-3 control-label">Judul</label>
                       <div class="col-sm-9">
                         <input type="text" class="form-control" name="nama_lengkap" placeholder="Full Name" autocomplete="off" required>
                       </div>
                     </div>
                     <div class="form-group form-material">
-                      <label class="col-sm-3 control-label">Username</label>
+                      <label class="col-sm-3 control-label">Abstrak</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" name="username" placeholder="Username" autocomplete="off" required>
+                        <textarea class="form-control" id="textarea" name="textarea" rows="10"></textarea>
                       </div>
                     </div>
                     <div class="form-group form-material">
-                      <label class="col-sm-3 control-label">Password</label>
+                      <label class="col-sm-3 control-label">Bidang minat</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" name="password" placeholder="Password" autocomplete="off" required>
+                        <select class="form-control" id="select">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
                       </div>
                     </div>
+                    <div class="form-group form-material">
+                      <label class="col-sm-3 control-label">Dosen Pembimbing II</label>
+                      <div class="col-sm-9">
+                        <select class="form-control" id="select">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group form-material">
+                      <label class="col-sm-3 control-label">Dosen Pembimbing II</label>
+                      <div class="col-sm-9">
+                        <select class="form-control" id="select">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group ">
+                      <label class="col-sm-3 control-label"><b>File PDF</b></label>
+                      <div class="col-sm-9">
+                          <input type="file" name="fileToUpload" id="fileToUpload">
+                      </div>
+                    </div>
+
+
+
+
 
 
                     <div class="form-group form-material">
@@ -97,60 +137,10 @@
                     </div>
                   </form>
                 </div>
-              </div>
+
               <!-- End Example Horizontal Form -->
             </div>
           </div>
-        </div>
-      </div>
-      <div class="panel">
-        <header class="panel-heading">
-          <div class="panel-actions"></div>
-          <h3 class="panel-title">Data Administrator</h3>
-        </header>
-        <div class="panel-body">
-          <table class="table table-hover dataTable table-striped width-full" data-plugin="dataTable">
-            <thead>
-              <tr>
-                <th>No</th>
-                <th>Nama Lengkap</th>
-                <th>Username</th>
-                <th>Terakhir Login</th>
-                <th>Hapus</th>
-              </tr>
-            </thead>
-            <tfoot>
-              <tr>
-                <th>No</th>
-                <th>Nama Lengkap</th>
-                <th>Username</th>
-                <th>Terakhir Login</th>
-                <th>Hapus</th>
-              </tr>
-            </tfoot>
-            <tbody>
-              <?php
-                 $i=0;
-                 foreach($lihat as $data_admin){
-                 $i++;
-               ?>
-                <tr>
-                  <td><?php echo $i; ?></td>
-                  <td><?php echo $data_admin->nama_lengkap; ?></td>
-                  <td><?php echo $data_admin->username; ?></td>
-                  <td><?php echo $data_admin->terakhir_login; ?></td>
-                <?php
-                  echo"<td class='center' width='10%'><a href='". site_url()."admin/proses_hapus_admin?id=$data_admin->username' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
-                    \" title='Hapus'><button type='button' class='btn btn-danger'>Hapus</button></a>
-                    </td>";
-                  ?>
-                </tr>
-              <?php
-               }
-               ?>
-
-            </tbody>
-          </table>
         </div>
       </div>
 
