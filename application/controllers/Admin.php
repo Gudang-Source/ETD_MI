@@ -8,14 +8,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   			 $this->load->library('session');
   			 $this->load->database();
         // $this->load->model('M_Admin');
-  			 $admin=$this->session->userdata('level');
-  			 if($admin!=3){
-  					redirect("login/logout");
-  				 }
+
   	  }
 
 
       public function index(){
+        $admin=$this->session->userdata('level');
+        if($admin!=3){
+           redirect("login/logout");
+          }
 
        	$this->load->view('Admin');
       }
@@ -43,16 +44,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     //       }
     //   }
      //
-    //   public function ubah_profil(){
-    //     	$id=$_GET ['id'];
-    //       $data['lihat'] = $this->M_Admin->admin($id);
-    //      	$this->load->view('edit_profil',$data);
-    //   }
-    //   public function ubah_password(){
-    //       $id=$_GET ['id'];
-    //       $data['lihat'] = $this->M_Admin->admin($id);
-    //       $this->load->view('edit_password',$data);
-    //   }
+      public function ubah_profil(){
+        	//$id=$_GET ['id'];
+          //$data['lihat'] = $this->M_Admin->admin($id);
+         	$this->load->view('edit_profil');
+      }
+      public function ubah_password(){
+        //$id=$_GET ['id'];
+          //$data['lihat'] = $this->M_Admin->admin($id);
+          $this->load->view('edit_password');
+      }
      //
     //   public function proses_ubah_profil($id){
     //     $admin=md5($this->session->userdata('admin'));

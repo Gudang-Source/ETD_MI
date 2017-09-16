@@ -51,11 +51,15 @@
           <ul class="dropdown-menu" role="menu">
             <?php
             $admin=$this->session->userdata('login');
-             if(empty($admin)==0){
+            $level=$this->session->userdata('level');
+             if(empty($admin)==0 && $level==0){
             ?>
               <li role="presentation">
                 <a href="<?php echo site_url(); ?>ubah_profil?id=<?php echo $admin ?>" role="menuitem"><i class="icon md-account" aria-hidden="true"></i> Profile</a>
               </li>
+            <?php }
+            if(empty($admin)==0){
+           ?>
               <li role="presentation">
                 <a href="<?php echo site_url(); ?>ubah_password?id=<?php echo $admin ?>" role="menuitem"><i class="icon md-card" aria-hidden="true"></i> Ubah Password</a>
               </li>

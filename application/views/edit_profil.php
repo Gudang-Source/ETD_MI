@@ -56,7 +56,7 @@
 
   <div class="page animsition">
     <div class="page-header">
-      <h1 class="page-title">Administrator</h1>
+      <h1 class="page-title">Profil</h1>
 
 
     </div>
@@ -66,10 +66,10 @@
         <div class="panel-body container-fluid">
           <div class="row row-lg">
             <div class="clearfix hidden-xs"></div>
-            <div class="col-sm-6 col-md-6">
+            <div class="col-sm-10 col-md-10">
               <!-- Example Horizontal Form -->
               <div class="example-wrap">
-                <h4 class="example-title">Administrator</h4>
+
                 <?php
                    foreach($lihat as $admin){
                  ?>
