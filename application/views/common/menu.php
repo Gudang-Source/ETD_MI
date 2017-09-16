@@ -15,7 +15,7 @@
       <i class="icon md-more" aria-hidden="true"></i>
     </button>
     <a class="navbar-brand navbar-brand-center" href="<?php echo site_url(); ?>">
-      <img class=" " src="<?php echo site_url(); ?>assets/assets/images/banner.png" width="130%"
+      <img class=" " src="<?php echo site_url(); ?>assets/assets/images/banner.png"
       title="BINA MARGA">
       <img class="navbar-brand-logo navbar-brand-logo-special" src="<?php echo site_url(); ?>assets/assets/images/logo.jpg"
       title="BINA MARGA">
