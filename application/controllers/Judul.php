@@ -7,20 +7,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   			 $this->load->helper('url');
   			 $this->load->library('session');
   			 $this->load->database();
-        //  $admin=$this->session->userdata('admin');
-        //  $this->load->model('M_Kabupaten');
-        //  $this->load->model('M_Kecamatan');
-        //  $this->load->model('M_Jalan');
-        //  if(empty($admin)==1){
-        //     redirect("login/logout");
-        //    }
+         $admin=$this->session->userdata('level');
+         $this->load->model('M_Judul');
+
+        if($admin==0){
+             redirect("login/logout");
+
+            }
   			 }
 
 
          public function index()
        	{
-
-       		$this->load->view('Semua_judul');
+          $data['lihat'] = $this->M_Judul->lihat();
+       		$this->load->view('Semua_judul',$data);
        	}
 
 

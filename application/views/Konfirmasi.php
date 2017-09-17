@@ -71,8 +71,8 @@
                 <th>NPM</th>
                 <th>Judul</th>
                 <th>Prodi</th>
-                <th>Konfirmasi</th>
-                <th>Batalkan</th>
+                <th>Detail</th>
+
 
               </tr>
             </thead>
@@ -82,33 +82,29 @@
                 <th>NPM</th>
                 <th>Judul</th>
                 <th>Prodi</th>
-                <th>Konfirmasi</th>
-                <th>Batalkan</th>
+                <th>Detail</th>
+
               </tr>
             </tfoot>
             <tbody>
               <?php
                  $i=0;
-                 foreach($lihat as $data_jalan){
+                 foreach($lihat as $judul){
                  $i++;
                ?>
                 <tr>
                   <td><?php echo $i; ?></td>
-                  <td><?php echo $data_jalan->kode_ruas; ?></td>
-                  <td><?php echo $data_jalan->nama_jalan; ?></td>
-                  <td><?php echo $data_jalan->nama_kabupaten; ?></td>
-                  <td><?php echo $data_jalan->nama_kecamatan; ?></td>
+                  <td><?php echo $judul->npm; ?></td>
+                  <td><?php echo $judul->judul; ?></td>
+                  <td><?php echo $judul->nama_prodi; ?></td>
+
 
                   <?php
-                  echo"<td class='center' width='10%'><a href='". site_url()."detail_jalan?id=".$data_jalan->kode_ruas."'>
-                  <button type='button' class='btn btn-success'>Detail</button></a>
+                  echo"<td class='center' width='10%'><a href='". site_url()."detail_jalan?id=".$judul->npm."'>
+                  <button type='button' class='btn btn-success'>detail</button></a>
                     </td>";
                   ?>
-                  <?php
-                  echo"<td class='center' width='10%'><a href='". site_url()."Jalan/proses_hapus_jalan?id=$data_jalan->kode_ruas' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
-                    \" title='Hapus'><button type='button' class='btn btn-danger'>Hapus</button></a>
-                    </td>";
-                  ?>
+
                 </tr>
               <?php
                }
