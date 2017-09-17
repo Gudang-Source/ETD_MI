@@ -2,29 +2,35 @@
 class M_Admin extends CI_Model{
     function lihat_admin()
     {
-        $query=$this->db->query("SELECT * FROM `admin`");
+        $query=$this->db->query("SELECT * FROM `user`");
         return $query->result();
     }
 
     function admin($id)
     {
-        $query=$this->db->query("SELECT * FROM `admin` where username='$id'");
+        $query=$this->db->query("SELECT * FROM `user` where username='$id'");
         return $query->result();
     }
 
     function tambah_admin()
     {
-      $nama_lengkap = $this->input->post('nama_lengkap');
-      $username = $this->input->post('username');
+
       $password = md5($this->input->post('password'));
-      $data = array(
-          'nama_lengkap'=>$nama_lengkap,
-          'username'=>$username,
-          'password'=>$password
-      );
-      $cek=$this->db->insert('admin',$data);
-      return $cek;
-    }
+      $ulangi_password = md5($this->input->post('ulangi_password'));
+        if($password==$ulangi_password){
+          $data = array(
+              'nama_lengkap'=>$this->input->post('nama_lengkap'),
+              'username'=>$this->input->post('username'),
+              'level'=>$this->input->post('level'),
+              'password'=>$password
+          );
+          $cek=$this->db->insert('user',$data);
+          return $cek;
+        }else{
+          return false;
+        }
+      }
+    
 
     function ubah_profil($id,$admin)
     {

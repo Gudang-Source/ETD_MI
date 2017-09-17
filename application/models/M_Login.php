@@ -10,5 +10,41 @@
 
         return $query->result();
             }
-        }
+        
+		
+		function daftar(){
+			$password_baru = md5($this->input->post('password'));
+			$ulangi_password = md5($this->input->post('ulangi_password'));
+			if($password_baru==$ulangi_password){
+				$mahasiswa = array(
+				  'npm'=>$this->input->post('npm'),
+				  'nama'=>$this->input->post('nama'),
+				  'alamat'=>$this->input->post('alamat'),
+				  'email'=>$this->input->post('email'),
+				  'id_prodi'=>$this->input->post('prodi'),
+				  'no_hp'=>$this->input->post('no_hp')
+				  
+				  
+				);
+				$user = array(
+				  'username'=>$this->input->post('npm'),
+				  'nama_lengkap'=>$this->input->post('nama'),
+				  'level'=>0,
+				  'password'=>$password_baru
+				  
+				);
+				
+			$cek1=$this->db->insert('mahasiswa',$mahasiswa);
+			$cek2=$this->db->insert('user',$user);
+			if($cek1 && $cek2){
+				return true;
+			}else{
+				return false;
+			}
+			
+			}else{
+				return false;
+			}
+		}
+	}
 ?>

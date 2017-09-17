@@ -72,37 +72,37 @@
                     <div class="form-group form-material">
                       <label class="col-sm-3 control-label">Username</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" name="nama_lengkap" placeholder="Full Name" autocomplete="off" required>
+                        <input type="text" class="form-control" name="username" placeholder="Username" autocomplete="off" required>
                       </div>
                     </div>
                     <div class="form-group form-material">
                       <label class="col-sm-3 control-label">Nama Lengkap</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" name="nama_lengkap" placeholder="Full Name" autocomplete="off" required>
+                        <input type="text" class="form-control" name="nama_lengkap" placeholder="Nama Lengkap" autocomplete="off" required>
                       </div>
                     </div>
                     <div class="form-group form-material">
-                      <label class="col-sm-3 control-label">Prodi</label>
+                      <label class="col-sm-3 control-label">Level</label>
                       <div class="col-sm-9">
-                        <select class="form-control" id="select">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                        <select class="form-control" id="select" name="level">
+                            <option value="">Pilih Level</option>
+                            <option value="1">Admin Prodi Informatika</option>
+                            <option value="2">Admin Prodi Manajemen Informatika</option>
+                            <option value="3">Super Admin</option>
+
                         </select>
                       </div>
                     </div>
                     <div class="form-group form-material">
                       <label class="col-sm-3 control-label">Password</label>
                       <div class="col-sm-9">
-                        <input type="password" class="form-control" name="username" placeholder="Password" autocomplete="off" required>
+                        <input type="password" class="form-control" name="password" placeholder="Password" autocomplete="off" required>
                       </div>
                     </div>
                     <div class="form-group form-material">
                       <label class="col-sm-3 control-label">Ulangi Password</label>
                       <div class="col-sm-9">
-                        <input type="password" class="form-control" name="username" placeholder="Ulangi Password" autocomplete="off" required>
+                        <input type="password" class="form-control" name="ulangi_password" placeholder="Ulangi Password" autocomplete="off" required>
                       </div>
                     </div>
 
@@ -153,20 +153,21 @@
             <tbody>
               <?php
                  $i=0;
-                 foreach($lihat as $dosen){
+                 foreach($lihat as $admin){
                  $i++;
                ?>
                 <tr>
                   <td><?php echo $i; ?></td>
-                  <td><?php echo $dosen->nip; ?></td>
-                  <td><?php echo $dosen->nama; ?></td>
+                  <td><?php echo $admin->username; ?></td>
+                  <td><?php echo $admin->nama_lengkap; ?></td>
+                  <td><?php if($admin->level==0){echo "Mahasiswa";}else if($admin->level==1){echo "Admin Informatika";} else if($admin->level==2){echo "Admin Manajemen Informatika";} else if($admin->level==3){echo "Super Admin";} ?></td>
                   <?php
-                    echo"<td class='center' width='10%'><a href='". site_url()."admin/proses_hapus_admin?id=$dosen->nip' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
+                    echo"<td class='center' width='10%'><a href='". site_url()."admin/proses_hapus_admin?id=$admin->username' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
                       \" title='Hapus'><button type='button' class='btn btn-danger'>Edit</button></a>
                       </td>";
                     ?>
                 <?php
-                  echo"<td class='center' width='10%'><a href='". site_url()."admin/proses_hapus_admin?id=$dosen->nip' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
+                  echo"<td class='center' width='10%'><a href='". site_url()."admin/proses_hapus_admin?id=$admin->username' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
                     \" title='Hapus'><button type='button' class='btn btn-danger'>Hapus</button></a>
                     </td>";
                   ?>

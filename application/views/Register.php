@@ -49,6 +49,7 @@
 </style>
 </head>
 <body class="site-navbar-small page-user">
+<?php echo $this->session->flashdata('pesan')?>
   <!--[if lt IE 8]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -64,48 +65,54 @@
               <img class="brand-img" src="<?php echo site_url(); ?>assets/assets/images/logo.png" width="100px" alt="...">
               <h2 class="brand-text font-size-18">Daftar </h2>
             </div>
-            <form method="post" action="#" autocomplete="off">
+            <form method="post" action="<?php echo site_url(); ?>login/proses_daftar" autocomplete="on">
               <div class="form-group form-material floating">
-                <input type="number" class="form-control" name="email" />
-                <label class="floating-label">NIM</label>
+                <input type="number" class="form-control" name="npm" required />
+                <label class="floating-label">NPM *</label>
               </div>
               <div class="form-group form-material floating">
-                <input type="text" class="form-control" name="password" />
-                <label class="floating-label">Nama</label>
+                <input type="text" class="form-control" name="nama" required />
+                <label class="floating-label">Nama *</label>
               </div>
               <div class="form-group form-material floating">
-                <input type="password" class="form-control" name="password" />
-                <label class="floating-label">Password</label>
+                <input type="password" class="form-control" name="password" required />
+                <label class="floating-label">Password *</label>
               </div>
               <div class="form-group form-material floating">
-                <input type="password" class="form-control" name="password" />
-                <label class="floating-label"> Ulangi Password</label>
+                <input type="password" class="form-control" name="ulangi_password" required />
+                <label class="floating-label"> Ulangi Password *</label>
               </div>
               <div class="form-group form-material floating">
-                <input type="email" class="form-control" name="password" />
-                <label class="floating-label">Email</label>
+                <input type="email" class="form-control" name="email" required />
+                <label class="floating-label">Email *</label>
               </div>
               <div class="form-group form-material floating">
-                <input type="number" class="form-control" name="password" />
-                <label class="floating-label">No HP</label>
+                <input type="number" class="form-control" name="no_hp" required />
+                <label class="floating-label">No HP *</label>
               </div>
               <div class="example-wrap form-group form-material floating">
 
-                <textarea class="form-control" id="textareaDefault" rows="3"></textarea>
-                  <label class="floating-label">Alamat</label>
+                <textarea class="form-control" id="textareaDefault" name="alamat" required rows="3"></textarea>
+                  <label class="floating-label">Alamat *</label>
               </div>
 
               <div class="form-group form-material floating">
 
-                  <select class="form-control" id="select">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+              <select class="form-control" id="select" required name="prodi">
+                    <option value="">Pilih Prodi</option>
+                    <?php
+						 $i=0;
+						 foreach($prodi as $prodi){
+						 $i++;
+					?>
+					 <option value="<?php echo $prodi->id_prodi?>"><?php echo $prodi->nama_prodi?></option>
+
+					<?php
+						 }
+					?>
                   </select>
-                  <label class="floating-label" for="select">Prodi</label>
-                  
+                  <label class="floating-label" for="select">Prodi *</label>
+
                 </div>
 
               <button type="submit" class="btn btn-primary btn-block btn-lg margin-top-40">Daftar</button>

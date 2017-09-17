@@ -1,8 +1,8 @@
 <?php
-class M_Bidang_Minat extends CI_Model{
+class M_Dosen extends CI_Model{
     function lihat()
     {
-        $query=$this->db->query("SELECT * FROM `Dosen`");
+        $query=$this->db->query("SELECT * FROM `dosen`");
         return $query->result();
     }
 
@@ -10,15 +10,12 @@ class M_Bidang_Minat extends CI_Model{
 
     function tambah()
     {
-      $nama_lengkap = $this->input->post('nama_lengkap');
-      $username = $this->input->post('username');
-      $password = md5($this->input->post('password'));
       $data = array(
-          'nama_lengkap'=>$nama_lengkap,
-          'username'=>$username,
-          'password'=>$password
+          'nip'=>$this->input->post('nip'),
+          'nama'=>$this->input->post('nama')
+
       );
-      $cek=$this->db->insert('admin',$data);
+      $cek=$this->db->insert('dosen',$data);
       return $cek;
     }
 

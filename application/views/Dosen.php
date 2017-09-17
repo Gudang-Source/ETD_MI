@@ -68,17 +68,17 @@
                 <h4 class="example-title">Tambah Dosen</h4>
 
                 <div class="example">
-                  <form class="form-horizontal" action="admin/proses_tambah_admin" method="post">
+                  <form class="form-horizontal" action="Dosen/proses_tambah" method="post">
                     <div class="form-group form-material">
                       <label class="col-sm-3 control-label">NIP Dosen</label>
                       <div class="col-sm-9">
-                        <input type="number" class="form-control" name="nama_lengkap" placeholder="Full Name" autocomplete="off" required>
+                        <input type="number" class="form-control" name="nip" placeholder="Full Name" autocomplete="off" required>
                       </div>
                     </div>
                     <div class="form-group form-material">
                       <label class="col-sm-3 control-label">Nama Dosen</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" name="username" placeholder="Username" autocomplete="off" required>
+                        <input type="text" class="form-control" name="nama" placeholder="Nama Dosen" autocomplete="off" required>
                       </div>
                     </div>
 

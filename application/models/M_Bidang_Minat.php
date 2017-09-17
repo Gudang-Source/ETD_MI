@@ -1,8 +1,8 @@
 <?php
-class M_bidang_minat extends CI_Model{
+class M_Bidang_Minat extends CI_Model{
     function lihat()
     {
-        $query=$this->db->query("SELECT * FROM `Bidang_minat`");
+        $query=$this->db->query("SELECT * FROM `bidang_minat` left join prodi on prodi.id_prodi=bidang_minat.id_prodi");
         return $query->result();
     }
 
@@ -10,15 +10,12 @@ class M_bidang_minat extends CI_Model{
 
     function tambah()
     {
-      $nama_lengkap = $this->input->post('nama_lengkap');
-      $username = $this->input->post('username');
-      $password = md5($this->input->post('password'));
       $data = array(
-          'nama_lengkap'=>$nama_lengkap,
-          'username'=>$username,
-          'password'=>$password
+          'nama_bidang_minat'=>$this->input->post('bidang_minat'),
+          'id_prodi'=>$this->input->post('prodi')
+
       );
-      $cek=$this->db->insert('admin',$data);
+      $cek=$this->db->insert('bidang_minat',$data);
       return $cek;
     }
 

@@ -68,11 +68,29 @@
                 <h4 class="example-title">Tambah Bidang Minat</h4>
 
                 <div class="example">
-                  <form class="form-horizontal" action="admin/proses_tambah_admin" method="post">
+                  <form class="form-horizontal" action="Bidang_minat/proses_tambah" method="post">
                     <div class="form-group form-material">
-                      <label class="col-sm-3 control-label">Nama Bidang Minat</label>
+                      <label class="col-sm-3 control-label">Prodi</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" name="nama_lengkap" placeholder="Full Name" autocomplete="off" required>
+                        <select class="form-control" id="select" required name="prodi">
+                              <option value="">Pilih Prodi</option>
+                              <?php
+                    						 $i=0;
+                    						 foreach($prodi as $prodi){
+                    						 $i++;
+                    					?>
+                    					 <option value="<?php echo $prodi->id_prodi?>"><?php echo $prodi->nama_prodi?></option>
+
+                    					<?php
+                    						 }
+                    					?>
+                            </select>
+                      </div>
+                    </div>
+                    <div class="form-group form-material">
+                      <label class="col-sm-3 control-label">Bidang Minat</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" name="bidang_minat" placeholder="Bidang Minat" autocomplete="off" required>
                       </div>
                     </div>
 
@@ -102,6 +120,7 @@
             <thead>
               <tr>
                 <th>No</th>
+                <th>Prodi</th>
                 <th>Bidang Minat</th>
                 <th>Edit</th>
                 <th>Hapus</th>
@@ -111,6 +130,7 @@
             <tfoot>
               <tr>
                 <th>No</th>
+                <th>Prodi</th>
                 <th>Bidang Minat</th>
                 <th>Edit</th>
                 <th>Hapus</th>
@@ -119,20 +139,21 @@
             <tbody>
               <?php
                  $i=0;
-                 foreach($lihat as $dosen){
+                 foreach($lihat as $bidang_minat){
                  $i++;
                ?>
                 <tr>
                   <td><?php echo $i; ?></td>
-                  <td><?php echo $dosen->nip; ?></td>
-                  <td><?php echo $dosen->nama; ?></td>
+                  <td><?php echo $bidang_minat->nama_prodi; ?></td>
+                  <td><?php echo $bidang_minat->nama_bidang_minat; ?></td>
+
                   <?php
-                    echo"<td class='center' width='10%'><a href='". site_url()."admin/proses_hapus_admin?id=$dosen->nip' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
+                    echo"<td class='center' width='10%'><a href='". site_url()."admin/proses_hapus_admin?id=$bidang_minat->id_bidang_minat' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
                       \" title='Hapus'><button type='button' class='btn btn-danger'>Edit</button></a>
                       </td>";
                     ?>
                 <?php
-                  echo"<td class='center' width='10%'><a href='". site_url()."admin/proses_hapus_admin?id=$dosen->nip' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
+                  echo"<td class='center' width='10%'><a href='". site_url()."admin/proses_hapus_admin?id=$bidang_minat->id_bidang_minat' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
                     \" title='Hapus'><button type='button' class='btn btn-danger'>Hapus</button></a>
                     </td>";
                   ?>

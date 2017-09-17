@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 16, 2017 at 04:17 PM
+-- Generation Time: Sep 17, 2017 at 04:16 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.5.38
 
@@ -32,6 +32,15 @@ CREATE TABLE `bidang_minat` (
   `id_prodi` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `bidang_minat`
+--
+
+INSERT INTO `bidang_minat` (`id_bidang_minat`, `nama_bidang_minat`, `id_prodi`) VALUES
+(1, 'Databases', 2),
+(2, 'Jaringan', 2),
+(3, 'jaringan', 2);
+
 -- --------------------------------------------------------
 
 --
@@ -55,6 +64,13 @@ CREATE TABLE `dosen` (
   `nama` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `dosen`
+--
+
+INSERT INTO `dosen` (`nip`, `nama`) VALUES
+('1234567', 'rasuddin');
+
 -- --------------------------------------------------------
 
 --
@@ -68,8 +84,15 @@ CREATE TABLE `mahasiswa` (
   `nama` varchar(50) NOT NULL,
   `id_prodi` int(10) NOT NULL,
   `no_hp` varchar(15) NOT NULL,
-  `id_bidang_minat` int(10) NOT NULL
+  `id_bidang_minat` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mahasiswa`
+--
+
+INSERT INTO `mahasiswa` (`npm`, `alamat`, `email`, `nama`, `id_prodi`, `no_hp`, `id_bidang_minat`) VALUES
+('1308001010011', 'Jalan. T. Hamzah Bendahara No 31, Kuta Alam, Banda Aceh', 'hariririski@gmail.com', 'HARIRIRISKI', 2, '082237653720', NULL);
 
 -- --------------------------------------------------------
 
@@ -79,8 +102,16 @@ CREATE TABLE `mahasiswa` (
 
 CREATE TABLE `prodi` (
   `id_prodi` int(10) NOT NULL,
-  `nama_prodi` varchar(20) NOT NULL
+  `nama_prodi` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `prodi`
+--
+
+INSERT INTO `prodi` (`id_prodi`, `nama_prodi`) VALUES
+(1, 'Informatika'),
+(2, 'Manajemen Informatika');
 
 -- --------------------------------------------------------
 
@@ -117,7 +148,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`username`, `nama_lengkap`, `level`, `password`) VALUES
+('1308001010011', 'HARIRIRISKI', 0, '156e9a32ecc3102d5ce35d6298d362c9'),
 ('admin', 'admin', 3, '21232f297a57a5a743894a0e4a801fc3'),
+('hariririski', 'hariririski', 3, '156e9a32ecc3102d5ce35d6298d362c9'),
 ('inf', 'inf', 1, '21232f297a57a5a743894a0e4a801fc3'),
 ('mhs', 'mahasiswa', 0, '21232f297a57a5a743894a0e4a801fc3'),
 ('mi', 'mi', 2, '21232f297a57a5a743894a0e4a801fc3');
@@ -176,6 +209,11 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `bidang_minat`
+--
+ALTER TABLE `bidang_minat`
+  MODIFY `id_bidang_minat` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
 -- AUTO_INCREMENT for table `bimbing`
 --
 ALTER TABLE `bimbing`
@@ -184,7 +222,7 @@ ALTER TABLE `bimbing`
 -- AUTO_INCREMENT for table `prodi`
 --
 ALTER TABLE `prodi`
-  MODIFY `id_prodi` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_prodi` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `ta`
 --

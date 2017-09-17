@@ -7,30 +7,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   			 $this->load->helper('url');
   			 $this->load->library('session');
   			 $this->load->database();
-        // $this->load->model('M_Admin');
+         $this->load->model('M_Admin');
 
   	  }
 
 
       public function index(){
         $admin=$this->session->userdata('level');
+        $data['lihat'] = $this->M_Admin->lihat_admin();
         if($admin!=3){
            redirect("login/logout");
           }
 
-       	$this->load->view('Admin');
+       	$this->load->view('Admin',$data);
       }
 
-    //   public function proses_tambah_admin(){
-    // 		$cek= $this->M_Admin->tambah_admin();
-    //     if($cek){
-    //       $this->tambah_berhasil();
-    //       redirect('admin');
-    //     }else{
-    //       $this->tambah_gagal();
-    //       redirect('admin');
-    //     }
-    // 	}
+      public function proses_tambah_admin(){
+    		$cek= $this->M_Admin->tambah_admin();
+        if($cek){
+          $this->tambah_berhasil();
+          redirect('admin');
+        }else{
+          $this->tambah_gagal();
+          redirect('admin');
+        }
+    	}
      //
     //   public function proses_hapus_admin(){
     //     	$id=$_GET ['id'];
@@ -78,57 +79,57 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     //       redirect('admin');
     //     }
     //   }
-     //
-    //   function tambah_berhasil(){
-    //    $this->session->set_flashdata('pesan', '
-    //            <div class="alert alert-success fade in">
-    //            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    //            <strong>Berhasil!</strong> Data Berhasil Di Tambahkan!.
-    //            </div>');
-    //  }
-    //  function tambah_gagal(){
-    //    $this->session->set_flashdata('pesan', '
-    //            <div class="alert alert-danger fade in">
-    //            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    //            <strong>Gagal!</strong> Data Gagal ditambahkan!.
-    //            </div>');
-    //  }
-    //  function edit_berhasil(){
-    //    $this->session->set_flashdata('pesan', '
-    //            <div class="alert alert-success fade in">
-    //            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    //            <strong>Berhasil!</strong> Data Berhasil Di Perbaharui!.
-    //            </div>');
-    //  }
-    //  function edit_gagal(){
-    //    $this->session->set_flashdata('pesan', '
-    //            <div class="alert alert-danger fade in">
-    //            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    //            <strong>Gagal!</strong> Data Gagal Di Perbaharui!.
-    //            </div>');
-    //  }
-    //  function hapus_berhasil(){
-    //    $this->session->set_flashdata('pesan', '
-    //            <div class="alert alert-success fade in">
-    //            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    //            <strong>Berhasil!</strong> Data Berhasil Dihapus!.
-    //            </div>');
-    //  }
-    //  function hapus_gagal(){
-    //    $this->session->set_flashdata('pesan', '
-    //            <div class="alert alert-danger fade in">
-    //            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    //            <strong>Gagal!</strong> Data Gagal Di Hapus!.
-    //            </div>');
-    //  }
-    //   function upload(){
-    //    $this->session->set_flashdata('pesan', '
-    //            <div class="alert alert-danger fade in">
-    //            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    //            <strong>Gagal!</strong> File Upload Tidak Sesuai!.
-    //            </div>');
-    //  }
-     //
+
+      function tambah_berhasil(){
+       $this->session->set_flashdata('pesan', '
+               <div class="alert alert-success fade in">
+               <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+               <strong>Berhasil!</strong> Data Berhasil Di Tambahkan!.
+               </div>');
+     }
+     function tambah_gagal(){
+       $this->session->set_flashdata('pesan', '
+               <div class="alert alert-danger fade in">
+               <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+               <strong>Gagal!</strong> Data Gagal ditambahkan!.
+               </div>');
+     }
+     function edit_berhasil(){
+       $this->session->set_flashdata('pesan', '
+               <div class="alert alert-success fade in">
+               <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+               <strong>Berhasil!</strong> Data Berhasil Di Perbaharui!.
+               </div>');
+     }
+     function edit_gagal(){
+       $this->session->set_flashdata('pesan', '
+               <div class="alert alert-danger fade in">
+               <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+               <strong>Gagal!</strong> Data Gagal Di Perbaharui!.
+               </div>');
+     }
+     function hapus_berhasil(){
+       $this->session->set_flashdata('pesan', '
+               <div class="alert alert-success fade in">
+               <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+               <strong>Berhasil!</strong> Data Berhasil Dihapus!.
+               </div>');
+     }
+     function hapus_gagal(){
+       $this->session->set_flashdata('pesan', '
+               <div class="alert alert-danger fade in">
+               <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+               <strong>Gagal!</strong> Data Gagal Di Hapus!.
+               </div>');
+     }
+      function upload(){
+       $this->session->set_flashdata('pesan', '
+               <div class="alert alert-danger fade in">
+               <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+               <strong>Gagal!</strong> File Upload Tidak Sesuai!.
+               </div>');
+     }
+
 
 
 

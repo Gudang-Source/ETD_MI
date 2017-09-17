@@ -26,6 +26,7 @@ class Login extends CI_Controller {
 			 $this->load->library('session');
 			 $this->load->database();
 			 $this->load->model('M_Login');
+			 $this->load->model('M_Prodi');
 			 $admin=$this->session->userdata('admin');
 
 
@@ -48,7 +49,19 @@ class Login extends CI_Controller {
 	}
 
   public function register() {
-		$this->load->view('Register');
+		$data['prodi'] = $this->M_Prodi->lihat();
+		$this->load->view('Register',$data);
+	}
+	
+	 public function proses_daftar() {
+		$cek= $this->M_Login->daftar();
+		if($cek){
+           
+           redirect('login');
+         }else{
+           $this->tambah_gagal();
+           redirect('daftar');
+         }
 	}
 
 	public function proses_login() {
@@ -67,5 +80,17 @@ class Login extends CI_Controller {
 			redirect('login');
 		}
 	}
+	
+	
+	
+	
+    function tambah_gagal(){
+        $this->session->set_flashdata('pesan', '
+                <div class="alert alert-danger fade in">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Gagal!</strong> Proses Pendaftaran Gagal!.
+                </div>');
+     }
+    
 
 }
