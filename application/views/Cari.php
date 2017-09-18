@@ -59,10 +59,10 @@
 
       <div class="panel">
         <div class="panel-body">
-          <form class="page-search-form" action="cari/cari_prodi" role="search">
+          <form class="page-search-form" action="<?php echo site_url(); ?>cari/cari_prodi" role="search">
             <div class="input-search input-search-dark col-lg-9">
               <i class="input-search-icon md-search" aria-hidden="true"></i>
-              <input type="text" class="form-control" required id="inputSearch" name="id" placeholder="Search Judul / Pengarang / Bidang Minat / Prodi">
+              <input type="text" class="form-control" value="<?php echo $_GET['id']?>" required id="inputSearch" name="id" placeholder="Search Judul / Pengarang / Bidang Minat / Prodi">
               <button type="button" class="input-search-close icon " aria-label="Close"></button>
 
             </div>
@@ -157,7 +157,7 @@
 
 
                                         <div class="media-right">
-                                          <button type="button" class="btn btn-primary btn-sm">lihat</button>
+                                          <a href="<?php echo site_url(); ?>detail_judul?id=<?php echo $cari->npm?>"><button type="button" class="btn btn-primary btn-sm">lihat</button></a>
                                         </div>
                                       </div>
                                     </li>

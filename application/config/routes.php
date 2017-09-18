@@ -58,6 +58,7 @@ $route['upload'] = 'Upload';
 $route['konfirmasi'] = 'Konfirmasi';
 $route['judul'] = 'judul';//hanya bisa lihat judul per jurusan jika adamin
 $route['cari'] = 'Cari';
+$route['detail_judul'] = 'Judul/detail_judul';
 
 /*-----------------------------------------------------------------------*/
 $route['dosen'] = 'Dosen';

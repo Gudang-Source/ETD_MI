@@ -8,21 +8,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   			 $this->load->library('session');
   			 $this->load->database();
          $this->load->model('M_Judul');
+         $this->load->model('M_Prodi');
   			 }
 
 
-         public function index()
-       	{
-          $id=$_GET['id'];
-          $data['cari'] = $this->M_Judul->cari($id);
-       		$this->load->view('Cari',$data);
-       	}
+
 
         public function cari_prodi()
        {
          $id=$_GET['id'];
          $prodi=$_GET['prodi'];
          $data['cari'] = $this->M_Judul->cari_prodi($id,$prodi);
+         $data['prodi'] = $this->M_Prodi->lihat();
+         //print_r($data['cari']);
          $this->load->view('Cari',$data);
        }
 

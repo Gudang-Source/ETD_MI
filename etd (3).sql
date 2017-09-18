@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 17, 2017 at 04:16 PM
+-- Generation Time: Sep 18, 2017 at 11:17 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.5.38
 
@@ -50,8 +50,17 @@ INSERT INTO `bidang_minat` (`id_bidang_minat`, `nama_bidang_minat`, `id_prodi`) 
 CREATE TABLE `bimbing` (
   `id_bimbing` int(255) NOT NULL,
   `npm` varchar(20) NOT NULL,
-  `nip` varchar(20) NOT NULL
+  `nip` varchar(20) NOT NULL,
+  `pembimbing` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `bimbing`
+--
+
+INSERT INTO `bimbing` (`id_bimbing`, `npm`, `nip`, `pembimbing`) VALUES
+(2, '1308001010011', '1234567', 1),
+(3, '1308001010011', '1234567', 2);
 
 -- --------------------------------------------------------
 
@@ -92,7 +101,9 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`npm`, `alamat`, `email`, `nama`, `id_prodi`, `no_hp`, `id_bidang_minat`) VALUES
-('1308001010011', 'Jalan. T. Hamzah Bendahara No 31, Kuta Alam, Banda Aceh', 'hariririski@gmail.com', 'HARIRIRISKI', 2, '082237653720', NULL);
+('1308001010011', 'Jalan. T. Hamzah Bendahara No 31, Kuta Alam, Banda Aceh', 'hariririski@gmail.com', 'HARIRIRISKI', 2, '082237653720', 1),
+('1308001010012', 'Jalan. T. Hamzah Bendahara No 31, Kuta Alam, Banda Aceh', 'hariririski@gmailu.com', 'HARIRIRISKI', 2, '0822376537209', 1),
+('1308001010013', 'Jalan. T. Hamzah Bendahara No 31, Kuta Alam, Banda Aceh', 'hariririski@gmailu.com3', 'HARIRIRISKI', 1, '08223765372093', 1);
 
 -- --------------------------------------------------------
 
@@ -102,16 +113,17 @@ INSERT INTO `mahasiswa` (`npm`, `alamat`, `email`, `nama`, `id_prodi`, `no_hp`, 
 
 CREATE TABLE `prodi` (
   `id_prodi` int(10) NOT NULL,
-  `nama_prodi` varchar(50) NOT NULL
+  `nama_prodi` varchar(50) NOT NULL,
+  `logo` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `prodi`
 --
 
-INSERT INTO `prodi` (`id_prodi`, `nama_prodi`) VALUES
-(1, 'Informatika'),
-(2, 'Manajemen Informatika');
+INSERT INTO `prodi` (`id_prodi`, `nama_prodi`, `logo`) VALUES
+(1, 'Informatika', ''),
+(2, 'Manajemen Informatika', '');
 
 -- --------------------------------------------------------
 
@@ -121,14 +133,23 @@ INSERT INTO `prodi` (`id_prodi`, `nama_prodi`) VALUES
 
 CREATE TABLE `ta` (
   `id_tugas_akhir` int(255) NOT NULL,
-  `judul` varchar(255) NOT NULL,
-  `Abstrak` varchar(255) NOT NULL,
+  `judul` text NOT NULL,
+  `Abstrak` text NOT NULL,
   `tgl_upload` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `verifikasi` int(2) NOT NULL,
   `publikasi` int(2) NOT NULL,
   `npm` varchar(20) NOT NULL,
   `pdf` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `ta`
+--
+
+INSERT INTO `ta` (`id_tugas_akhir`, `judul`, `Abstrak`, `tgl_upload`, `verifikasi`, `publikasi`, `npm`, `pdf`) VALUES
+(1, 'MANAJEMEN PENGGEMUKAN SAPI POTONG DENGAN PEMBERIAN PAKAN TEKNOLOGI FERMENTASI HI-FER+ PADA UNIT PENGGEMUKAN SAPI POTONG SMK PP NEGERI SAREE KABUPATEN ACEH BESAR', 'aaaaaaaaaaaaaaaa', '2017-09-18 08:26:17', 1, 0, '1308001010011', 'Jakarta  20170906_Pengumuman_Bekraf Jakarta.pdF'),
+(2, 'MANAJEMEN PENGGEMUKAN SAPI POTONG DENGAN PEMBERIAN PAKAN TEKNOLOGI FERMENTASI HI-FER+ PADA UNIT PENGGEMUKAN SAPI POTONG SMK PP NEGERI SAREE KABUPATEN ACEH BESAR', 'aaaaaaaaaaaaaaaa', '2017-09-18 03:13:13', 0, 0, '1308001010012', 'aaaaaaaaaaaaaaaaaa'),
+(3, 'PENGARUH DUE PROFESSIONAL CARE, PENGALAMAN AUDIT, PENDIDIKAN DAN PELATIHAN BERKELANJUTAN TERHADAP KUALITAS AUDIT INTERNAL DENGAN KOMITMEN ORGANISASI SEBAGAI PEMODERASI (STUDI PADA APARAT PENGAWASAN INTERNAL PEMERINTAH INSPEKTORAT PEMERINTAH KOTA LHOKSEUMAWE)  ', 'PENGARUH DUE PROFESSIONAL CARE, PENGALAMAN AUDIT, PENDIDIKAN DAN PELATIHAN BERKELANJUTAN TERHADAP KUALITAS AUDIT INTERNAL DENGAN KOMITMEN ORGANISASI SEBAGAI PEMODERASI (STUDI PADA APARAT PENGAWASAN INTERNAL PEMERINTAH INSPEKTORAT PEMERINTAH KOTA LHOKSEUMAWE)  PENGARUH DUE PROFESSIONAL CARE, PENGALAMAN AUDIT, PENDIDIKAN DAN PELATIHAN BERKELANJUTAN TERHADAP KUALITAS AUDIT INTERNAL DENGAN KOMITMEN ORGANISASI SEBAGAI PEMODERASI (STUDI PADA APARAT PENGAWASAN INTERNAL PEMERINTAH INSPEKTORAT PEMERINTAH KOTA LHOKSEUMAWE)  PENGARUH DUE PROFESSIONAL CARE, PENGALAMAN AUDIT, PENDIDIKAN DAN PELATIHAN BERKELANJUTAN TERHADAP KUALITAS AUDIT INTERNAL DENGAN KOMITMEN ORGANISASI SEBAGAI PEMODERASI (STUDI PADA APARAT PENGAWASAN INTERNAL PEMERINTAH INSPEKTORAT PEMERINTAH KOTA LHOKSEUMAWE)  PENGARUH DUE PROFESSIONAL CARE, PENGALAMAN AUDIT, PENDIDIKAN DAN PELATIHAN BERKELANJUTAN TERHADAP KUALITAS AUDIT INTERNAL DENGAN KOMITMEN ORGANISASI SEBAGAI PEMODERASI (STUDI PADA APARAT PENGAWASAN INTERNAL PEMERINTAH INSPEKTORAT PEMERINTAH KOTA LHOKSEUMAWE)  ', '2017-09-18 08:26:22', 1, 0, '1308001010013', 'Jakarta  20170906_Pengumuman_Bekraf Jakarta.pdF');
 
 -- --------------------------------------------------------
 
@@ -196,7 +217,8 @@ ALTER TABLE `prodi`
 -- Indexes for table `ta`
 --
 ALTER TABLE `ta`
-  ADD PRIMARY KEY (`id_tugas_akhir`);
+  ADD PRIMARY KEY (`id_tugas_akhir`),
+  ADD UNIQUE KEY `npm` (`npm`);
 
 --
 -- Indexes for table `user`
@@ -217,7 +239,7 @@ ALTER TABLE `bidang_minat`
 -- AUTO_INCREMENT for table `bimbing`
 --
 ALTER TABLE `bimbing`
-  MODIFY `id_bimbing` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_bimbing` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `prodi`
 --
@@ -227,7 +249,7 @@ ALTER TABLE `prodi`
 -- AUTO_INCREMENT for table `ta`
 --
 ALTER TABLE `ta`
-  MODIFY `id_tugas_akhir` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_tugas_akhir` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
