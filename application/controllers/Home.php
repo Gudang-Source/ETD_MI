@@ -6,22 +6,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
          parent::__construct();
   			 $this->load->helper('url');
   			 $this->load->library('session');
-         //$this->load->model('M_Jalan_rusak');
+         $this->load->model('M_Judul');
+         $this->load->model('M_Prodi');
   			 $this->load->database();
   			 }
 
 
          public function index()
        	{
-
-          //$data['belum_tembus'] = $this->M_Jalan_rusak->jumlah_belum_tembus();
-       		$this->load->view('Home');
+          $data['judul100'] = $this->M_Judul->judul100();
+          $data['prodi'] = $this->M_Prodi->lihat();
+       		$this->load->view('Home',$data);
        	}
 
-        public function help()
+        public function judul_prodi()
        {
-         $this->load->view('Help');
+         $id=$_GET['prodi'];
+         $data['prodi'] = $this->M_Prodi->lihat();
+         $data['judul100'] = $this->M_Judul->judul100_prodi($id);
+         $this->load->view('Prodi',$data);
        }
+
+
 
 
    }

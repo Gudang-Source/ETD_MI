@@ -72,7 +72,7 @@
                     <div class="form-group form-material">
                       <label class="col-sm-3 control-label">Judul</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" name="nama_lengkap" placeholder="Full Name" autocomplete="off" required>
+                        <input type="text" class="form-control" name="Judul" placeholder="Judul" autocomplete="off" required>
                       </div>
                     </div>
                     <div class="form-group form-material">
@@ -84,37 +84,58 @@
                     <div class="form-group form-material">
                       <label class="col-sm-3 control-label">Bidang minat</label>
                       <div class="col-sm-9">
-                        <select class="form-control" id="select">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
+                        <select class="form-control" id="select" required name="bidang_minat">
+                        <option value="">Pilih Bidang Minat</option>
+
+                            <?php
+                               $i=0;
+                               foreach($bidang_minat as $bidang_minat){
+                               $i++;
+                            ?>
+                             <option value="<?php echo $bidang_minat->id_bidang_minat?>"><?php echo $bidang_minat->nama_bidang_minat?></option>
+
+                            <?php
+                               }
+                            ?>
+                          </select>
+                      </div>
+                    </div>
+                    <div class="form-group form-material">
+                      <label class="col-sm-3 control-label">Dosen Pembimbing I</label>
+                      <div class="col-sm-9">
+
+                          <select class="form-control" id="select" required name="dosen1">
+                                 <option value="">Pilih Dosen Pembimbing I</option>
+                                <?php
+
+                                   foreach($dosen as $dosen1){
+
+                                ?>
+                                 <option value="<?php echo $dosen1->nip?>"><?php echo $dosen1->nama?></option>
+
+                                <?php
+                                   }
+                                ?>
+                              </select>
+
                       </div>
                     </div>
                     <div class="form-group form-material">
                       <label class="col-sm-3 control-label">Dosen Pembimbing II</label>
                       <div class="col-sm-9">
-                        <select class="form-control" id="select">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="form-group form-material">
-                      <label class="col-sm-3 control-label">Dosen Pembimbing II</label>
-                      <div class="col-sm-9">
-                        <select class="form-control" id="select">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
+                        <select class="form-control" id="select" required name="dosen2">
+                               <option value="">Pilih Dosen Pembimbing II</option>
+                              <?php
+
+                                 foreach($dosen as $dosen2){
+
+                              ?>
+                               <option value="<?php echo $dosen2->nip?>"><?php echo $dosen2->nama?></option>
+
+                              <?php
+                                 }
+                              ?>
+                            </select>
                       </div>
                     </div>
                     <div class="form-group ">

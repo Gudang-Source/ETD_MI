@@ -54,15 +54,15 @@
       <!-- Panel -->
 
       <div class="example example-buttons">
-                  <div align="center">
-                    <a href="<?php echo site_url(); ?>prodi?prodi=1 "><button type="button" class="btn btn-round btn-primary btn-pill-left waves-effect waves-round waves-light">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INFORMATIKA &nbsp; &nbsp; &nbsp; &nbsp; </button></a>
-                    <a href="<?php echo site_url(); ?>prodi?prodi=2"><button type="button" class="btn btn-round btn-primary btn-pill-right waves-effect waves-round waves-light">MANAJEMEN INFORMATIKA</button></a>
-                  </div>
+        <div align="center">
+          <button type="button" class="btn btn-round btn-primary btn-pill-left waves-effect waves-round waves-light">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INFORMATIKA &nbsp; &nbsp; &nbsp; &nbsp; </button>
+          <button type="button" class="btn btn-round btn-primary btn-pill-right waves-effect waves-round waves-light">MANAJEMEN INFORMATIKA</button>
+        </div>
       </div>
 
       <div class="panel">
         <div class="panel-body">
-          <form class="page-search-form" action="cari/cari_prodi" role="search">
+          <form class="page-search-form" action="cari" role="search">
             <div class="input-search input-search-dark col-lg-9">
               <i class="input-search-icon md-search" aria-hidden="true"></i>
               <input type="text" class="form-control" required id="inputSearch" name="id" placeholder="Search Judul / Pengarang / Bidang Minat / Prodi">

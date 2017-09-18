@@ -191,6 +191,11 @@
                   <span class="site-menu-title">Dosen</span>
                 </a>
               </li>
+              <!-- <li class="site-menu-item <?php $link=uri_string(); if($link =="dosen"){ echo "active";} ?>">
+                <a class="animsition-link" href="<?php echo site_url(); ?>Prodi">
+                  <span class="site-menu-title">Prodi</span>
+                </a>
+              </li> -->
             </ul>
           </li>
 

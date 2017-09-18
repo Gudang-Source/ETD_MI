@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
   <meta name="description" content="bootstrap admin template">
   <meta name="author" content="">
-  <title>Cari</title>
+  <title>ETD</title>
   <?php echo $this->load->view('common/head', '', TRUE);?>
   <!-- Stylesheets -->
   <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/css/bootstrap.min.css">
@@ -21,7 +21,10 @@
   <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/vendor/flag-icon-css/flag-icon.css">
   <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/vendor/waves/waves.css">
   <link rel="stylesheet" href="<?php echo site_url(); ?>assets/assets/examples/css/pages/user.css">
-
+  <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/vendor/datatables-bootstrap/dataTables.bootstrap.css">
+  <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/vendor/datatables-fixedheader/dataTables.fixedHeader.css">
+  <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/vendor/datatables-responsive/dataTables.responsive.css">
+  <link rel="stylesheet" href="<?php echo site_url(); ?>assets/assets/examples/css/tables/datatable.css">
   <!-- Fonts -->
   <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/fonts/material-design/material-design.min.css">
   <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/fonts/brand-icons/brand-icons.min.css">
@@ -53,40 +56,67 @@
       <div class="example example-buttons">
 
       </div>
+
       <div class="panel">
         <div class="panel-body">
+          <form class="page-search-form" action="cari/cari_prodi" role="search">
+            <div class="input-search input-search-dark col-lg-9">
+              <i class="input-search-icon md-search" aria-hidden="true"></i>
+              <input type="text" class="form-control" required id="inputSearch" name="id" placeholder="Search Judul / Pengarang / Bidang Minat / Prodi">
+              <button type="button" class="input-search-close icon " aria-label="Close"></button>
 
+            </div>
+            <div class="form-group col-lg-2">
+                  <select class="form-control " name="prodi">
+                    <option value="0">Semua</option>
+                    <?php
+                       $i=0;
+                       foreach($prodi as $prodi){
+                       $i++;
+                    ?>
+                     <option value="<?php echo $prodi->id_prodi?>"><?php echo $prodi->nama_prodi?></option>
+
+                    <?php
+                       }
+                    ?>
+
+                  </select>
+                </div>
+            <button type="submit" class="btn btn-round btn-info waves-effect waves-round waves-light">Cari</button>
+          </form>
           <div class="nav-tabs-horizontal">
 
             <ul class="nav nav-tabs nav-tabs-line" data-plugin="nav-tabs" role="tablist">
               <li class="active" role="presentation"><a data-toggle="tab" href="#all_contacts" aria-controls="all_contacts"
-                role="tab">Ditemukan</a></li>
+                role="tab">Hasil Pencarian</a></li>
 
-              </li>
+
             </ul>
 
             <div class="tab-content">
               <div class="tab-pane animation-fade active" id="all_contacts" role="tabpanel">
                 <ul class="list-group">
               				<div class="panel">
-                          <header class="panel-heading">
-                          <br>
-                          </header>
-                          <div class="panel-body">
-                            <label class="form-inline">Show
-                              <select id="exampleShow" class="form-control input-sm">
-                                <option value="5">5</option>
-                                <option value="10" selected="selected">10</option>
-                                <option value="15">15</option>
-                                <option value="20">20</option>
-                              </select>
-                              entries
-                            </label>
-                            <table class="" id="examplePagination" data-page-size="10">
-                              <thead>
+                        <br>
+                        <table class="table table-hover dataTable table-striped width-full" data-plugin="dataTable">
+                          <thead>
+                            <tr>
+                              <th></th>
 
-                              </thead>
-                              <tbody>
+                            </tr>
+                          </thead>
+                          <tfoot>
+                            <tr>
+                              <th></th>
+
+                            </tr>
+                          </tfoot>
+                          <tbody>
+                                <?php
+                                   $i=0;
+                                   foreach($cari as $cari){
+                                   $i++;
+                                ?>
                                 <tr>
 
                                   <td>
@@ -102,26 +132,32 @@
                                         <div class="media-body">
 
                                           <h4 class="media-heading">
-                                            Nama
-                                            <small>NPM</small>
+                                           <font color="black">
+                                          <?php echo $cari->nama_mahasiswa?>
+                                          </font>
+                                            <small>  <font color="blue"><?php echo $cari->npm_mahasiswa?></font></small>
+
                                           </h4>
-                                          <p>
-                                            Judul
+                                          <p><font color="black">
+                                            <b><?php echo $cari->judul?></b>
+                                          </font>
                                           </p>
                                           <div>
                                               <h6>
                                             <a class="text-action" href="javascript:void(0)">
-                                            <i class="icon icon-color md-email" aria-hidden="true"> Prodi</i>
+                                            <i class="icon icon-color md-email" aria-hidden="true"> <font color="black"><?php echo $cari->nama_prodi?>  </font></i>
                                             </a>
                                             <a class="text-action" href="javascript:void(0)">
-                                              <i class="icon icon-color md-email" aria-hidden="true"> Bidang Minat</i>
+                                              <i class="icon icon-color md-email" aria-hidden="true"> <font color="black"><?php echo $cari->nama_bidang_minat?>  </font></i>
                                             </a>
 
 
                                           </div>
                                         </div>
+
+
                                         <div class="media-right">
-                                          <button type="button" class="btn btn-primary btn-sm">Follow</button>
+                                          <button type="button" class="btn btn-primary btn-sm">lihat</button>
                                         </div>
                                       </div>
                                     </li>
@@ -129,70 +165,27 @@
                                   </td>
 
                                 </tr>
-
-
-
-                                <tr>
-
-                                  <td>
-                                    <li class="list-group-item">
-                                      <div class="media">
-                                        <div class="media-left">
-                                          <div class="avatar avatar-online">
-                                            <img src="<?php echo site_url(); ?>assets/global/portraits/1.jpg" alt="...">
-                                            <i class="avatar avatar-busy"></i>
-                                          </div>
-                                        </div>
-
-                                        <div class="media-body">
-
-                                          <h4 class="media-heading">
-                                            Nama
-                                            <small>NPM</small>
-                                          </h4>
-                                          <p>
-                                            Judul
-                                          </p>
-                                          <div>
-                                              <h6>
-                                            <a class="text-action" href="javascript:void(0)">
-                                            <i class="icon icon-color md-email" aria-hidden="true"> Prodi</i>
-                                            </a>
-                                            <a class="text-action" href="javascript:void(0)">
-                                              <i class="icon icon-color md-email" aria-hidden="true"> Bidang Minat</i>
-                                            </a>
-
-
-                                          </div>
-                                        </div>
-                                        <div class="media-right">
-                                          <button type="button" class="btn btn-primary btn-sm">Follow</button>
-                                        </div>
-                                      </div>
-                                    </li>
-
-                                  </td>
-
-                                </tr>
-
-
+                                <?php
+                                  }
+                                ?>
                               </tbody>
-                              <tfoot>
-                                <tr>
-                                  <td colspan="5">
-                                    <div class="text-right">
-                                      <ul class="pagination"></ul>
-                                    </div>
-                                  </td>
-                                </tr>
-                              </tfoot>
                             </table>
+
+
+
                           </div>
                         </div>
 
                     </ul>
 
               </div>
+
+
+
+
+
+
+
             </div>
           </div>
         </div>
@@ -223,7 +216,12 @@
   <script src="<?php echo site_url(); ?>assets/global/vendor/screenfull/screenfull.js"></script>
   <script src="<?php echo site_url(); ?>assets/global/vendor/slidepanel/jquery-slidePanel.js"></script>
   <script src="<?php echo site_url(); ?>assets/global/vendor/aspaginator/jquery.asPaginator.min.js"></script>
-    <script src="<?php echo site_url(); ?>assets/global/vendor/footable/footable.all.min.js"></script>
+  <script src="<?php echo site_url(); ?>assets/global/vendor/footable/footable.all.min.js"></script>
+  <script src="<?php echo site_url(); ?>assets/global/vendor/datatables/jquery.dataTables.js"></script>
+    <script src="<?php echo site_url(); ?>assets/global/vendor/datatables-fixedheader/dataTables.fixedHeader.js"></script>
+    <script src="<?php echo site_url(); ?>assets/global/vendor/datatables-bootstrap/dataTables.bootstrap.js"></script>
+    <script src="<?php echo site_url(); ?>assets/global/vendor/datatables-responsive/dataTables.responsive.js"></script>
+    <script src=".<?php echo site_url(); ?>assets/global/vendor/datatables-tabletools/dataTables.tableTools.js"></script>
   <!-- Scripts -->
   <script src="<?php echo site_url(); ?>assets/global/js/core.js"></script>
   <script src="<?php echo site_url(); ?>assets/assets/js/site.js"></script>
@@ -239,7 +237,9 @@
   <script src="<?php echo site_url(); ?>assets/global/js/components/tabs.js"></script>
   <script src="<?php echo site_url(); ?>assets/global/js/components/aspaginator.js"></script>
   <script src="<?php echo site_url(); ?>assets/global/js/plugins/responsive-tabs.js"></script>
-    <script src="<?php echo site_url(); ?>assets/assets/examples/js/tables/footable.js"></script>
+  <script src="<?php echo site_url(); ?>assets/assets/examples/js/tables/footable.js"></script>
+  <script src="<?php echo site_url(); ?>assets/global/js/components/datatables.js"></script>
+  <script src="<?php echo site_url(); ?>assets/assets/examples/js/tables/datatable.js"></script>
   <script>
   (function(document, window, $) {
     'use strict';

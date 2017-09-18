@@ -7,21 +7,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   			 $this->load->helper('url');
   			 $this->load->library('session');
   			 $this->load->database();
-        //  $admin=$this->session->userdata('admin');
-        //  $this->load->model('M_Kabupaten');
-        //  $this->load->model('M_Kecamatan');
-        //  $this->load->model('M_Jalan');
-        //  if(empty($admin)==1){
-        //     redirect("login/logout");
-        //    }
+         $this->load->model('M_Judul');
   			 }
 
 
          public function index()
        	{
-
-       		$this->load->view('Cari');
+          $id=$_GET['id'];
+          $data['cari'] = $this->M_Judul->cari($id);
+       		$this->load->view('Cari',$data);
        	}
+
+        public function cari_prodi()
+       {
+         $id=$_GET['id'];
+         $prodi=$_GET['prodi'];
+         $data['cari'] = $this->M_Judul->cari_prodi($id,$prodi);
+         $this->load->view('Cari',$data);
+       }
 
 
 

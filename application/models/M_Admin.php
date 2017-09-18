@@ -12,6 +12,12 @@ class M_Admin extends CI_Model{
         return $query->result();
     }
 
+    function profil($id)
+    {
+        $query=$this->db->query("SELECT * FROM `mahasiswa` left join prodi on prodi.id_prodi=mahasiswa.id_prodi left join bidang_minat on bidang_minat.id_bidang_minat=mahasiswa.id_bidang_minat where npm='$id'");
+        return $query->result();
+    }
+
     function tambah_admin()
     {
 
@@ -30,7 +36,7 @@ class M_Admin extends CI_Model{
           return false;
         }
       }
-    
+
 
     function ubah_profil($id,$admin)
     {

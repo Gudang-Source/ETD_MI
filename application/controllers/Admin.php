@@ -8,6 +8,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   			 $this->load->library('session');
   			 $this->load->database();
          $this->load->model('M_Admin');
+         $this->load->model('M_Prodi');
+         $this->load->model('M_Bidang_Minat');
 
   	  }
 
@@ -46,14 +48,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     //   }
      //
       public function ubah_profil(){
-        	//$id=$_GET ['id'];
-          //$data['lihat'] = $this->M_Admin->admin($id);
-         	$this->load->view('edit_profil');
+        	$id=$_GET ['id'];
+          $data['lihat'] = $this->M_Admin->profil($id);
+          $data['prodi'] = $this->M_Prodi->lihat();
+          $data['bidang_minat'] = $this->M_Bidang_Minat->lihat();
+         	$this->load->view('edit_profil',$data);
       }
       public function ubah_password(){
-        //$id=$_GET ['id'];
-          //$data['lihat'] = $this->M_Admin->admin($id);
-          $this->load->view('edit_password');
+          $id=$_GET ['id'];
+          $data['lihat'] = $this->M_Admin->admin($id);
+          $this->load->view('edit_password',$data);
       }
      //
     //   public function proses_ubah_profil($id){

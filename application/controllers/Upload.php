@@ -8,9 +8,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   			 $this->load->library('session');
   			 $this->load->database();
          $admin=$this->session->userdata('level');
-        //  $this->load->model('M_Kabupaten');
-        //  $this->load->model('M_Kecamatan');
-        //  $this->load->model('M_Jalan');
+
+         $this->load->model('M_Dosen');
+         $this->load->model('M_Bidang_Minat');
+
          if(empty($level)==0){
             redirect("login/logout");
            }
@@ -20,7 +21,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
          public function index()
        	{
 
-       		$this->load->view('Upload');
+          $data['bidang_minat'] = $this->M_Bidang_Minat->lihat();
+          $data['dosen'] = $this->M_Dosen->lihat();
+       		$this->load->view('Upload',$data);
        	}
 
 
