@@ -68,17 +68,17 @@
 
 
                 <div class="example">
-                  <form class="form-horizontal" action="admin/proses_tambah_admin" method="post">
+                  <form class="form-horizontal" action="upload/proses_tambah" enctype="multipart/form-data" method="post">
                     <div class="form-group form-material">
                       <label class="col-sm-3 control-label">Judul</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" name="Judul" placeholder="Judul" autocomplete="off" required>
+                        <input type="text" class="form-control" name="judul" placeholder="Judul" autocomplete="off" required>
                       </div>
                     </div>
                     <div class="form-group form-material">
                       <label class="col-sm-3 control-label">Abstrak</label>
                       <div class="col-sm-9">
-                        <textarea class="form-control" id="textarea" name="textarea" rows="10"></textarea>
+                        <textarea class="form-control" id="textarea" name="abstrak" rows="10"></textarea>
                       </div>
                     </div>
                     <div class="form-group form-material">
@@ -141,7 +141,7 @@
                     <div class="form-group ">
                       <label class="col-sm-3 control-label"><b>File PDF</b></label>
                       <div class="col-sm-9">
-                          <input type="file" name="fileToUpload" id="fileToUpload">
+                          <input type="file" name="pdf" id="fileToUpload">
                       </div>
                     </div>
 

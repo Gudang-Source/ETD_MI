@@ -23,12 +23,12 @@ class M_Judul extends CI_Model{
 
     function detail_judul($id)
     {
-        $query=$this->db->query("SELECT *, mahasiswa.nama as nama_mahasiswa, mahasiswa.npm as npm_mahasiswa FROM mahasiswa LEFT JOIN ta on ta.npm=mahasiswa.npm left join prodi on prodi.id_prodi=mahasiswa.id_prodi left join bidang_minat on bidang_minat.id_bidang_minat=mahasiswa.id_bidang_minat where ta.verifikasi='1'and mahasiswa.npm='$id'");
+        $query=$this->db->query("SELECT *, mahasiswa.nama as nama_mahasiswa, mahasiswa.npm as npm_mahasiswa FROM mahasiswa LEFT JOIN ta on ta.npm=mahasiswa.npm left join prodi on prodi.id_prodi=mahasiswa.id_prodi left join bidang_minat on bidang_minat.id_bidang_minat=mahasiswa.id_bidang_minat where  mahasiswa.npm='$id'");
         return $query->result();
     }
-    function pembimbing($id,$id2)
+    function dosen($npm)
     {
-        $query=$this->db->query("SELECT * FROM mahasiswa LEFT JOIN bimbing on bimbing.npm=mahasiswa.npm WHERE bimbing.pembimbing='$id2' and mahasiswa.npm='$id'");
+        $query=$this->db->query("SELECT DISTINCT dosen.nip, dosen.nama, bimbing.pembimbing FROM `bimbing` left join dosen on dosen.nip=bimbing.nip where bimbing.npm='$npm'");
         return $query->result();
     }
 

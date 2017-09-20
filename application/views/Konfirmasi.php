@@ -100,7 +100,7 @@
 
 
                   <?php
-                  echo"<td class='center' width='10%'><a href='". site_url()."detail_jalan?id=".$judul->npm."'>
+                  echo"<td class='center' width='10%'><a href='". site_url()."detail_judul?id=".$judul->npm."'>
                   <button type='button' class='btn btn-success'>detail</button></a>
                     </td>";
                   ?>

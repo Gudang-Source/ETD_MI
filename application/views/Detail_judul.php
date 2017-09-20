@@ -80,9 +80,9 @@
                         </div>
                     </div>
                     <div class="form-group form-material">
-                      <label class="col-sm-3 control-label">Abstrak</label>
+                      <label class="col-sm-3 control-label">abstrak</label>
                       <div class="col-sm-9">
-                        <textarea class="form-control" id="textarea" name="textarea" disabled rows="10"><?php echo $ta->Abstrak?></textarea>
+                        <textarea class="form-control" id="textarea" name="textarea" disabled rows="10"><?php echo $ta->abstrak?></textarea>
                       </div>
                     </div>
                     <div class="form-group form-material">
@@ -95,26 +95,26 @@
                           </select>
                       </div>
                     </div>
+                    <?php
+                       $i=0;
+                       foreach($dosen as $dosen){
+                       $i++;
+                     ?>
                     <div class="form-group form-material">
-                      <label class="col-sm-3 control-label">Dosen Pembimbing I</label>
+                      <label class="col-sm-3 control-label">Dosen Pembimbing <?php echo $dosen->pembimbing?></label>
                       <div class="col-sm-9">
 
                           <select class="form-control" disabled id="select" required name="dosen1">
-                                 <option value=""><?php echo $ta->Abstrak?></option>
+                                 <option value=""><?php echo $dosen->nama?></option>
 
                               </select>
 
                       </div>
                     </div>
-                    <div class="form-group form-material">
-                      <label class="col-sm-3 control-label">Dosen Pembimbing II</label>
-                      <div class="col-sm-9">
-                        <select class="form-control" disabled id="select" required name="dosen2">
-                               <option value=""><?php echo $ta->Abstrak?></option>
+                    <?php
+                  }
+                     ?>
 
-                            </select>
-                      </div>
-                    </div>
                     <script>
 $(function(){
     $('#download').hide();
@@ -133,13 +133,14 @@ $(function(){
 
 
 
-
+                    <?php if($ta->verifikasi==0){?>
                     <div class="form-group form-material">
                       <div class="col-sm-9 col-sm-offset-3">
-                        <button type="submit" class="btn btn-primary waves-effect waves-light">Submit </button>
-                        <button type="reset" class="btn btn-warning waves-effect waves-light">Reset</button>
+                        <button type="submit" class="btn btn-primary waves-effect waves-light">Konfirmasi </button>
+                        <button type="reset" class="btn btn-warning waves-effect waves-light">Batalkan</button>
                       </div>
                     </div>
+                  <?php } ?>
                   </form>
                 </div>
                 <?php
