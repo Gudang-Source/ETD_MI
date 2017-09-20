@@ -27,6 +27,7 @@ class Login extends CI_Controller {
 			 $this->load->database();
 			 $this->load->model('M_Login');
 			 $this->load->model('M_Prodi');
+			 $this->load->model('M_Prodi');
 			 $admin=$this->session->userdata('admin');
 
 
@@ -44,6 +45,7 @@ class Login extends CI_Controller {
 	public function logout() {
 		$this->session->unset_userdata('login');
 		$this->session->unset_userdata('level');
+		echo $this->session->unset_userdata('prodi');
 		$this->session->sess_destroy();
 		redirect('login');
 	}
@@ -52,11 +54,11 @@ class Login extends CI_Controller {
 		$data['prodi'] = $this->M_Prodi->lihat();
 		$this->load->view('Register',$data);
 	}
-	
+
 	 public function proses_daftar() {
 		$cek= $this->M_Login->daftar();
 		if($cek){
-           
+
            redirect('login');
          }else{
            $this->tambah_gagal();
@@ -66,12 +68,16 @@ class Login extends CI_Controller {
 
 	public function proses_login() {
 		$cek=$this->M_Login->login();
-		if($cek==true){
+		$cek2=$this->M_Login->mhs($this->input->post('username'));
+
+  		if($cek==true){
 			$username= $cek[0]->username;
 			$level= $cek[0]->level;
+			$prodi= $cek2[0]->id_prodi;
 			session_save_path();
 			$this->session->set_userdata('login',$username);
 			$this->session->set_userdata('level',$level);
+			$this->session->set_userdata('prodi',$prodi);
 			redirect('home');
 
 		}else{
@@ -80,10 +86,10 @@ class Login extends CI_Controller {
 			redirect('login');
 		}
 	}
-	
-	
-	
-	
+
+
+
+
     function tambah_gagal(){
         $this->session->set_flashdata('pesan', '
                 <div class="alert alert-danger fade in">
@@ -91,6 +97,6 @@ class Login extends CI_Controller {
                 <strong>Gagal!</strong> Proses Pendaftaran Gagal!.
                 </div>');
      }
-    
+
 
 }

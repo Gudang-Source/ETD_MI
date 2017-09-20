@@ -10,8 +10,17 @@
 
         return $query->result();
             }
-        
-		
+
+      function mhs($username){
+
+
+          $sql="SELECT * FROM mahasiswa where npm='$username' ";
+          $query = $this->db->query($sql);
+
+            return $query->result();
+                }
+
+
 		function daftar(){
 			$password_baru = md5($this->input->post('password'));
 			$ulangi_password = md5($this->input->post('ulangi_password'));
@@ -23,17 +32,17 @@
 				  'email'=>$this->input->post('email'),
 				  'id_prodi'=>$this->input->post('prodi'),
 				  'no_hp'=>$this->input->post('no_hp')
-				  
-				  
+
+
 				);
 				$user = array(
 				  'username'=>$this->input->post('npm'),
 				  'nama_lengkap'=>$this->input->post('nama'),
 				  'level'=>0,
 				  'password'=>$password_baru
-				  
+
 				);
-				
+
 			$cek1=$this->db->insert('mahasiswa',$mahasiswa);
 			$cek2=$this->db->insert('user',$user);
 			if($cek1 && $cek2){
@@ -41,7 +50,7 @@
 			}else{
 				return false;
 			}
-			
+
 			}else{
 				return false;
 			}
