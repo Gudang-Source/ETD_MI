@@ -31,7 +31,7 @@
         <li class="dropdown">
           <a class="navbar-avatar dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false"
           data-animation="scale-up" role="button">
-
+          <?php  echo $this->session->userdata('mhs');?>
               <?php
               $admin=$this->session->userdata('login');
                if(empty($admin)==0){
