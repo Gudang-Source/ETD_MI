@@ -108,7 +108,7 @@
           <li class="site-menu-category ">General</li>
           <li class="site-menu-item has-sub <?php $link=uri_string(); if($link =="home"){ echo "active";} ?>">
             <a href="<?php echo site_url(); ?>home"  data-dropdown-toggle="false">
-              <i class="site-menu-icon md-view-compact" aria-hidden="true"></i>
+              <i class="site-menu-icon icon md-library" aria-hidden="true"></i>
               <span class="site-menu-title">Beranda</span>
               <span class="site-menu-arrow"></span>
             </a>
@@ -119,7 +119,7 @@
           ?>
           <li class="site-menu-item has-sub <?php $link=uri_string(); if($link =="upload"){ echo "active";} ?>">
             <a href="<?php echo site_url(); ?>upload" data-dropdown-toggle="false">
-              <i class="site-menu-icon  md-pin-help" aria-hidden="true"></i>
+              <i class="site-menu-icon  icon md-book-image" aria-hidden="true"></i>
               <span class="site-menu-title">Upload</span>
 
             </a>
@@ -128,18 +128,18 @@
             }
           ?>
           <?php
-           if(!empty($admin) && $level==1 || $level==2 || $level==3  ){
+           if(!empty($admin) && $level==1 || $level==2 ){
           ?>
           <li class="site-menu-item has-sub <?php $link=uri_string(); if($link =="help"){ echo "active";} ?>">
             <a href="<?php echo site_url(); ?>Konfirmasi" data-dropdown-toggle="false">
-              <i class="site-menu-icon  md-pin-help" aria-hidden="true"></i>
+              <i class="site-menu-icon  icon md-badge-check" aria-hidden="true"></i>
               <span class="site-menu-title">Konfirmasi</span>
 
             </a>
           </li>
           <li class="site-menu-item has-sub <?php $link=uri_string(); if($link =="help"){ echo "active";} ?>">
             <a href="<?php echo site_url(); ?>judul" data-dropdown-toggle="false">
-              <i class="site-menu-icon  md-pin-help" aria-hidden="true"></i>
+              <i class="site-menu-icon  icon md-collection-bookmark" aria-hidden="true"></i>
               <span class="site-menu-title">Semua TA/Skripsi</span>
 
             </a>
@@ -153,7 +153,7 @@
           ?>
           <li class="site-menu-item has-sub <?php $link=uri_string(); if($link =="daftar"){ echo "active";} ?>">
             <a href="<?php echo site_url(); ?>daftar" data-dropdown-toggle="false">
-              <i class="site-menu-icon  md-pin-help" aria-hidden="true"></i>
+              <i class="site-menu-icon  icon md-assignment-account" aria-hidden="true"></i>
               <span class="site-menu-title">Daftar</span>
 
             </a>

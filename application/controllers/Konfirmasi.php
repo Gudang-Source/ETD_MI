@@ -18,8 +18,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
          public function index()
        	{
-          $prodi=$this->session->userdata('prodi');
-          $data['lihat'] = $this->M_Judul->konfirmasi();
+          $prodi=$this->session->userdata('level');
+          $data['lihat'] = $this->M_Judul->konfirmasi($prodi);
        		$this->load->view('Konfirmasi',$data);
        	}
 

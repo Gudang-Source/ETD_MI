@@ -133,14 +133,25 @@ $(function(){
 
 
 
-                    <?php if($ta->verifikasi==0){?>
+                    <?php
+                    $level=$this->session->userdata('level');
+                    if($ta->verifikasi==0 && $level!=0){?>
                     <div class="form-group form-material">
                       <div class="col-sm-9 col-sm-offset-3">
                         <button type="submit" class="btn btn-primary waves-effect waves-light">Konfirmasi </button>
                         <button type="reset" class="btn btn-warning waves-effect waves-light">Batalkan</button>
                       </div>
                     </div>
-                  <?php } ?>
+                  <?php }else if($ta->verifikasi==0 && $level==0){
+                    ?>
+                    <div class="form-group form-material">
+                      <div class="col-sm-9 col-sm-offset-3">
+                        <button type="reset" class="btn btn-warning waves-effect waves-light">Batalkan</button>
+                      </div>
+                    </div>
+
+                  <?php
+                  } ?>
                   </form>
                 </div>
                 <?php

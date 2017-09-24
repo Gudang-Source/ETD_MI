@@ -62,7 +62,7 @@
           <form class="page-search-form" action="<?php echo site_url(); ?>cari/cari_prodi" role="search">
             <div class="input-search input-search-dark col-lg-9">
               <i class="input-search-icon md-search" aria-hidden="true"></i>
-              <input type="text" class="form-control" value="<?php echo $_GET['id']?>" required id="inputSearch" name="id" placeholder="Search Judul / Pengarang / Bidang Minat / Prodi">
+              <input type="text" class="form-control" value="<?php echo $_GET['id']?>"id="inputSearch" name="id" placeholder="Search Judul / Pengarang / Bidang Minat / Prodi">
               <button type="button" class="input-search-close icon " aria-label="Close"></button>
 
             </div>
@@ -123,8 +123,8 @@
                                     <li class="list-group-item">
                                       <div class="media">
                                         <div class="media-left">
-                                          <div class="avatar avatar-online">
-                                            <img src="<?php echo site_url(); ?>assets/global/portraits/1.jpg" alt="...">
+                                          <div class="<?php echo $cari->css1?>">
+                                            <img src="<?php echo site_url(); ?>uploads/<?php echo $cari->logo?>" alt="...">
                                             <i class="avatar avatar-busy"></i>
                                           </div>
                                         </div>
@@ -145,10 +145,10 @@
                                           <div>
                                               <h6>
                                             <a class="text-action" href="javascript:void(0)">
-                                            <i class="icon icon-color md-email" aria-hidden="true"> <font color="black"><?php echo $cari->nama_prodi?>  </font></i>
+                                            <i class="icon icon-color icon md-star-circle" aria-hidden="true"> <font color="black"><?php echo " ".$cari->nama_prodi?>  </font></i>
                                             </a>
                                             <a class="text-action" href="javascript:void(0)">
-                                              <i class="icon icon-color md-email" aria-hidden="true"> <font color="black"><?php echo $cari->nama_bidang_minat?>  </font></i>
+                                              <i class="icon icon-color icon md-check-all" aria-hidden="true"> <font color="black"><?php echo " ".$cari->nama_bidang_minat?>  </font></i>
                                             </a>
 
 

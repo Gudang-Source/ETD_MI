@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
          $this->load->model('M_Dosen');
          $this->load->model('M_Bidang_Minat');
-
+         $this->load->model('M_Judul');
          if(($level!=0) || (empty($login)==true)){
             redirect("login/logout");
            }
@@ -21,11 +21,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
          public function index()
        	{
-          $prodi=$this->session->userdata('prodi');
-          $data['bidang_minat'] = $this->M_Bidang_Minat->lihat_prodi($prodi);
-          
-          $data['dosen'] = $this->M_Dosen->lihat();
-       		$this->load->view('Upload',$data);
+          $username=$this->session->userdata('login');
+          $cek=$this->M_Judul->cek_upload($username);
+          if($cek){
+            redirect("detail_judul?id=$username");
+          }else{
+              $prodi=$this->session->userdata('prodi');
+              $data['bidang_minat'] = $this->M_Bidang_Minat->lihat_prodi($prodi);
+              $data['dosen'] = $this->M_Dosen->lihat();
+           		$this->load->view('Upload',$data);
+          }
        	}
 
         public function proses_tambah()
@@ -53,10 +58,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         			$cek=$this->M_Upload->tambah($new_name,$username);
         			if($cek){
         				$this->tambah_berhasil();
-        				//redirect('Upload');
+        				redirect('Upload');
         			}else{
         				$this->tambah_gagal();
-        				//redirect('upload');
+        				redirect('upload');
         			}
          }
 
