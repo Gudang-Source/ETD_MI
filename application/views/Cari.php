@@ -144,12 +144,12 @@
                                           </p>
                                           <div>
                                               <h6>
-                                            <a class="text-action" href="javascript:void(0)">
-                                            <i class="icon icon-color icon md-star-circle" aria-hidden="true"> <font color="black"><?php echo " ".$cari->nama_prodi?>  </font></i>
-                                            </a>
-                                            <a class="text-action" href="javascript:void(0)">
-                                              <i class="icon icon-color icon md-check-all" aria-hidden="true"> <font color="black"><?php echo " ".$cari->nama_bidang_minat?>  </font></i>
-                                            </a>
+                                                <a class="text-action" href="<?php echo site_url(); ?>cari/cari_prodi?id=&prodi=<?php echo $cari->id_prodi?>">
+                                                <i class="icon icon-color icon md-star-circle" aria-hidden="true"><font color="black"><?php echo " ".$cari->nama_prodi?></font></i>
+                                                </a>
+                                                <a class="text-action" href="<?php echo site_url(); ?>cari/cari_prodi?id=<?php echo $cari->nama_bidang_minat?>&prodi=0">
+                                                  <i class="icon icon-color icon md-check-all" aria-hidden="true"><font color="black"><?php echo " ".$cari->nama_bidang_minat?></font></i>
+                                                </a>
 
 
                                           </div>
