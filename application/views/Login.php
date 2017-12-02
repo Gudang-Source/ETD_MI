@@ -67,7 +67,7 @@
             <form method="post" action="<?php echo site_url(); ?>login/proses_login/" autocomplete="off">
               <div class="form-group form-material floating">
                 <input type="text" class="form-control" name="username" />
-                <label class="floating-label">NPM/NIP</label>
+                <label class="floating-label">NPM/NIP*</label>
               </div>
               <div class="form-group form-material floating">
                 <input type="password" class="form-control" name="password" />
