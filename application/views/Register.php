@@ -101,15 +101,15 @@
               <select class="form-control" id="select" required name="prodi">
                     <option value="">Pilih Prodi</option>
                     <?php
-						 $i=0;
-						 foreach($prodi as $prodi){
-						 $i++;
-					?>
-					 <option value="<?php echo $prodi->id_prodi?>"><?php echo $prodi->nama_prodi?></option>
+            						 $i=0;
+            						 foreach($prodi as $prodi){
+            						 $i++;
+            					?>
+            					 <option value="<?php echo $prodi->id_prodi?>"><?php echo $prodi->nama_prodi?></option>
 
-					<?php
-						 }
-					?>
+            					<?php
+            						 }
+            					?>
                   </select>
                   <label class="floating-label" for="select">Prodi *</label>
 

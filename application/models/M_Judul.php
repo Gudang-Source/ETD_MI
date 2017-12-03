@@ -5,6 +5,11 @@ class M_Judul extends CI_Model{
         $query=$this->db->query("SELECT * FROM ta INNER JOIN mahasiswa on mahasiswa.npm=ta.npm left JOIN prodi on mahasiswa.id_prodi=prodi.id_prodi LEFT JOIN bidang_minat on bidang_minat.id_bidang_minat=mahasiswa.id_bidang_minat where ta.verifikasi='1'");
         return $query->result();
     }
+    function lihat_prodi($id_prodi)
+    {
+        $query=$this->db->query("SELECT * FROM ta INNER JOIN mahasiswa on mahasiswa.npm=ta.npm left JOIN prodi on mahasiswa.id_prodi=prodi.id_prodi LEFT JOIN bidang_minat on bidang_minat.id_bidang_minat=mahasiswa.id_bidang_minat where ta.verifikasi='1' and prodi.id_prodi='$id_prodi'");
+        return $query->result();
+    }
     function cek_upload($npm)
     {
         $query=$this->db->query("SELECT * FROM ta INNER JOIN mahasiswa on mahasiswa.npm=ta.npm left JOIN prodi on mahasiswa.id_prodi=prodi.id_prodi LEFT JOIN bidang_minat on bidang_minat.id_bidang_minat=mahasiswa.id_bidang_minat where mahasiswa.npm='$npm'");
@@ -12,7 +17,7 @@ class M_Judul extends CI_Model{
     }
     function konfirmasi($prodi)
     {
-      $query=$this->db->query("SELECT *, mahasiswa.nama as nama_mahasiswa, mahasiswa.npm as npm_mahasiswa FROM mahasiswa LEFT JOIN ta on ta.npm=mahasiswa.npm  left join prodi on prodi.id_prodi=mahasiswa.id_prodi left join bidang_minat on bidang_minat.id_bidang_minat=mahasiswa.id_bidang_minat where ta.verifikasi='0'and mahasiswa.id_prodi='$prodi' ORDER by ta.tgl_upload");
+      $query=$this->db->query("SELECT *, mahasiswa.nama as nama_mahasiswa, mahasiswa.npm as npm_mahasiswa FROM mahasiswa LEFT JOIN ta on ta.npm=mahasiswa.npm  left join prodi on prodi.id_prodi=mahasiswa.id_prodi left join bidang_minat on bidang_minat.id_bidang_minat=mahasiswa.id_bidang_minat where ta.verifikasi='0'and prodi.id_prodi='$prodi' ORDER by ta.tgl_upload");
       return $query->result();
     }
     function judul100()

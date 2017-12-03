@@ -28,6 +28,7 @@ class M_Admin extends CI_Model{
               'nama_lengkap'=>$this->input->post('nama_lengkap'),
               'username'=>$this->input->post('username'),
               'level'=>$this->input->post('level'),
+              'id_prodi'=>$this->input->post('prodi'),
               'password'=>$password
           );
           $cek=$this->db->insert('user',$data);

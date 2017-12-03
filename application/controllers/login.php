@@ -27,7 +27,6 @@ class Login extends CI_Controller {
 			 $this->load->database();
 			 $this->load->model('M_Login');
 			 $this->load->model('M_Prodi');
-			 $this->load->model('M_Prodi');
 			 $admin=$this->session->userdata('admin');
 
 
@@ -69,21 +68,38 @@ class Login extends CI_Controller {
 
 	public function proses_login() {
 		$cek=$this->M_Login->login();
-		$cek2=$this->M_Login->mhs($this->input->post('username'));
+		$mhs=$this->M_Login->mhs($this->input->post('username'));
+		$prodi=$this->M_Login->prodi($this->input->post('username'));
 
-  		if($cek==true){
-			$username= $cek[0]->username;
-			$level= $cek[0]->level;
-			$prodi= $cek2[0]->id_prodi;
-			$mhs= $cek2[0]->nama;
-			session_save_path();
-			$this->session->set_userdata('login',$username);
-			$this->session->set_userdata('level',$level);
-			$this->session->set_userdata('prodi',$prodi);
-			$this->session->set_userdata('mhs',$mhs);
-			redirect('home');
+  		if($mhs==true && $cek==true){
+      			echo $username= $mhs[0]->npm;
+      			echo $level= $mhs[0]->level;
+      			echo $prodi= $mhs[0]->id_prodi;
+      			echo $mhs= $mhs[0]->nama;
+      			session_save_path();
+      			$this->session->set_userdata('login',$username);
+      			$this->session->set_userdata('level',$level);
+      			$this->session->set_userdata('prodi',$prodi);
+      			$this->session->set_userdata('nama',$mhs);
+			     redirect('home');
 
-		}else{
+		}
+    else if($prodi==true && $cek==true){
+            $username= $prodi[0]->username;
+            $level= $prodi[0]->level;
+            $prodi= $prodi[0]->id_prodi;
+            $nama_lengkap= $prodi[0]->nama_lengkap;
+            session_save_path();
+            $this->session->set_userdata('login',$username);
+            $this->session->set_userdata('level',$level);
+            $nama_prodi=$this->M_Prodi->prodi($prodi);
+            $nama_prodi= $nama_prodi[0]->nama_prodi;
+            $this->session->set_userdata('prodi',$prodi);
+            $this->session->set_userdata('nama_prodi',$nama_prodi);
+            $this->session->set_userdata('nama',$nama_lengkap);
+            redirect('home');
+    }
+    else{
 			$data="document.getElementById('exampleTopFullWidth').click();";
 			$this->session->set_flashdata('pesan', 'onload="'.$data.'"');
 			redirect('login');

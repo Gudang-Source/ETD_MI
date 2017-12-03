@@ -86,13 +86,31 @@
                       <div class="col-sm-9">
                         <select class="form-control" id="select" name="level">
                             <option value="">Pilih Level</option>
-                            <option value="1">Admin Prodi Informatika</option>
-                            <option value="2">Admin Prodi Manajemen Informatika</option>
-                            <option value="3">Super Admin</option>
-
+                            <option value="1">Prodi</option>
+                            <option value="2">Admin</option>
                         </select>
                       </div>
                     </div>
+
+                    <div class="form-group form-material">
+                      <label class="col-sm-3 control-label">Prodi</label>
+                      <div class="col-sm-9">
+                        <select class="form-control" id="select" name="pro">
+                            <option value="">Pilih Prodi</option>
+                            <?php
+                  						 $i=0;
+                  						 foreach($prodi as $prodi){
+                  						 $i++;
+                  					?>
+                  					 <option value="<?php echo $prodi->id_prodi?>"><?php echo $prodi->nama_prodi?></option>
+
+                  					<?php
+                  						 }
+                  					?>
+                      </select>
+                      </div>
+                    </div>
+
                     <div class="form-group form-material">
                       <label class="col-sm-3 control-label">Password</label>
                       <div class="col-sm-9">

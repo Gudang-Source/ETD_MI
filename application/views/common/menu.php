@@ -36,6 +36,7 @@
               $admin=$this->session->userdata('login');
                if(empty($admin)==0){
               ?>
+
               <span class="avatar avatar-online">
               <img src="<?php echo site_url(); ?>assets/assets/images/logout.png" alt="...">
               <?php } ?>
@@ -47,19 +48,31 @@
               <?php } ?>
               <i></i>
             </span>
+
           </a>
+
           <ul class="dropdown-menu" role="menu">
             <?php
             $admin=$this->session->userdata('login');
             $level=$this->session->userdata('level');
              if(empty($admin)==0 && $level==0){
             ?>
+            <li role="presentation">
+              <button type="button" class="btn btn-block btn-info waves-effect waves-light"><?php echo $this->session->userdata('nama');?></button>
+            </li>
+            </li>
               <li role="presentation">
                 <a href="<?php echo site_url(); ?>ubah_profil?id=<?php echo $admin ?>" role="menuitem"><i class="icon md-account" aria-hidden="true"></i> Profile</a>
-              </li>
+
             <?php }
-            if(empty($admin)==0){
+            if($level!=0){
            ?>
+           <li role="presentation">
+             <button type="button" class="btn btn-block btn-success waves-effect waves-light"><?php echo $this->session->userdata('nama_prodi');?></button>
+           </li>
+               <?php }
+               if(empty($admin)==0){
+              ?>
               <li role="presentation">
                 <a href="<?php echo site_url(); ?>ubah_password?id=<?php echo $admin ?>" role="menuitem"><i class="icon md-card" aria-hidden="true"></i> Ubah Password</a>
               </li>
@@ -68,6 +81,7 @@
             <?php
              if(empty($admin)==0){
             ?>
+
               <li role="presentation">
                 <a href="<?php echo site_url(); ?>logout" role="menuitem"><i class="icon md-power" aria-hidden="true"></i> Keluar</a>
               </li>
@@ -128,7 +142,7 @@
             }
           ?>
           <?php
-           if(!empty($admin) && $level==1 || $level==2 ){
+           if(!empty($admin) && $level==1  ){
           ?>
           <li class="site-menu-item has-sub <?php $link=uri_string(); if($link =="help"){ echo "active";} ?>">
             <a href="<?php echo site_url(); ?>Konfirmasi" data-dropdown-toggle="false">
@@ -144,6 +158,20 @@
 
             </a>
           </li>
+          <li class="site-menu-item has-sub <?php $link=uri_string(); if($link =="bidang_minat"){ echo "active";} ?>">
+            <a href="<?php echo site_url(); ?>bidang_minat" data-dropdown-toggle="false">
+              <i class="site-menu-icon  icon md-collection-bookmark" aria-hidden="true"></i>
+              <span class="site-menu-title">Bidang Minat</span>
+
+            </a>
+          </li>
+          <li class="site-menu-item has-sub <?php $link=uri_string(); if($link =="dosen"){ echo "active";} ?>">
+            <a href="<?php echo site_url(); ?>dosen" data-dropdown-toggle="false">
+              <i class="site-menu-icon  icon md-collection-bookmark" aria-hidden="true"></i>
+              <span class="site-menu-title">Dosen</span>
+
+            </a>
+
           <?php
           }
           ?>
@@ -166,7 +194,7 @@
 
           <?php
 
-           if(!empty($admin) && $level==3 ){
+           if(!empty($admin) && $level==2 ){
           ?>
           <li class="site-menu-item has-sub <?php $link=uri_string(); if($link =="admin"||$link =="kabupaten"||$link =="kecamatan"){ echo "active";} ?>">
             <a href="javascript:void(0)" data-dropdown-toggle="false">
@@ -181,22 +209,25 @@
                   <span class="site-menu-title">Admin</span>
                 </a>
               </li>
-              <li class="site-menu-item <?php $link=uri_string(); if($link =="bidang_minat"){ echo "active";} ?>">
-                <a class="animsition-link" href="<?php echo site_url(); ?>bidang_minat">
-                  <span class="site-menu-title">Bidang Minat</span>
+              <li class="site-menu-item <?php $link=uri_string(); if($link =="admin"){ echo "active";} ?>">
+                <a class="animsition-link" href="<?php echo site_url(); ?>admin">
+                  <span class="site-menu-title">Program Studi</span>
                 </a>
               </li>
-              <li class="site-menu-item <?php $link=uri_string(); if($link =="dosen"){ echo "active";} ?>">
-                <a class="animsition-link" href="<?php echo site_url(); ?>dosen">
-                  <span class="site-menu-title">Dosen</span>
-                </a>
-              </li>
+
               <!-- <li class="site-menu-item <?php $link=uri_string(); if($link =="dosen"){ echo "active";} ?>">
                 <a class="animsition-link" href="<?php echo site_url(); ?>Prodi">
                   <span class="site-menu-title">Prodi</span>
                 </a>
               </li> -->
             </ul>
+          </li>
+          <li class="site-menu-item has-sub <?php $link=uri_string(); if($link =="help"){ echo "active";} ?>">
+            <a href="<?php echo site_url(); ?>judul_admin" data-dropdown-toggle="false">
+              <i class="site-menu-icon  icon md-collection-bookmark" aria-hidden="true"></i>
+              <span class="site-menu-title">Semua TA/Skripsi</span>
+
+            </a>
           </li>
 
         <?php } ?>

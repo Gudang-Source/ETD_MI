@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 24, 2017 at 10:36 AM
+-- Generation Time: Dec 03, 2017 at 11:16 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.5.38
 
@@ -72,7 +72,23 @@ INSERT INTO `bimbing` (`id_bimbing`, `npm`, `nip`, `pembimbing`) VALUES
 (18, '1308001010011', '1234567', 1),
 (19, '1308001010011', '1234567', 2),
 (20, '1308001010011', '1234567', 1),
-(21, '1308001010011', '1234567', 2);
+(21, '1308001010011', '1234567', 2),
+(22, '1308001010012', '1234567', 1),
+(23, '1308001010012', '1234567', 2),
+(24, '1308001010012', '1234567', 1),
+(25, '1308001010012', '1234567', 2),
+(26, '1308001010012', '1234567', 1),
+(27, '1308001010012', '1234567', 2),
+(28, '1308001010012', '1234567', 1),
+(29, '1308001010012', '1234567', 2),
+(30, '1308001010011', '1234567', 1),
+(31, '1308001010011', '1234567', 2),
+(32, '1308001010011', '1234567', 1),
+(33, '1308001010011', '1234567', 2),
+(34, '1308001010011', '1234567', 1),
+(35, '1308001010011', '1234567', 2),
+(36, '1308001010011', '1234567', 1),
+(37, '1308001010011', '1234567', 2);
 
 -- --------------------------------------------------------
 
@@ -100,24 +116,26 @@ INSERT INTO `dosen` (`nip`, `nama`) VALUES
 
 CREATE TABLE `mahasiswa` (
   `npm` varchar(20) NOT NULL,
+  `password` varchar(100) NOT NULL,
   `alamat` varchar(255) NOT NULL,
   `email` varchar(50) NOT NULL,
   `nama` varchar(50) NOT NULL,
-  `id_prodi` int(10) NOT NULL,
+  `id_prodi` varchar(10) NOT NULL,
   `no_hp` varchar(15) NOT NULL,
-  `id_bidang_minat` int(10) DEFAULT NULL
+  `id_bidang_minat` int(10) DEFAULT NULL,
+  `level` int(2) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `mahasiswa`
 --
 
-INSERT INTO `mahasiswa` (`npm`, `alamat`, `email`, `nama`, `id_prodi`, `no_hp`, `id_bidang_minat`) VALUES
-('1308001010011', 'Jalan. T. Hamzah Bendahara No 31, Kuta Alam, Banda Aceh', 'hariririski@gmailu.co', 'HARIRIRISKI', 2, '08223765', 2),
-('1308001010012', 'Jalan. T. Hamzah Bendahara No 31, Kuta Alam, Banda Aceh', 'hariririski@gmailu.com', 'HARIRIRISKI', 2, '0822376537209', 1),
-('1308001010013', 'Jalan. T. Hamzah Bendahara No 31, Kuta Alam, Banda Aceh', 'hariririski@gmailu.com3', 'HARIRIRISKI', 1, '08223765372093', 1),
-('1308001010020', 'kjh', 'hariririski@gmail.com2', 'dia', 2, '09876543', NULL),
-('1308107010011', 'asdfghj', 'yusran@gmail.com', 'Yusran', 1, '0987654', NULL);
+INSERT INTO `mahasiswa` (`npm`, `password`, `alamat`, `email`, `nama`, `id_prodi`, `no_hp`, `id_bidang_minat`, `level`) VALUES
+('1308001010011', '0357a7592c4734a8b1e12bc48e29e9e9', 'Jalan. T. Hamzah Bendahara No 31, Kuta Alam, Banda Aceh', 'hariririski@gmailu.co', 'HARIRIRISKI', '2', '08223765', 2, 0),
+('1308001010012', '0357a7592c4734a8b1e12bc48e29e9e9', 'Jalan. T. Hamzah Bendahara No 31, Kuta Alam, Banda Aceh', 'hariririski@gmailu.com', 'HARIRIRISKI', '2', '0822376537209', 1, 0),
+('1308001010013', '', 'Jalan. T. Hamzah Bendahara No 31, Kuta Alam, Banda Aceh', 'hariririski@gmailu.com3', 'HARIRIRISKI', '1', '08223765372093', 1, 0),
+('1308001010020', '', 'kjh', 'hariririski@gmail.com2', 'dia', '2', '09876543', NULL, 0),
+('1308107010011', '', 'asdfghj', 'yusran@gmail.com', 'Yusran', '1', '0987654', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -129,16 +147,18 @@ CREATE TABLE `prodi` (
   `id_prodi` int(10) NOT NULL,
   `nama_prodi` varchar(50) NOT NULL,
   `logo` varchar(255) NOT NULL,
-  `css1` varchar(50) NOT NULL
+  `css1` varchar(50) NOT NULL,
+  `status` int(2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `prodi`
 --
 
-INSERT INTO `prodi` (`id_prodi`, `nama_prodi`, `logo`, `css1`) VALUES
-(1, 'Informatika', 'inf.jpg', 'avatar avatar-online'),
-(2, 'Manajemen Informatika', 'mi.jpg', 'avatar avatar-away');
+INSERT INTO `prodi` (`id_prodi`, `nama_prodi`, `logo`, `css1`, `status`) VALUES
+(1, 'Informatika', 'inf.jpg', 'avatar avatar-online', NULL),
+(2, 'Manajemen Informatika', 'mi.jpg', 'avatar avatar-away', NULL),
+(3, 'Fakutas', '-', '-', 1);
 
 -- --------------------------------------------------------
 
@@ -153,18 +173,10 @@ CREATE TABLE `ta` (
   `tgl_upload` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `verifikasi` int(2) DEFAULT '0',
   `publikasi` int(2) NOT NULL,
+  `sampai` date DEFAULT NULL,
   `npm` varchar(20) NOT NULL,
   `pdf` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `ta`
---
-
-INSERT INTO `ta` (`id_tugas_akhir`, `judul`, `abstrak`, `tgl_upload`, `verifikasi`, `publikasi`, `npm`, `pdf`) VALUES
-(2, 'MANAJEMEN PENGGEMUKAN SAPI POTONG DENGAN PEMBERIAN PAKAN TEKNOLOGI FERMENTASI HI-FER+ PADA UNIT PENGGEMUKAN SAPI POTONG SMK PP NEGERI SAREE KABUPATEN ACEH BESAR', 'aaaaaaaaaaaaaaaa', '2017-09-18 03:13:13', 0, 0, '1308001010012', 'aaaaaaaaaaaaaaaaaa'),
-(3, 'PENGARUH DUE PROFESSIONAL CARE, PENGALAMAN AUDIT, PENDIDIKAN DAN PELATIHAN BERKELANJUTAN TERHADAP KUALITAS AUDIT INTERNAL DENGAN KOMITMEN ORGANISASI SEBAGAI PEMODERASI (STUDI PADA APARAT PENGAWASAN INTERNAL PEMERINTAH INSPEKTORAT PEMERINTAH KOTA LHOKSEUMAWE)  ', 'PENGARUH DUE PROFESSIONAL CARE, PENGALAMAN AUDIT, PENDIDIKAN DAN PELATIHAN BERKELANJUTAN TERHADAP KUALITAS AUDIT INTERNAL DENGAN KOMITMEN ORGANISASI SEBAGAI PEMODERASI (STUDI PADA APARAT PENGAWASAN INTERNAL PEMERINTAH INSPEKTORAT PEMERINTAH KOTA LHOKSEUMAWE)  PENGARUH DUE PROFESSIONAL CARE, PENGALAMAN AUDIT, PENDIDIKAN DAN PELATIHAN BERKELANJUTAN TERHADAP KUALITAS AUDIT INTERNAL DENGAN KOMITMEN ORGANISASI SEBAGAI PEMODERASI (STUDI PADA APARAT PENGAWASAN INTERNAL PEMERINTAH INSPEKTORAT PEMERINTAH KOTA LHOKSEUMAWE)  PENGARUH DUE PROFESSIONAL CARE, PENGALAMAN AUDIT, PENDIDIKAN DAN PELATIHAN BERKELANJUTAN TERHADAP KUALITAS AUDIT INTERNAL DENGAN KOMITMEN ORGANISASI SEBAGAI PEMODERASI (STUDI PADA APARAT PENGAWASAN INTERNAL PEMERINTAH INSPEKTORAT PEMERINTAH KOTA LHOKSEUMAWE)  PENGARUH DUE PROFESSIONAL CARE, PENGALAMAN AUDIT, PENDIDIKAN DAN PELATIHAN BERKELANJUTAN TERHADAP KUALITAS AUDIT INTERNAL DENGAN KOMITMEN ORGANISASI SEBAGAI PEMODERASI (STUDI PADA APARAT PENGAWASAN INTERNAL PEMERINTAH INSPEKTORAT PEMERINTAH KOTA LHOKSEUMAWE)  ', '2017-09-18 08:26:22', 1, 0, '1308001010013', 'Jakarta  20170906_Pengumuman_Bekraf Jakarta.pdF'),
-(4, 'lkjh', 'ffff', '2017-09-24 07:50:31', 1, 0, '1308001010011', '1308001010011krs.pdf');
 
 -- --------------------------------------------------------
 
@@ -176,22 +188,19 @@ CREATE TABLE `user` (
   `username` varchar(20) NOT NULL,
   `nama_lengkap` varchar(100) NOT NULL,
   `level` int(4) NOT NULL,
-  `password` varchar(255) NOT NULL
+  `password` varchar(255) NOT NULL,
+  `id_prodi` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`username`, `nama_lengkap`, `level`, `password`) VALUES
-('1308001010011', 'HARIRIRISKI', 0, '156e9a32ecc3102d5ce35d6298d362c9'),
-('1308001010020', 'dia', 0, '21232f297a57a5a743894a0e4a801fc3'),
-('1308107010011', 'Yusran', 0, '156e9a32ecc3102d5ce35d6298d362c9'),
-('admin', 'admin', 3, '21232f297a57a5a743894a0e4a801fc3'),
-('hariririski', 'hariririski', 3, '156e9a32ecc3102d5ce35d6298d362c9'),
-('inf', 'inf', 1, '21232f297a57a5a743894a0e4a801fc3'),
-('mhs', 'mahasiswa', 0, '21232f297a57a5a743894a0e4a801fc3'),
-('mi', 'mi', 2, '21232f297a57a5a743894a0e4a801fc3');
+INSERT INTO `user` (`username`, `nama_lengkap`, `level`, `password`, `id_prodi`) VALUES
+('admin', 'admin', 2, '21232f297a57a5a743894a0e4a801fc3', '3'),
+('fakultas', 'fakultas', 2, '87d1457efdc266dc883ebe5caa705cb0', '3'),
+('inf', 'inf', 1, '21232f297a57a5a743894a0e4a801fc3', '1'),
+('mi', 'mi', 1, '21232f297a57a5a743894a0e4a801fc3', '2');
 
 --
 -- Indexes for dumped tables
@@ -256,17 +265,17 @@ ALTER TABLE `bidang_minat`
 -- AUTO_INCREMENT for table `bimbing`
 --
 ALTER TABLE `bimbing`
-  MODIFY `id_bimbing` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_bimbing` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 --
 -- AUTO_INCREMENT for table `prodi`
 --
 ALTER TABLE `prodi`
-  MODIFY `id_prodi` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_prodi` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `ta`
 --
 ALTER TABLE `ta`
-  MODIFY `id_tugas_akhir` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_tugas_akhir` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

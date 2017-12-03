@@ -6,7 +6,7 @@ class M_Upload extends CI_Model{
         return $query->result();
     }
 
-    
+
 
 
 
@@ -16,7 +16,8 @@ class M_Upload extends CI_Model{
           'judul'=>$this->input->post('judul'),
           'abstrak'=>$this->input->post('abstrak'),
           'verifikasi'=>0,
-          'publikasi'=>0,
+          'publikasi'=>$this->input->post('publikasi'),
+          'sampai'=>$this->input->post('sampai'),
           'npm'=>$username,
           'pdf'=>$pdf
 
@@ -80,5 +81,20 @@ class M_Upload extends CI_Model{
       return $cek;
     }
 
+    public function batalkan()
+   {
+           $id=$_GET ['id'];
+           $file=$_GET ['file'];
+           unlink("./uploads/$file");
+           $cek= $this->M_konfirmasi->batalkan($id);
+           if($cek){
+             $this->batalkan_berhasil();
+             redirect("konfirmasi");
+           }else{
+             $this->batalkan_gagal();
+           redirect("konfirmasi");
+           }
 
 }
+}
+?>

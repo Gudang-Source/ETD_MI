@@ -57,8 +57,10 @@ $route['daftar'] = 'Login/register';
 $route['upload'] = 'Upload';
 $route['konfirmasi'] = 'Konfirmasi';
 $route['judul'] = 'judul';//hanya bisa lihat judul per jurusan jika adamin
+$route['judul_admin'] = 'judul/admin';
 $route['cari'] = 'Cari';
 $route['detail_judul'] = 'Judul/detail_judul';
+$route['detail_judul_admin'] = 'Judul/detail_judul_admin';
 
 /*-----------------------------------------------------------------------*/
 $route['dosen'] = 'Dosen';

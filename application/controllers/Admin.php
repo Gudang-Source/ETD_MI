@@ -17,7 +17,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       public function index(){
         $admin=$this->session->userdata('level');
         $data['lihat'] = $this->M_Admin->lihat_admin();
-        if($admin!=3){
+        $data['prodi'] = $this->M_Prodi->lihat_prodi();
+        if($admin!=2){
            redirect("login/logout");
           }
 

@@ -2,10 +2,21 @@
 class M_Prodi extends CI_Model{
     function lihat()
     {
+        $query=$this->db->query("SELECT * FROM `Prodi` where status is null");
+        return $query->result();
+    }
+
+    function lihat_prodi()
+    {
         $query=$this->db->query("SELECT * FROM `Prodi`");
         return $query->result();
     }
 
+    function prodi($prodi)
+    {
+        $query=$this->db->query("SELECT * FROM `Prodi`where id_prodi='$prodi'");
+        return $query->result();
+    }
 
 
     function tambah()

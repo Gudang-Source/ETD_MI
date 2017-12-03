@@ -1,24 +1,31 @@
 <?php
     class M_login extends CI_Model{
-        function login(){
+      function login(){
 
-			$username = $this->input->post('username');
-			$password= $this->input->post('password');
-			$password=md5($password);
-            $sql="SELECT * FROM user where username='$username' and password='$password'";
-			$query = $this->db->query($sql);
-
-        return $query->result();
-            }
+  			$username = $this->input->post('username');
+  			$password= $this->input->post('password');
+        $cek=is_numeric($username);
+        $password=md5($password);
+        if($cek==true){
+          $sql="SELECT * FROM mahasiswa where npm='$username' and password='$password'";
+      		$query = $this->db->query($sql);
+        }else if($cek==false){
+          $sql="SELECT * FROM user where username='$username' and password='$password'";
+          $query = $this->db->query($sql);
+        }
+          return $query->result();
+      }
 
       function mhs($username){
-
-
           $sql="SELECT * FROM mahasiswa where npm='$username' ";
           $query = $this->db->query($sql);
-
             return $query->result();
-                }
+      }
+      function prodi($username){
+          $sql="SELECT * FROM user where username='$username' ";
+          $query = $this->db->query($sql);
+            return $query->result();
+      }
 
 
 		function daftar(){

@@ -72,7 +72,7 @@
                  $i++;
                ?>
                 <div class="example">
-                
+
                     <div class="form-group form-material">
                       <label class="col-sm-3 control-label">Judul</label>
                       <div class="col-sm-9">
@@ -128,19 +128,66 @@ $(function(){
                         </object>
                       </div>
                     </div>
+                    <div class="form-group ">
+                      <label class="col-sm-3 control-label"><b>Pilihan Publikasi</b></label>
+                      <?php $publikasi=$ta->publikasi;
+                      $full="";
+                      $sebagian="";
+                      $tunda="";
+                      if($publikasi==1){
+                        $full="checked";
+                      }else if($publikasi==2){
+                        $sebagian="checked";
+                      }else{
+                          $tunda="checked";
+                      }
+                      ?>
+                      <div class="col-sm-9">
+                          <div class="radio-custom radio-primary">
+                            <input <?php echo$full;?> value="1" type="radio" id="inputRadiosUnchecked" name="publikasi" required disabled>
+                            <label for="inputRadiosUnchecked">Publikasi Full</label>
+                          </div>
+                          <div class="radio-custom radio-primary">
+                            <input <?php echo$sebagian;?> value="2" type="radio" id="inputRadiosChecked" name="publikasi" disabled >
+                            <label for="inputRadiosChecked">Publikasi Pardial (Sebagian)</label>
+                          </div>
+                          <div class="radio-custom radio-primary">
+                            <input <?php echo$tunda;?> value="3" type="radio" id="inputRadiosChecked" name="publikasi" disabled >
+                            <label for="inputRadiosChecked">Tunda Publikasi</label>
+                          </div>
 
+
+                      </div>
+                  </div>
+                  <?php if($ta->publikasi==3){?>
+                  <div class="form-group form-material">
+                    <label class="col-sm-3 control-label">Batas Tunda Publikasi</label>
+                    <div class="col-sm-9">
+                    <input   class="form-control" value="<?php echo $ta->sampai?>" type="date" id="inputRadiosChecked" name="sampai" disabled >
+                    </div>
+                  </div>
+
+                <?php }?>
 
 
 
 
                     <?php
                     $level=$this->session->userdata('level');
-
-                    if($ta->verifikasi==0 && $level==0){
+                    if($ta->verifikasi==0 && $level!=0){?>
+                    <div class="form-group form-material">
+                      <div class="col-sm-9 col-sm-offset-3">
+                        <br>
+                        <br>
+                        <a href="<?php echo base_url()?>konfirmasi/setuju?id=<?php echo $ta->npm?>"><button type="submit" class="btn btn-primary waves-effect waves-light">Konfirmasi </button></a>
+                        <a href="<?php echo base_url()?>konfirmasi/batalkan?id=<?php echo $ta->npm?>&&file=<?php echo $ta->pdf?>"><button type="submit" class="btn btn-warning waves-effect waves-light">Batalkan</button></a>
+                      </div>
+                    </div>
+                  <?php }else if($ta->verifikasi==0 && $level==0){
                     ?>
                     <div class="form-group form-material">
                       <div class="col-sm-9 col-sm-offset-3">
-                        <a href="<?php echo base_url()?>upload/batalkan?id=<?php echo $ta->npm?>&&file=<?php echo $ta->pdf?>"><button type="submit" class="btn btn-warning waves-effect waves-light">Batalkan</button></a>
+                        <a href="<?php echo base_url()?>konfirmasi/batalkan?id=<?php echo $ta->npm?>&&file=<?php echo $ta->pdf?>"><button type="submit" class="btn btn-warning waves-effect waves-light">Batalkan</button></a>
                       </div>
                     </div>
 

@@ -13,6 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
          $this->load->model('M_Dosen');
          $this->load->model('M_Bidang_Minat');
          $this->load->model('M_Judul');
+         $this->load->model('M_konfirmasi');
          if(($level!=0) || (empty($login)==true)){
             redirect("login/logout");
            }
@@ -42,8 +43,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
          $config['max_height']    = 7680;
 		     $new_name =$_FILES["pdf"] ['name'];
          $username=$this->session->userdata('login');
-         $new_name=$username.$new_name;
-		     $config['file_name']=$new_name;
+         $new_name2=$username;
+		     $config['file_name']=$new_name2;
          $this->load->library('upload', $config);
 
          if ( ! $this->upload->do_upload('pdf')) {
@@ -53,9 +54,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
          }
 
          else {
-
+              $new_name2=$new_name2.".pdf";
               $this->load->model('M_Upload');
-        			$cek=$this->M_Upload->tambah($new_name,$username);
+        			$cek=$this->M_Upload->tambah($new_name2,$username);
         			if($cek){
         				$this->tambah_berhasil();
         				redirect('Upload');
@@ -66,7 +67,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
          }
 
        }
+       public function batalkan()
+       {
+              $id=$_GET ['id'];
+              $file=$_GET ['file'];
+              unlink("./uploads/$file");
+              $cek= $this->M_konfirmasi->batalkan($id);
+              if($cek){
+                $this->batalkan_berhasil();
+                redirect("upload");
+              }else{
+                $this->batalkan_gagal();
+              redirect("upload");
+              }
 
+       }
 
 
        function tambah_berhasil(){
@@ -76,6 +91,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <strong>Berhasil!</strong> Data Berhasil Di Tambahkan!.
                 </div>');
       }
+      function konfirmasi_berhasil(){
+       $this->session->set_flashdata('pesan', '
+               <div class="alert alert-success fade in">
+               <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+               <strong>Berhasil!</strong> Berhasil Di konfirmasi!.
+               </div>');
+     }
       function tambah_gagal(){
         $this->session->set_flashdata('pesan', '
                 <div class="alert alert-danger fade in">
@@ -110,6 +132,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                 <strong>Gagal!</strong> Data Gagal Di Hapus!.
                 </div>');
+      }
+      function batalkan_berhasil(){
+        $this->session->set_flashdata('pesan', '
+                <div class="alert alert-success fade in">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Berhasil!</strong> Data Dibatalkan!.
+                </div>');
+      }
+                function batalkan_gagal(){
+                  $this->session->set_flashdata('pesan', '
+                          <div class="alert alert-danger fade in">
+                          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                          <strong>Gagal!</strong> Gagal Dibatalkan!.
+                          </div>');
       }
        function upload(){
         $this->session->set_flashdata('pesan', '

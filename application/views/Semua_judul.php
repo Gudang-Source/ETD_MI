@@ -69,9 +69,9 @@
               <tr>
                 <th>NO</th>
                 <th>NPM</th>
+                <th>Nama</th>
                 <th>Judul</th>
                 <th>Bidang Minat</th>
-                <th>Prodi</th>
                 <th>Detail</th>
 
 
@@ -81,9 +81,9 @@
               <tr>
                 <th>NO</th>
                 <th>NPM</th>
+                <th>Nama</th>
                 <th>Judul</th>
                 <th>Bidang Minat</th>
-                <th>Prodi</th>
                 <th>Detail</th>
               </tr>
             </tfoot>
@@ -96,12 +96,13 @@
                 <tr>
                   <td><?php echo $i; ?></td>
                   <td><?php echo $judul->npm; ?></td>
+                  <td><?php echo $judul->nama; ?></td>
                   <td><?php echo $judul->judul; ?></td>
                   <td><?php echo $judul->nama_bidang_minat; ?></td>
-                  <td><?php echo $judul->nama_prodi; ?></td>
+
 
                   <?php
-                  echo"<td class='center' width='10%'><a href='". site_url()."detail_judul?id=".$judul->npm."'>
+                  echo"<td class='center' width='10%'><a href='". site_url()."detail_judul_admin?id=".$judul->npm."'>
                   <button type='button' class='btn btn-success'>Detail</button></a>
                     </td>";
                   ?>

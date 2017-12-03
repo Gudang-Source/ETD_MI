@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
   <meta name="description" content="bootstrap admin template">
   <meta name="author" content="">
-  <title>Upload Skripsi/ Tugas Akhir</title>
+  <title>Semua Skripsi/Tugas Akhir</title>
   <?php echo $this->load->view('common/head', '', TRUE);?>
   <!-- Stylesheets -->
   <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/css/bootstrap.min.css">
@@ -28,8 +28,8 @@
   <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/fonts/font-awesome/font-awesome.css">
   <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/fonts/material-design/material-design.min.css">
   <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/fonts/brand-icons/brand-icons.min.css">
-  <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
   <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/vendor/toastr/toastr.css">
+  <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
   <!--[if lt IE 9]>
     <script src="<?php echo site_url(); ?>assets/global/vendor/html5shiv/html5shiv.min.js"></script>
     <![endif]-->
@@ -44,7 +44,7 @@
   Breakpoints();
   </script>
 </head>
-<body class="site-navbar-small " >
+<body class="site-navbar-small ">
 <?php echo $this->session->flashdata('pesan')?>
 
 <?php echo $this->load->view('common/menu', '', TRUE);?>
@@ -52,108 +52,71 @@
 
   <div class="page animsition">
     <div class="page-header">
-      <h1 class="page-title">Tugas Akhir / Skripsi</h1>
-
+      <h1 class="page-title">Semua Skripsi/ Tugas Akhir</h1>
 
     </div>
     <div class="page-content">
       <!-- Panel Basic -->
-      <div class="panel  ">
-        <div class="panel-body container-fluid">
-          <div class="row row-lg">
-            <div class="clearfix hidden-xs"></div>
-            <div class="col-sm-10 col-md-10">
-              <!-- Example Horizontal Form -->
+      <div class="panel">
+        <header class="panel-heading">
+          <div class="panel-actions"></div>
+
+        </header>
+        <div class="panel-body">
+          <br>
+          <table class="table table-hover dataTable table-striped width-full" data-plugin="dataTable">
+            <thead>
+              <tr>
+                <th>NO</th>
+                <th>NPM</th>
+                <th>Nama</th>
+                <th>Judul</th>
+                <th>Bidang Minat</th>
+                <th>Prodi</th>
+                <th>Detail</th>
 
 
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                <th>NO</th>
+                <th>NPM</th>
+                <th>Nama</th>
+                <th>Judul</th>
+                <th>Bidang Minat</th>
+                <th>Prodi</th>
+                <th>Detail</th>
+              </tr>
+            </tfoot>
+            <tbody>
               <?php
                  $i=0;
-                 foreach($ta as $ta){
+                 foreach($lihat as $judul){
                  $i++;
                ?>
-                <div class="example">
-                
-                    <div class="form-group form-material">
-                      <label class="col-sm-3 control-label">Judul</label>
-                      <div class="col-sm-9">
-                        <textarea class="form-control" id="textarea" name="textarea" rows="4" disabled><?php echo $ta->judul?></textarea>
-                        </div>
-                    </div>
-                    <div class="form-group form-material">
-                      <label class="col-sm-3 control-label">abstrak</label>
-                      <div class="col-sm-9">
-                        <textarea class="form-control" id="textarea" name="textarea" disabled rows="10"><?php echo $ta->abstrak?></textarea>
-                      </div>
-                    </div>
-                    <div class="form-group form-material">
-                      <label class="col-sm-3 control-label">Bidang minat</label>
-                      <div class="col-sm-9">
-                        <select class="form-control" id="select" disabled required name="bidang_minat">
-                        <option value="">Pilih Bidang Minat</option>
-
-
-                          </select>
-                      </div>
-                    </div>
-                    <?php
-                       $i=0;
-                       foreach($dosen as $dosen){
-                       $i++;
-                     ?>
-                    <div class="form-group form-material">
-                      <label class="col-sm-3 control-label">Dosen Pembimbing <?php echo $dosen->pembimbing?></label>
-                      <div class="col-sm-9">
-
-                          <select class="form-control" disabled id="select" required name="dosen1">
-                                 <option value=""><?php echo $dosen->nama?></option>
-
-                              </select>
-
-                      </div>
-                    </div>
-                    <?php
-                  }
-                     ?>
-
-                    <script>
-$(function(){
-    $('#download').hide();
-});
-</script>
-                    <div class="form-group ">
-                      <label class="col-sm-3 control-label"><b>Baca</b></label>
-                      <div class="col-sm-9">
-                        <object width="100%" height="400" readonly type="application/pdf" data="<?php echo site_url();?>uploads/<?php echo $ta->pdf?>">
-                          <embed src="<?php echo site_url();?>uploads/<?php echo $ta->pdf?>" type="application/pdf" />
-                        </object>
-                      </div>
-                    </div>
-
-
-
-
-
-                    <?php
-                    $level=$this->session->userdata('level');
-
-                    if($ta->verifikasi==0 && $level==0){
-                    ?>
-                    <div class="form-group form-material">
-                      <div class="col-sm-9 col-sm-offset-3">
-                        <a href="<?php echo base_url()?>upload/batalkan?id=<?php echo $ta->npm?>&&file=<?php echo $ta->pdf?>"><button type="submit" class="btn btn-warning waves-effect waves-light">Batalkan</button></a>
-                      </div>
-                    </div>
+                <tr>
+                  <td><?php echo $i; ?></td>
+                  <td><?php echo $judul->npm; ?></td>
+                  <td><?php echo $judul->nama; ?></td>
+                  <td><?php echo $judul->judul; ?></td>
+                  <td><?php echo $judul->nama_bidang_minat; ?></td>
+                  <td><?php echo $judul->nama_prodi; ?></td>
 
                   <?php
-                  } ?>
+                  echo"<td class='center' width='10%'><a href='". site_url()."detail_judul?id=".$judul->npm."'>
+                  <button type='button' class='btn btn-success'>Detail</button></a>
+                    </td>";
+                  ?>
 
-                </div>
-                <?php
-                  }
-                 ?>
-              <!-- End Example Horizontal Form -->
-            </div>
-          </div>
+                </tr>
+              <?php
+               }
+               ?>
+
+
+            </tbody>
+          </table>
         </div>
       </div>
 
