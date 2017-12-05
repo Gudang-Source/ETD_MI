@@ -38,25 +38,19 @@
 				  'alamat'=>$this->input->post('alamat'),
 				  'email'=>$this->input->post('email'),
 				  'id_prodi'=>$this->input->post('prodi'),
-				  'no_hp'=>$this->input->post('no_hp')
-
-
-				);
-				$user = array(
-				  'username'=>$this->input->post('npm'),
-				  'nama_lengkap'=>$this->input->post('nama'),
-				  'level'=>0,
-				  'password'=>$password_baru
+				  'no_hp'=>$this->input->post('no_hp'),
+          'password'=>$password_baru
 
 				);
+
 
 			$cek1=$this->db->insert('mahasiswa',$mahasiswa);
-			$cek2=$this->db->insert('user',$user);
-			if($cek1 && $cek2){
+
+			if($cek1){
 				return true;
-			}else{
-				return false;
-			}
+      }else{
+        return true;
+      }
 
 			}else{
 				return false;

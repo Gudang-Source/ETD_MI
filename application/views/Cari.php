@@ -68,18 +68,45 @@
             </div>
             <div class="form-group col-lg-2">
                   <select class="form-control " name="prodi">
-                    <option value="0">Semua</option>
+
+                    <?php $prodi_cari=$_GET['prodi'];
+
+                      iF($prodi_cari==0){
+                          echo "<option value='0'>Semua</option>";
+                        foreach($prodi as $prodi){
+                     ?>
+                      <option value="<?php echo $prodi->id_prodi?>"><?php echo $prodi->nama_prodi?></option>
+
+                     <?php
+                        }
+                      }else if($prodi_cari>0){
+                     ?>
+
                     <?php
-                       $i=0;
-                       foreach($prodi as $prodi){
-                       $i++;
+
+                       foreach($prodi0 as $prodi){
+                       if($prodi_cari==$prodi->id_prodi){
                     ?>
                      <option value="<?php echo $prodi->id_prodi?>"><?php echo $prodi->nama_prodi?></option>
 
                     <?php
                        }
+                     }
                     ?>
 
+
+                    <?php
+                       foreach($prodi1 as $prodi2){
+                       if($prodi_cari!=$prodi2->id_prodi){
+                    ?>
+                     <option value="<?php echo $prodi2->id_prodi?>"><?php echo $prodi2->nama_prodi?></option>
+
+                    <?php
+                       }
+                     }
+                    ?>
+                     <option value="0">Semua</option>
+                   <?php  } ?>
                   </select>
                 </div>
             <button type="submit" class="btn btn-round btn-info waves-effect waves-round waves-light">Cari</button>
@@ -195,12 +222,7 @@
   </div>
   <!-- End Page -->
   <!-- Footer -->
-  <footer class="site-footer">
-    <div class="site-footer-legal">© 2016 <a href="http://themeforest.net/item/remark-responsive-bootstrap-admin-template/11989202">Remark</a></div>
-    <div class="site-footer-right">
-      Crafted with <i class="red-600 icon md-favorite"></i> by <a href="http://themeforest.net/user/amazingSurge">amazingSurge</a>
-    </div>
-  </footer>
+    <?php echo $this->load->view('common/footer', '', TRUE);?>
   <!-- Core  -->
   <script src="<?php echo site_url(); ?>assets/global/vendor/jquery/jquery.js"></script>
   <script src="<?php echo site_url(); ?>assets/global/vendor/bootstrap/bootstrap.js"></script>

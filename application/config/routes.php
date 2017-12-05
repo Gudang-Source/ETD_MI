@@ -62,6 +62,12 @@ $route['cari'] = 'Cari';
 $route['detail_judul'] = 'Judul/detail_judul';
 $route['detail_judul_admin'] = 'Judul/detail_judul_admin';
 
+
+/*-----------------------------------------------------------------------*/
+$route['prodi'] = 'Prodi';
+$route['tambah_prodi'] = 'Prodi/prodi';
+$route['edit_prodi'] = 'Prodi/edit_dosen';
+$route['hapus_prodi'] = 'Prodi/hapus_prodi';
 /*-----------------------------------------------------------------------*/
 $route['dosen'] = 'Dosen';
 $route['tambah_dosen'] = 'Dosen/tambah_dosen';

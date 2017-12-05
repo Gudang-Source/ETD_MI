@@ -20,6 +20,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
          $prodi=$_GET['prodi'];
          $data['cari'] = $this->M_Judul->cari_prodi($id,$prodi);
          $data['prodi'] = $this->M_Prodi->lihat();
+         $data['prodi0'] = $this->M_Prodi->lihat();
+         $data['prodi1'] = $this->M_Prodi->lihat();
          //print_r($data['cari']);
          $this->load->view('Cari',$data);
        }

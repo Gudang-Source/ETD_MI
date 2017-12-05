@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
   <meta name="description" content="bootstrap admin template">
   <meta name="author" content="">
-  <title>Upload Skripsi/ Tugas Akhir</title>
+  <title>Prodi</title>
   <?php echo $this->load->view('common/head', '', TRUE);?>
   <!-- Stylesheets -->
   <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/css/bootstrap.min.css">
@@ -52,7 +52,7 @@
 
   <div class="page animsition">
     <div class="page-header">
-      <h1 class="page-title">Tugas Akhir / Skripsi</h1>
+      <h1 class="page-title">Prodi</h1>
 
 
     </div>
@@ -64,93 +64,95 @@
             <div class="clearfix hidden-xs"></div>
             <div class="col-sm-10 col-md-10">
               <!-- Example Horizontal Form -->
+              <div class="example-wrap">
+                <h4 class="example-title">Tambah Prodi</h4>
 
-
-              <?php
-                 $i=0;
-                 foreach($ta as $ta){
-                 $i++;
-               ?>
                 <div class="example">
-
+                  <form class="form-horizontal" action="admin/proses_tambah_admin" method="post">
                     <div class="form-group form-material">
-                      <label class="col-sm-3 control-label">Judul</label>
+                      <label class="col-sm-3 control-label">Kode Prodi</label>
                       <div class="col-sm-9">
-                        <textarea class="form-control" id="textarea" name="textarea" rows="4" disabled><?php echo $ta->judul?></textarea>
-                        </div>
-                    </div>
-                    <div class="form-group form-material">
-                      <label class="col-sm-3 control-label">abstrak</label>
-                      <div class="col-sm-9">
-                        <textarea class="form-control" id="textarea" name="textarea" disabled rows="10"><?php echo $ta->abstrak?></textarea>
+                        <input type="text" class="form-control" name="id_prodi" placeholder="Username" autocomplete="off" required>
                       </div>
                     </div>
                     <div class="form-group form-material">
-                      <label class="col-sm-3 control-label">Bidang minat</label>
+                      <label class="col-sm-3 control-label">Nama Prodi</label>
                       <div class="col-sm-9">
-                        <select class="form-control" id="select" disabled required name="bidang_minat">
-                        <option value="">Pilih Bidang Minat</option>
-
-
-                          </select>
-                      </div>
-                    </div>
-                    <?php
-                       $i=0;
-                       foreach($dosen as $dosen){
-                       $i++;
-                     ?>
-                    <div class="form-group form-material">
-                      <label class="col-sm-3 control-label">Dosen Pembimbing <?php echo $dosen->pembimbing?></label>
-                      <div class="col-sm-9">
-
-                          <select class="form-control" disabled id="select" required name="dosen1">
-                                 <option value=""><?php echo $dosen->nama?></option>
-
-                              </select>
-
-                      </div>
-                    </div>
-                    <?php
-                  }
-                     ?>
-
-
-                    <div class="form-group ">
-                      <label class="col-sm-3 control-label"><b>Baca</b></label>
-                      <div class="col-sm-9">
-                        <object width="100%" height="400" readonly type="application/pdf" data="<?php echo site_url();?>uploads/<?php echo $ta->pdf?>">
-                          <embed src="<?php echo site_url();?>uploads/<?php echo $ta->pdf?>" type="application/pdf" />
-                        </object>
+                        <input type="text" class="form-control" name="nama_lengkap" placeholder="Nama Lengkap" autocomplete="off" required>
                       </div>
                     </div>
 
-
-
-
-
-
-                    <?php
-                    $level=$this->session->userdata('level');
-
-                    if($ta->verifikasi==0 && $level==0){
-                    ?>
                     <div class="form-group form-material">
                       <div class="col-sm-9 col-sm-offset-3">
-                        <a href="<?php echo base_url()?>upload/batalkan?id=<?php echo $ta->npm?>&&file=<?php echo $ta->pdf?>"><button type="submit" class="btn btn-warning waves-effect waves-light">Batalkan</button></a>
+                        <button type="submit" class="btn btn-primary waves-effect waves-light">Submit </button>
+                        <button type="reset" class="btn btn-warning waves-effect waves-light">Reset</button>
                       </div>
                     </div>
-
-                  <?php
-                  } ?>
-
+                  </form>
                 </div>
-                <?php
-                  }
-                 ?>
+              </div>
               <!-- End Example Horizontal Form -->
             </div>
           </div>
+        </div>
+      </div>
+      <div class="panel">
+        <header class="panel-heading">
+          <div class="panel-actions"></div>
+          <h3 class="panel-title">Data Admin</h3>
+        </header>
+        <div class="panel-body">
+          <table class="table table-hover dataTable table-striped width-full" data-plugin="dataTable">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Kode Prodi</th>
+                <th>Nama Prodi</th>
+                <th>Gambar</th>
+                <th>Edit</th>
+                <th>Hapus</th>
+
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                <th>No</th>
+                <th>Kode Prodi</th>
+                <th>Nama Prodi</th>
+                <th>Gambar</th>
+                <th>Edit</th>
+                <th>Hapus</th>
+              </tr>
+            </tfoot>
+            <tbody>
+              <?php
+                 $i=0;
+                 foreach($lihat as $prodi){
+                 $i++;
+               ?>
+                <tr>
+                  <td><?php echo $i; ?></td>
+                  <td><?php echo $prodi->id_prodi; ?></td>
+                  <td><?php echo $prodi->nama_prodi; ?></td>
+                  <td><?php echo $prodi->logo; ?></td>
+
+                  <?php
+                    echo"<td class='center' width='10%'><a href='". site_url()."admin/proses_hapus_admin?id=$prodi->id_prodi' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
+                      \" title='Hapus'><button type='button' class='btn btn-danger'>Edit</button></a>
+                      </td>";
+                    ?>
+                <?php
+                  echo"<td class='center' width='10%'><a href='". site_url()."admin/proses_hapus_admin?id=$prodi->id_prodi' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
+                    \" title='Hapus'><button type='button' class='btn btn-danger'>Hapus</button></a>
+                    </td>";
+                  ?>
+                </tr>
+              <?php
+               }
+               ?>
+
+            </tbody>
+          </table>
         </div>
       </div>
 

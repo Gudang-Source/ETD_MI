@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2017 at 11:16 AM
+-- Generation Time: Dec 05, 2017 at 03:42 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.5.38
 
@@ -88,7 +88,15 @@ INSERT INTO `bimbing` (`id_bimbing`, `npm`, `nip`, `pembimbing`) VALUES
 (34, '1308001010011', '1234567', 1),
 (35, '1308001010011', '1234567', 2),
 (36, '1308001010011', '1234567', 1),
-(37, '1308001010011', '1234567', 2);
+(37, '1308001010011', '1234567', 2),
+(38, '1308001010011', '1234567', 1),
+(39, '1308001010011', '1234567', 2),
+(40, '1308001010011', '1234567', 1),
+(41, '1308001010011', '1234567', 2),
+(42, '1308001010011', '1234567', 1),
+(43, '1308001010011', '1234567', 2),
+(44, '1308001010012', '1234567', 1),
+(45, '1308001010012', '1234567', 2);
 
 -- --------------------------------------------------------
 
@@ -131,11 +139,9 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`npm`, `password`, `alamat`, `email`, `nama`, `id_prodi`, `no_hp`, `id_bidang_minat`, `level`) VALUES
-('1308001010011', '0357a7592c4734a8b1e12bc48e29e9e9', 'Jalan. T. Hamzah Bendahara No 31, Kuta Alam, Banda Aceh', 'hariririski@gmailu.co', 'HARIRIRISKI', '2', '08223765', 2, 0),
-('1308001010012', '0357a7592c4734a8b1e12bc48e29e9e9', 'Jalan. T. Hamzah Bendahara No 31, Kuta Alam, Banda Aceh', 'hariririski@gmailu.com', 'HARIRIRISKI', '2', '0822376537209', 1, 0),
-('1308001010013', '', 'Jalan. T. Hamzah Bendahara No 31, Kuta Alam, Banda Aceh', 'hariririski@gmailu.com3', 'HARIRIRISKI', '1', '08223765372093', 1, 0),
-('1308001010020', '', 'kjh', 'hariririski@gmail.com2', 'dia', '2', '09876543', NULL, 0),
-('1308107010011', '', 'asdfghj', 'yusran@gmail.com', 'Yusran', '1', '0987654', NULL, 0);
+('1308001010011', '0357a7592c4734a8b1e12bc48e29e9e9', 'Jalan. T. Hamzah Bendahara No 31, Kuta Alam, Banda Aceh', 'hariririski@gmailu.co', 'HARIRIRISKI', '2', '08223765', 1, 0),
+('1308001010012', '0357a7592c4734a8b1e12bc48e29e9e9', 'Jalan. T. Hamzah Bendahara No 31, Kuta Alam, Banda Aceh', 'hariririski@gmailu.com', 'HARIRIRISKI', '1', '0822376537209', 2, 0),
+('1308001010013', '0357a7592c4734a8b1e12bc48e29e9e9', 'qwertyu', 'hariririski@gmail.comwwww', 'inf', '1', '1234567', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -177,6 +183,14 @@ CREATE TABLE `ta` (
   `npm` varchar(20) NOT NULL,
   `pdf` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `ta`
+--
+
+INSERT INTO `ta` (`id_tugas_akhir`, `judul`, `abstrak`, `tgl_upload`, `verifikasi`, `publikasi`, `sampai`, `npm`, `pdf`) VALUES
+(13, 'a', 'a', '2017-12-03 13:29:08', 1, 3, '2017-12-04', '1308001010011', '1308001010011.pdf'),
+(16, '1', '2', '2017-12-03 13:28:47', 1, 1, NULL, '1308001010012', '1308001010012.pdf');
 
 -- --------------------------------------------------------
 
@@ -265,7 +279,7 @@ ALTER TABLE `bidang_minat`
 -- AUTO_INCREMENT for table `bimbing`
 --
 ALTER TABLE `bimbing`
-  MODIFY `id_bimbing` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id_bimbing` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 --
 -- AUTO_INCREMENT for table `prodi`
 --
@@ -275,7 +289,7 @@ ALTER TABLE `prodi`
 -- AUTO_INCREMENT for table `ta`
 --
 ALTER TABLE `ta`
-  MODIFY `id_tugas_akhir` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_tugas_akhir` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
