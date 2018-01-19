@@ -52,7 +52,7 @@
 
   <div class="page animsition">
     <div class="page-header">
-      <h1 class="page-title">Semua Skripsi/ Tugas Akhir</h1>
+      <h1 class="page-title">Semua Tugas Akhir/Skripsi</h1>
 
     </div>
     <div class="page-content">

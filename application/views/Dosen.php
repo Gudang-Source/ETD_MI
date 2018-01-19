@@ -101,7 +101,7 @@
       <div class="panel">
         <header class="panel-heading">
           <div class="panel-actions"></div>
-          <h3 class="panel-title">Data dosen</h3>
+          <h3 class="panel-title">Semua Data Dosen</h3>
         </header>
         <div class="panel-body">
           <table class="table table-hover dataTable table-striped width-full" data-plugin="dataTable">
