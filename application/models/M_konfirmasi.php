@@ -18,8 +18,16 @@ class M_Konfirmasi extends CI_Model{
     function batalkan($id)
     {
       $query=$this->db->where('npm', $id);
-      $cek=$this->db->delete('ta');
-      return $cek;
+      $cek1=$this->db->delete('ta');
+
+      $query=$this->db->where('npm', $id);
+      $cek2=$this->db->delete('bimbing');
+
+      if($cek2 && $cek1){
+        return true;
+      }else{
+        return FALSE;
+      }
     }
 
 

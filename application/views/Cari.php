@@ -151,7 +151,7 @@
                                       <div class="media">
                                         <div class="media-left">
                                           <div class="<?php echo $cari->css1?>">
-                                            <img src="<?php echo site_url(); ?>uploads/<?php echo $cari->logo?>" alt="...">
+                                            <img src="<?php echo site_url(); ?>assets/image/<?php echo $cari->logo?>" alt="...">
                                             <i class="avatar avatar-busy"></i>
                                           </div>
                                         </div>
@@ -178,7 +178,7 @@
                                                   <i class="icon md-badge-check" aria-hidden="true"><font color="black"><?php echo " ".$cari->nama_bidang_minat?></font></i>
                                                 </a>
                                                   <i class="icon wb-calendar" aria-hidden="true"><font color="black">Tanggal Upload : <?php echo " ".$cari->tgl_upload?></font></i>
-                                                
+
 
                                                 </a>
                                               </a>

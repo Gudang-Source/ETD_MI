@@ -68,17 +68,25 @@
                 <h4 class="example-title">Tambah Prodi</h4>
 
                 <div class="example">
-                  <form class="form-horizontal" action="admin/proses_tambah_admin" method="post">
+                  <form class="form-horizontal" action="prodi/proses_tambah_prodi" enctype="multipart/form-data" method="post">
                     <div class="form-group form-material">
                       <label class="col-sm-3 control-label">Kode Prodi</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" name="id_prodi" placeholder="Username" autocomplete="off" required>
+                        <input type="number" class="form-control" name="id_prodi" placeholder="Kode Prodi" autocomplete="off" required>
                       </div>
                     </div>
                     <div class="form-group form-material">
                       <label class="col-sm-3 control-label">Nama Prodi</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" name="nama_lengkap" placeholder="Nama Lengkap" autocomplete="off" required>
+                        <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap" autocomplete="off" required>
+                      </div>
+                    </div>
+
+                    <div class="form-group form-material">
+                      <label class="col-sm-3 control-label"><b>Icon Prodi</b></label>
+                      <div class="col-sm-9">
+                        <input type="file" name="gambar" id="fileToUpload">
+                        <input type="submit" value="Upload Image" name="submit">
                       </div>
                     </div>
 
@@ -117,9 +125,9 @@
             <tfoot>
               <tr>
                 <th>No</th>
-                <th>Kode Prodi</th>
-                <th>Nama Prodi</th>
-                <th>Gambar</th>
+                <th width='10%'>Kode Prodi</th>
+                <th width='40%'>Nama Prodi</th>
+                <th >Gambar</th>
                 <th>Edit</th>
                 <th>Hapus</th>
               </tr>
@@ -134,7 +142,7 @@
                   <td><?php echo $i; ?></td>
                   <td><?php echo $prodi->id_prodi; ?></td>
                   <td><?php echo $prodi->nama_prodi; ?></td>
-                  <td><?php echo $prodi->logo; ?></td>
+                  <td><center><img width="15%" src="<?php echo site_url(); ?>assets/image/<?php echo $prodi->logo; ?>"></center></td>
 
                   <?php
                     echo"<td class='center' width='10%'><a href='". site_url()."admin/proses_hapus_admin?id=$prodi->id_prodi' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')

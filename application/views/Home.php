@@ -124,7 +124,7 @@
                                       <div class="media">
                                         <div class="media-left">
                                           <div class="<?php echo $judul100->css1?>">
-                                            <img src="<?php echo site_url(); ?>uploads/<?php echo $judul100->logo?>" alt="...">
+                                            <img src="<?php echo site_url(); ?>assets/image/<?php echo $judul100->logo?>" alt="...">
                                             <i class="avatar avatar-busy"></i>
                                           </div>
                                         </div>
@@ -144,12 +144,21 @@
                                           </p>
                                           <div>
                                               <h6>
-                                            <a class="text-action" href="<?php echo site_url(); ?>cari/cari_prodi?id=&prodi=<?php echo $judul100->id_prodi?>">
-                                            <i class="icon icon-color icon md-star-circle" aria-hidden="true"><font color="black"><?php echo " ".$judul100->nama_prodi?></font></i>
-                                            </a>
-                                            <a class="text-action" href="<?php echo site_url(); ?>cari/cari_prodi?id=<?php echo $judul100->nama_bidang_minat?>&prodi=0">
-                                              <i class="icon icon-color icon md-check-all" aria-hidden="true"><font color="black"><?php echo " ".$judul100->nama_bidang_minat?></font></i>
-                                            </a>
+                                                <a class="text-action" href="<?php echo site_url(); ?>cari/cari_prodi?id=&prodi=<?php echo $judul100->id_prodi?>">
+                                                <i class="icon icon-color icon md-star-circle" aria-hidden="true"><font color="black"><?php echo " ".$judul100->nama_prodi?></font></i>
+                                                </a>
+                                                <a class="text-action" href="<?php echo site_url(); ?>cari/cari_prodi?id=<?php echo $judul100->nama_bidang_minat?>&prodi=0">
+                                                  <i class="icon md-badge-check" aria-hidden="true"><font color="black"><?php echo " ".$judul100->nama_bidang_minat?></font></i>
+                                                </a>
+                                                  <i class="icon wb-calendar" aria-hidden="true"><font color="black">Tanggal Upload : <?php echo " ".$judul100->tgl_upload?></font></i>
+
+
+                                                </a>
+                                              </a>
+
+                                                <i class="icon md-graduation-cap" aria-hidden="true"><font color="black">Tanggal Sidang : <?php echo " ".$judul100->tgl_sidang?></font></i>
+
+                                              </a>
 
 
                                           </div>

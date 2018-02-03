@@ -162,6 +162,12 @@
                             </select>
                       </div>
                     </div>
+                    <div class="form-group form-material">
+                      <label class="col-sm-3 control-label">Tanggal Sidang</label>
+                      <div class="col-sm-9">
+                        <input type="date" class="form-control" name="tgl_sidang" placeholder="Tanggal Sidang" autocomplete="off" required>
+                      </div>
+                    </div>
                     <div class="form-group ">
                       <label class="col-sm-3 control-label"><b>Keterangan Publikasi</b></label>
                       <div class="col-sm-9">

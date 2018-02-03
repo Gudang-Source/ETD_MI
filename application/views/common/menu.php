@@ -209,8 +209,8 @@
                   <span class="site-menu-title">Admin</span>
                 </a>
               </li>
-              <li class="site-menu-item <?php $link=uri_string(); if($link =="admin"){ echo "active";} ?>">
-                <a class="animsition-link" href="<?php echo site_url(); ?>admin">
+              <li class="site-menu-item <?php $link=uri_string(); if($link =="prodi"){ echo "active";} ?>">
+                <a class="animsition-link" href="<?php echo site_url(); ?>prodi">
                   <span class="site-menu-title">Program Studi</span>
                 </a>
               </li>

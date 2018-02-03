@@ -120,17 +120,55 @@
                     <?php
                   }
                      ?>
+                     <div class="form-group form-material">
+                       <label class="col-sm-3 control-label">Tanggal Sidang</label>
+                       <div class="col-sm-9">
+                         <select class="form-control" id="select" disabled required name="bidang_minat">
+                         <option value=""><?php echo $ta->tgl_sidang?></option>
+                           </select>
+                       </div>
+                     </div>
 
+                     <?php
+                     $level=$this->session->userdata('level');
+                     if($level!=null){
 
-                    <div class="form-group ">
-                      <label class="col-sm-3 control-label"><b>Baca</b></label>
-                      <div class="col-sm-9">
-                        <object width="100%" height="400" readonly type="application/pdf" data="<?php echo site_url();?>uploads/<?php echo $ta->pdf?>">
-                          <embed src="<?php echo site_url();?>uploads/<?php echo $ta->pdf?>" type="application/pdf" />
-                        </object>
-                      </div>
+                     ?>
+                     <div class="form-group ">
+                       <label class="col-sm-3 control-label"><b>Baca</b></label>
+                       <div class="col-sm-9">
+                         <object width="100%" height="400" readonly type="application/pdf" data="<?php echo site_url();?>uploads/<?php echo $ta->pdf?>">
+                           <embed src="<?php echo site_url();?>uploads/<?php echo $ta->pdf?>" type="application/pdf" />
+                         </object>
+                       </div>
+                     </div>
+                   <?php }else{ ?>
+                     <br>
+                     <br>
+                     <div class="form-group ">
+                       <label class="col-sm-3 control-label"><b>Baca</b></label>
+                       <div class="col-sm-9">
+                         <div role="alert" class="alert dark alert-success alert-dismissible">
+                      <button aria-label="Close" data-dismiss="alert" class="close" type="button">
+                        <span aria-hidden="true">×</span>
+                      </button>
+                      <h4>Pesan</h4>
+                      <p>
+                            Untuk Membaca Skripsi/ Ta Anda Harus Login Terlebih Dahulu
+                      </p>
+                      <p class="margin-top-15">
+                        <a href="<?php echo site_url(); ?>login"><button class="btn btn-success btn-inverse waves-effect waves-light" type="button">Login</button></a>
+                        <a href="<?php echo site_url(); ?>daftar"><button class="btn btn-link white waves-effect waves-light" type="button">Daftar</button></a>
+                      </p>
                     </div>
+                  <?php }?>
 
+
+
+
+
+                    </div>
+                  </div>
 
 
 

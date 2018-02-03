@@ -18,6 +18,7 @@ class M_Upload extends CI_Model{
           'verifikasi'=>0,
           'publikasi'=>$this->input->post('publikasi'),
           'sampai'=>$this->input->post('sampai'),
+          'tgl_sidang'=>$this->input->post('tgl_sidang'),
           'npm'=>$username,
           'pdf'=>$pdf
 
@@ -40,10 +41,13 @@ class M_Upload extends CI_Model{
       );
       $C1=$this->db->insert('ta',$upload);
           $this->db->where('npm',$username);
+      if($C1){
       $C2=$this->db->update('mahasiswa',$mhs);
+      }
+      if($C1&&$c2){
       $C3=$this->db->insert('bimbing',$dosen1);
       $C4=$this->db->insert('bimbing',$dosen2);
-
+      }
       if($C1 && $C2 && $C3 && $C4){
         return true;
       }

@@ -26,14 +26,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       }
 
       public function proses_tambah_prodi(){
-    		$cek= $this->M_Admin->tambah_admin();
-        if($cek){
-          $this->tambah_berhasil();
-          redirect('admin');
-        }else{
-          $this->tambah_gagal();
-          redirect('admin');
+        $config['upload_path']   = './assets/Image';
+        $config['allowed_types'] = 'jpg|JPD|JEPG|PNG|png';
+        $config['max_size']      = 20000;
+        $config['max_width']     = 10240;
+        $config['max_height']    = 7680;
+        $new_name =$_FILES["gambar"] ['name'];
+        $username=$this->session->userdata('login');
+
+        $this->load->library('upload', $config);
+
+        if ( ! $this->upload->do_upload('gambar')) {
+
+             $this->upload();
+             redirect('prodi');
         }
+
+        else {
+
+             $this->load->model('M_Prodi');
+             $cek=$this->M_Prodi->tambah($new_name);
+             if($cek){
+               $this->tambah_berhasil();
+               redirect('prodi');
+             }else{
+               $this->tambah_gagal();
+               redirect('prodi');
+             }
+        }
+
+
+
     	}
 
       function tambah_berhasil(){
