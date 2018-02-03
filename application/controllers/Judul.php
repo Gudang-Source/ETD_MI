@@ -40,7 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
          $id=$_GET['id'];
          $data['ta'] = $this->M_Judul->detail_judul($id);
          $data['dosen'] = $this->M_Judul->dosen($id);
-
+         $admin=$this->session->userdata('level');
          $this->load->view('detail_judul',$data);
        }
 

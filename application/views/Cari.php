@@ -175,8 +175,17 @@
                                                 <i class="icon icon-color icon md-star-circle" aria-hidden="true"><font color="black"><?php echo " ".$cari->nama_prodi?></font></i>
                                                 </a>
                                                 <a class="text-action" href="<?php echo site_url(); ?>cari/cari_prodi?id=<?php echo $cari->nama_bidang_minat?>&prodi=0">
-                                                  <i class="icon icon-color icon md-check-all" aria-hidden="true"><font color="black"><?php echo " ".$cari->nama_bidang_minat?></font></i>
+                                                  <i class="icon md-badge-check" aria-hidden="true"><font color="black"><?php echo " ".$cari->nama_bidang_minat?></font></i>
                                                 </a>
+                                                  <i class="icon wb-calendar" aria-hidden="true"><font color="black">Tanggal Upload : <?php echo " ".$cari->tgl_upload?></font></i>
+                                                
+
+                                                </a>
+                                              </a>
+
+                                                <i class="icon md-graduation-cap" aria-hidden="true"><font color="black">Tanggal Sidang : <?php echo " ".$cari->tgl_sidang?></font></i>
+
+                                              </a>
 
 
                                           </div>

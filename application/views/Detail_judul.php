@@ -80,18 +80,24 @@
                         </div>
                     </div>
                     <div class="form-group form-material">
-                      <label class="col-sm-3 control-label">abstrak</label>
+                      <label class="col-sm-3 control-label">Abstrak</label>
                       <div class="col-sm-9">
                         <textarea class="form-control" id="textarea" name="textarea" disabled rows="10"><?php echo $ta->abstrak?></textarea>
+                      </div>
+                    </div>
+                    <div class="form-group form-material">
+                      <label class="col-sm-3 control-label">Prodi</label>
+                      <div class="col-sm-9">
+                        <select class="form-control" id="select" disabled required name="bidang_minat">
+                        <option value=""><?php echo $ta->nama_prodi?></option>
+                          </select>
                       </div>
                     </div>
                     <div class="form-group form-material">
                       <label class="col-sm-3 control-label">Bidang minat</label>
                       <div class="col-sm-9">
                         <select class="form-control" id="select" disabled required name="bidang_minat">
-                        <option value="">Pilih Bidang Minat</option>
-
-
+                        <option value=""><?php echo $ta->nama_bidang_minat?></option>
                           </select>
                       </div>
                     </div>
