@@ -55,13 +55,27 @@
                   '<div class="col-sm-9" >'+
                     '<input type="date" class="form-control" name="sampai" placeholder="Tanggal" autocomplete="off" required>'+
                   '</div>';
+                  document.getElementById('parsial_full').innerHTML="";
+                  document.getElementById('pdf').innerHTML='<label id="pdf"class="col-sm-3 control-label"><b>File PDF lengkap </b></label>';
               }else if(this.value == '2'){
                   document.getElementById('batas').innerHTML='';
+
                   document.getElementById('parsial').innerHTML='1. Cover <br>2. Lembar Pengesahan <br>3. Abstrak <br>4. Daftar Isi <br>5. Pendahuluan <br>6. Kesimpulan';
+                  document.getElementById('parsial_full').innerHTML=
+                  '<div id="upload_full_parsial" class="form-group ">'+
+                      '<label class="col-sm-3 control-label"><b>File PDF Lengkap</b></label>'+
+                      '<div class="col-sm-9">'+
+                          '<input type="file" name="pdf_full" id="fileToUpload2" required>'+
+                          '<p id="parsial"></p>'+
+                      '</div>'+
+                    '</div>';
+                    document.getElementById('pdf').innerHTML='<label id="pdf"class="col-sm-3 control-label"><b>File PDF Parsial </b></label>';
 
               }else if(this.value == '1'){
                     document.getElementById('batas').innerHTML='';
                     document.getElementById('parsial').innerHTML='';
+                    document.getElementById('parsial_full').innerHTML="";
+                    document.getElementById('pdf').innerHTML='<label id="pdf"class="col-sm-3 control-label"><b>File PDF Lengkap</b></label>';
                 }
 
             });
@@ -193,7 +207,7 @@
                           </div>
                           <div class="radio-custom radio-primary">
                             <input value="2" type="radio" id="inputRadiosChecked" name="publikasi" >
-                            <label for="inputRadiosChecked">Publikasi Pardial (Sebagian)</label>
+                            <label for="inputRadiosChecked">Publikasi Parsial (Sebagian)</label>
                           </div>
                           <div class="radio-custom radio-primary">
                             <input value="3" type="radio" id="inputRadiosChecked" name="publikasi" >
@@ -213,7 +227,10 @@
 
 
                     <div class="form-group ">
-                      <label class="col-sm-3 control-label"><b>File PDF</b></label>
+                      <p id="pdf">
+                          <label  class="col-sm-3 control-label"><b>File PDF Lengkap</b></label>
+                      </p>
+
                       <div class="col-sm-9">
                           <input type="file" name="pdf" id="fileToUpload" required>
                           <p id="parsial">
@@ -221,6 +238,9 @@
                           </p>
                       </div>
                     </div>
+                    <p id="parsial_full">
+
+                    </p>
 
 
 
