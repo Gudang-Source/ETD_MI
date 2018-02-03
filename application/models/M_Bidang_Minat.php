@@ -18,7 +18,7 @@ class M_Bidang_Minat extends CI_Model{
     {
       $data = array(
           'nama_bidang_minat'=>$this->input->post('bidang_minat'),
-          'id_prodi'=>$this->input->post('prodi')
+          'id_prodi'=>$this->session->userdata('prodi')
 
       );
       $cek=$this->db->insert('bidang_minat',$data);

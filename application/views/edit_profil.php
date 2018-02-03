@@ -140,7 +140,7 @@
                     <div class="form-group form-material">
                       <label class="col-sm-3 control-label">Alamat</label>
                       <div class="col-sm-9">
-                        <input type="number" class="form-control" name="password" placeholder="Password" autocomplete="off" value="<?php echo $mahasiswa->no_hp?>" required>
+                        <input type="text" class="form-control" name="password" placeholder="Password" autocomplete="off" value="<?php echo $mahasiswa->alamat?>" required>
                       </div>
                     </div>
                     <?php
