@@ -80,7 +80,7 @@
                         </div>
                     </div>
                     <div class="form-group form-material">
-                      <label class="col-sm-3 control-label">abstrak</label>
+                      <label class="col-sm-3 control-label">Abstrak</label>
                       <div class="col-sm-9">
                         <textarea class="form-control" id="textarea" name="textarea" disabled rows="10"><?php echo $ta->abstrak?></textarea>
                       </div>
