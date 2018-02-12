@@ -55,9 +55,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
              }
         }
 
-
-
     	}
+
+      public function proses_hapus_prodi(){
+          $id=$_GET ['id'];
+          $cek= $this->M_Prodi->hapus($id);
+          if($cek){
+            $this->hapus_berhasil();
+            redirect('prodi');
+          }else{
+            $this->hapus_gagal();
+            redirect('prodi');
+          }
+      }
 
       function tambah_berhasil(){
        $this->session->set_flashdata('pesan', '

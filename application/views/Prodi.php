@@ -145,12 +145,12 @@
                   <td><center><img width="15%" src="<?php echo site_url(); ?>assets/image/<?php echo $prodi->logo; ?>"></center></td>
 
                   <?php
-                    echo"<td class='center' width='10%'><a href='". site_url()."admin/proses_hapus_admin?id=$prodi->id_prodi' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
+                    echo"<td class='center' width='10%'><a href='". site_url()."prodi/proses_hapus_admin?id=$prodi->id_prodi' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
                       \" title='Hapus'><button type='button' class='btn btn-danger'>Edit</button></a>
                       </td>";
                     ?>
                 <?php
-                  echo"<td class='center' width='10%'><a href='". site_url()."admin/proses_hapus_admin?id=$prodi->id_prodi' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
+                  echo"<td class='center' width='10%'><a href='". site_url()."Prodi/proses_hapus_prodi?id=$prodi->id_prodi' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
                     \" title='Hapus'><button type='button' class='btn btn-danger'>Hapus</button></a>
                     </td>";
                   ?>
