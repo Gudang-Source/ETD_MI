@@ -25,6 +25,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
        	$this->load->view('Admin',$data);
       }
 
+      public function edit(){
+
+       	$this->load->view('edit_admin');
+      }
+
       public function proses_tambah_admin(){
     		$cek= $this->M_Admin->tambah_admin();
         if($cek){

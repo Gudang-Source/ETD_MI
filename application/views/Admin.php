@@ -180,7 +180,7 @@
                   <td><?php echo $admin->nama_lengkap; ?></td>
                   <td><?php if($admin->level==1){echo "Admin Prodi";}else if($admin->level==2){echo "Admin Fakultas";} ?></td>
                   <?php
-                    echo"<td class='center' width='10%'><a href='". site_url()."admin/proses_hapus_admin?id=$admin->username' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
+                    echo"<td class='center' width='10%'><a href='". site_url()."edit_admin?id=$admin->username' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
                       \" title='Hapus'><button type='button' class='btn btn-danger'>Edit</button></a>
                       </td>";
                     ?>

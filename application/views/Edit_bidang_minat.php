@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
   <meta name="description" content="bootstrap admin template">
   <meta name="author" content="">
-  <title>Prodi</title>
+  <title>Bidang Minat</title>
   <?php echo $this->load->view('common/head', '', TRUE);?>
   <!-- Stylesheets -->
   <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/css/bootstrap.min.css">
@@ -52,7 +52,7 @@
 
   <div class="page animsition">
     <div class="page-header">
-      <h1 class="page-title">Prodi</h1>
+      <h1 class="page-title">Bidang Minat</h1>
 
 
     </div>
@@ -62,33 +62,22 @@
         <div class="panel-body container-fluid">
           <div class="row row-lg">
             <div class="clearfix hidden-xs"></div>
-            <div class="col-sm-10 col-md-10">
+            <div class="col-sm-8 col-md-8">
               <!-- Example Horizontal Form -->
               <div class="example-wrap">
-                <h4 class="example-title">Tambah Prodi</h4>
+                <h4 class="example-title">Tambah Bidang Minat</h4>
 
                 <div class="example">
-                  <form class="form-horizontal" action="prodi/proses_tambah_prodi" enctype="multipart/form-data" method="post">
+                  <form class="form-horizontal" action="Bidang_minat/proses_tambah" method="post">
+
                     <div class="form-group form-material">
-                      <label class="col-sm-3 control-label">Kode Prodi</label>
+                      <label class="col-sm-3 control-label">Bidang Minat</label>
                       <div class="col-sm-9">
-                        <input type="number" class="form-control" name="id_prodi" placeholder="Kode Prodi" autocomplete="off" required>
-                      </div>
-                    </div>
-                    <div class="form-group form-material">
-                      <label class="col-sm-3 control-label">Nama Prodi</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap" autocomplete="off" required>
+                        <input type="text" class="form-control" name="bidang_minat" placeholder="Bidang Minat" autocomplete="off" required>
                       </div>
                     </div>
 
-                    <div class="form-group form-material">
-                      <label class="col-sm-3 control-label"><b>Icon Prodi</b></label>
-                      <div class="col-sm-9">
-                        <input type="file" name="gambar" id="fileToUpload">
-                        <input type="submit" value="Upload Image" name="submit">
-                      </div>
-                    </div>
+
 
                     <div class="form-group form-material">
                       <div class="col-sm-9 col-sm-offset-3">
@@ -107,16 +96,15 @@
       <div class="panel">
         <header class="panel-heading">
           <div class="panel-actions"></div>
-          <h3 class="panel-title">Data Admin</h3>
+          <h3 class="panel-title">Semua Bidang Minat</h3>
         </header>
         <div class="panel-body">
           <table class="table table-hover dataTable table-striped width-full" data-plugin="dataTable">
             <thead>
               <tr>
                 <th>No</th>
-                <th>Kode Prodi</th>
-                <th>Nama Prodi</th>
-                <th>Gambar</th>
+
+                <th>Bidang Minat</th>
                 <th>Edit</th>
                 <th>Hapus</th>
 
@@ -125,9 +113,8 @@
             <tfoot>
               <tr>
                 <th>No</th>
-                <th width='10%'>Kode Prodi</th>
-                <th width='40%'>Nama Prodi</th>
-                <th >Gambar</th>
+
+                <th>Bidang Minat</th>
                 <th>Edit</th>
                 <th>Hapus</th>
               </tr>
@@ -135,22 +122,21 @@
             <tbody>
               <?php
                  $i=0;
-                 foreach($lihat as $prodi){
+                 foreach($lihat as $bidang_minat){
                  $i++;
                ?>
                 <tr>
                   <td><?php echo $i; ?></td>
-                  <td><?php echo $prodi->id_prodi; ?></td>
-                  <td><?php echo $prodi->nama_prodi; ?></td>
-                  <td><center><img width="15%" src="<?php echo site_url(); ?>assets/image/<?php echo $prodi->logo; ?>"></center></td>
+
+                  <td><?php echo $bidang_minat->nama_bidang_minat; ?></td>
 
                   <?php
-                    echo"<td class='center' width='10%'><a href='". site_url()."edit_prodi?id=$prodi->id_prodi' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
+                    echo"<td class='center' width='10%'><a href='". site_url()."bidang_minat/proses_edit_bidang_minat?id=$bidang_minat->id_bidang_minat' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
                       \" title='Hapus'><button type='button' class='btn btn-danger'>Edit</button></a>
                       </td>";
                     ?>
                 <?php
-                  echo"<td class='center' width='10%'><a href='". site_url()."Prodi/proses_hapus_prodi?id=$prodi->id_prodi' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
+                  echo"<td class='center' width='10%'><a href='". site_url()."bidang_minat/proses_hapus_bidang_minat?id=$bidang_minat->id_bidang_minat' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
                     \" title='Hapus'><button type='button' class='btn btn-danger'>Hapus</button></a>
                     </td>";
                   ?>

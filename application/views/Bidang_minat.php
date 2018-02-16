@@ -131,7 +131,7 @@
                   <td><?php echo $bidang_minat->nama_bidang_minat; ?></td>
 
                   <?php
-                    echo"<td class='center' width='10%'><a href='". site_url()."bidang_minat/proses_edit_bidang_minat?id=$bidang_minat->id_bidang_minat' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
+                    echo"<td class='center' width='10%'><a href='". site_url()."edit_bidang_minat?id=$bidang_minat->id_bidang_minat' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
                       \" title='Hapus'><button type='button' class='btn btn-danger'>Edit</button></a>
                       </td>";
                     ?>

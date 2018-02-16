@@ -66,7 +66,7 @@ $route['detail_judul_admin'] = 'Judul/detail_judul_admin';
 /*-----------------------------------------------------------------------*/
 $route['prodi'] = 'Prodi';
 $route['tambah_prodi'] = 'Prodi/prodi';
-$route['edit_prodi'] = 'Prodi/edit_dosen';
+$route['edit_prodi'] = 'Prodi/edit';
 $route['hapus_prodi'] = 'Prodi/hapus_prodi';
 /*-----------------------------------------------------------------------*/
 $route['dosen'] = 'Dosen';
@@ -77,7 +77,7 @@ $route['hapus_dosen'] = 'Dosen/hapus_dosen';
 /*-----------------------------------------------------------------------*/
 $route['bidang'] = 'Bidang_minat';
 $route['tambah_bidang'] = 'Bidang_minat/tambah_dosen';
-$route['edit_bidang'] = 'Bidang_minat/edit_dosen';
+$route['edit_bidang_minat'] = 'Bidang_minat/edit';
 $route['hapus_bidang'] = 'Bidang_minat/hapus_dosen';
 
 
@@ -85,6 +85,7 @@ $route['hapus_bidang'] = 'Bidang_minat/hapus_dosen';
 /*-----------------------------------------------------------------------*/
 $route['admin'] = 'Admin';
 $route['tambah_admin'] = 'Admin/tambah_admin';
+$route['edit_admin'] = 'Admin/edit';
 $route['ubah_password'] = 'Admin/ubah_password';
 $route['ubah_profil'] = 'Admin/ubah_profil';
 

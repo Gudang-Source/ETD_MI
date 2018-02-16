@@ -23,6 +23,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
        		$this->load->view('Bidang_minat',$data);
        	}
 
+        public function edit()
+       {
+         $data['lihat'] = $this->M_Bidang_Minat->lihat();
+         $data['prodi'] = $this->M_Prodi->lihat();
+         $this->load->view('Bidang_minat',$data);
+       }
+
         public function proses_tambah()
        {
          $cek= $this->M_Bidang_Minat->tambah();

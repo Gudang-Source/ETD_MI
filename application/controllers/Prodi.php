@@ -25,6 +25,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
        	$this->load->view('Prodi',$data);
       }
 
+      public function edit(){
+          $data['lihat'] = $this->M_Prodi->lihat_prodi();
+       	$this->load->view('edit_prodi',$data);
+      }
+
       public function proses_tambah_prodi(){
         $config['upload_path']   = './assets/Image';
         $config['allowed_types'] = 'jpg|JPD|JEPG|PNG|png';
