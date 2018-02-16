@@ -91,7 +91,7 @@ class M_Admin extends CI_Model{
     function proses_hapus_admin($id)
     {
       $query=$this->db->where('username', $id);
-      $cek=$this->db->delete('admin');
+      $cek=$this->db->delete('user');
       return $cek;
     }
 

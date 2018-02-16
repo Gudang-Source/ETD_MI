@@ -35,6 +35,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
          }
        }
 
+       public function proses_hapus_bidang_minat(){
+           $id=$_GET ['id'];
+           $cek= $this->M_Bidang_Minat->hapus($id);
+           if($cek){
+             $this->hapus_berhasil();
+             redirect('bidang_minat');
+           }else{
+             $this->hapus_gagal();
+             redirect('bidang_minat');
+           }
+       }
 
 
        function tambah_berhasil(){

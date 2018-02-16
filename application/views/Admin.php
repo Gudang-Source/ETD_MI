@@ -95,7 +95,7 @@
                     <div class="form-group form-material">
                       <label class="col-sm-3 control-label">Prodi</label>
                       <div class="col-sm-9">
-                        <select class="form-control" id="select" name="pro">
+                        <select class="form-control" id="select" name="prodi">
                             <option value="">Pilih Prodi</option>
                             <?php
                   						 $i=0;
@@ -178,7 +178,7 @@
                   <td><?php echo $i; ?></td>
                   <td><?php echo $admin->username; ?></td>
                   <td><?php echo $admin->nama_lengkap; ?></td>
-                  <td><?php if($admin->level==0){echo "Mahasiswa";}else if($admin->level==1){echo "Admin Informatika";} else if($admin->level==2){echo "Admin Manajemen Informatika";} else if($admin->level==3){echo "Super Admin";} ?></td>
+                  <td><?php if($admin->level==1){echo "Admin Prodi";}else if($admin->level==2){echo "Admin Fakultas";} ?></td>
                   <?php
                     echo"<td class='center' width='10%'><a href='". site_url()."admin/proses_hapus_admin?id=$admin->username' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
                       \" title='Hapus'><button type='button' class='btn btn-danger'>Edit</button></a>

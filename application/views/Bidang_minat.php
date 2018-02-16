@@ -69,7 +69,7 @@
 
                 <div class="example">
                   <form class="form-horizontal" action="Bidang_minat/proses_tambah" method="post">
-                    
+
                     <div class="form-group form-material">
                       <label class="col-sm-3 control-label">Bidang Minat</label>
                       <div class="col-sm-9">
@@ -131,12 +131,12 @@
                   <td><?php echo $bidang_minat->nama_bidang_minat; ?></td>
 
                   <?php
-                    echo"<td class='center' width='10%'><a href='". site_url()."admin/proses_hapus_admin?id=$bidang_minat->id_bidang_minat' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
+                    echo"<td class='center' width='10%'><a href='". site_url()."bidang_minat/proses_edit_bidang_minat?id=$bidang_minat->id_bidang_minat' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
                       \" title='Hapus'><button type='button' class='btn btn-danger'>Edit</button></a>
                       </td>";
                     ?>
                 <?php
-                  echo"<td class='center' width='10%'><a href='". site_url()."admin/proses_hapus_admin?id=$bidang_minat->id_bidang_minat' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
+                  echo"<td class='center' width='10%'><a href='". site_url()."bidang_minat/proses_hapus_bidang_minat?id=$bidang_minat->id_bidang_minat' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
                     \" title='Hapus'><button type='button' class='btn btn-danger'>Hapus</button></a>
                     </td>";
                   ?>

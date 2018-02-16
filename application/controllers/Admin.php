@@ -35,19 +35,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           redirect('admin');
         }
     	}
-     //
-    //   public function proses_hapus_admin(){
-    //     	$id=$_GET ['id'];
-    //     	$cek= $this->M_Admin->proses_hapus_admin($id);
-    //       if($cek){
-    //         $this->hapus_berhasil();
-    //         redirect('admin');
-    //       }else{
-    //         $this->hapus_gagal();
-    //         redirect('admin');
-    //       }
-    //   }
-     //
+
+      public function proses_hapus_admin(){
+        	$id=$_GET ['id'];
+        	$cek= $this->M_Admin->proses_hapus_admin($id);
+          if($cek){
+            $this->hapus_berhasil();
+            redirect('admin');
+          }else{
+            $this->hapus_gagal();
+            redirect('admin');
+          }
+      }
+
       public function ubah_profil(){
         	$id=$_GET ['id'];
           $data['lihat'] = $this->M_Admin->profil($id);
