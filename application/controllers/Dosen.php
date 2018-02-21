@@ -35,6 +35,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
        }
 
+       public function proses_hapus_dosen(){
+           $id=$_GET ['id'];
+           $cek= $this->M_Dosen->hapus($id);
+           if($cek){
+             $this->hapus_berhasil();
+             redirect('dosen');
+           }else{
+             $this->hapus_gagal();
+             redirect('dosen');
+           }
+       }
 
 
               function tambah_berhasil(){

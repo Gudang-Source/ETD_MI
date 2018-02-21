@@ -42,8 +42,8 @@ class M_Dosen extends CI_Model{
 
     function hapus($id)
     {
-      $query=$this->db->where('username', $id);
-      $cek=$this->db->delete('admin');
+      $query=$this->db->where('nip', $id);
+      $cek=$this->db->delete('dosen');
       return $cek;
     }
 

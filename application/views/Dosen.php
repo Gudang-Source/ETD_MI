@@ -140,7 +140,7 @@
                       </td>";
                     ?>
                 <?php
-                  echo"<td class='center' width='10%'><a href='". site_url()."admin/proses_hapus_admin?id=$dosen->nip' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
+                  echo"<td class='center' width='10%'><a href='". site_url()."dosen/proses_hapus_dosen?id=$dosen->nip' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
                     \" title='Hapus'><button type='button' class='btn btn-danger'>Hapus</button></a>
                     </td>";
                   ?>
