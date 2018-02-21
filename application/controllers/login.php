@@ -100,8 +100,7 @@ class Login extends CI_Controller {
             redirect('home');
     }
     else{
-			$data="document.getElementById('exampleTopFullWidth').click();";
-			$this->session->set_flashdata('pesan', 'onload="'.$data.'"');
+			$this->login_gagal();
 			redirect('login');
 		}
 	}
@@ -116,6 +115,14 @@ class Login extends CI_Controller {
                 <strong>Gagal!</strong> Proses Pendaftaran Gagal!.
                 </div>');
      }
+
+     function login_gagal(){
+         $this->session->set_flashdata('pesan', '
+                 <div class="alert alert-danger fade in">
+                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                 <strong>Gagal!</strong> Proses login Gagal!.
+                 </div>');
+      }
 
 
 }

@@ -18,7 +18,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
          public function index()
        	{
-          $data['lihat'] = $this->M_Bidang_Minat->lihat();
+          $id=($this->session->userdata('prodi'));
+          $data['lihat'] = $this->M_Bidang_Minat->lihat_bidang_minat_prodi($id);
           $data['prodi'] = $this->M_Prodi->lihat();
        		$this->load->view('Bidang_minat',$data);
        	}

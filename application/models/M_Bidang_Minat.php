@@ -5,6 +5,11 @@ class M_Bidang_Minat extends CI_Model{
         $query=$this->db->query("SELECT * FROM `bidang_minat` left join prodi on prodi.id_prodi=bidang_minat.id_prodi");
         return $query->result();
     }
+    function lihat_bidang_minat_prodi($id)
+    {
+        $query=$this->db->query("SELECT * FROM `bidang_minat` left join prodi on prodi.id_prodi=bidang_minat.id_prodi where bidang_minat.id_prodi='$id'");
+        return $query->result();
+    }
 
     function lihat_prodi($prodi)
     {

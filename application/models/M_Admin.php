@@ -1,5 +1,15 @@
 <?php
 class M_Admin extends CI_Model{
+    function cek_password($id,$password)
+    {
+        $query=$this->db->query("SELECT * FROM `mahasiswa` where npm='$id' and password='$password'");
+        return $query->result();
+    }
+    function cek_password_admin($id,$password)
+    {
+        $query=$this->db->query("SELECT * FROM `user` where username='$id' and password='$password'");
+        return $query->result();
+    }
     function lihat_admin()
     {
         $query=$this->db->query("SELECT * FROM `user`");
@@ -59,27 +69,18 @@ class M_Admin extends CI_Model{
 
     }
 
-    function ubah_password($id,$admin)
+    function ubah_password($id,$password_baru)
     {
-      $nama_lengkap = $this->input->post('nama_lengkap');
-      $username = $this->input->post('username');
-      $password_lama = md5($this->input->post('password_lama'));
-      $password_baru = md5($this->input->post('password_baru'));
-      $ulangi_password = md5($this->input->post('ulangi_password'));
+
       $data = array(
           'password'=>$password_baru
 
       );
-      if(($password_baru==$ulangi_password)){
-        if($admin==$password_lama){
-          $this->db->where('username',$id);
-          $cek=$this->db->update('admin',$data);
+
+          $this->db->where('npm',$id);
+          $cek=$this->db->update('mahasiswa',$data);
           return $cek;
-        }
-        return false;
-      }else{
-        return false;
-      }
+
     }
 
     function edit_admin()

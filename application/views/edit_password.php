@@ -44,19 +44,15 @@
   Breakpoints();
   </script>
 </head>
-<body class="site-navbar-small " <?php echo $this->session->flashdata('pesan')?>>
-  <div class="toast-example" id="berhasil" aria-live="polite" data-plugin="toastr" data-message="<strong>Selamat !</strong> Anda Berhasil Menambahkan Data." data-container-id="toast-top-right" data-position-class="toast-bottom-right" data-icon-class="toast-just-text toast-success toast-shadow" role="alert"></div>
-  <div class="toast-example" id="gagal" aria-live="polite" data-plugin="toastr" data-message="<strong>Maaf !</strong> Anda Gagal Menambahkan Data." data-container-id="toast-top-right" data-position-class="toast-bottom-right" data-icon-class="toast-just-text toast-error toast-shadow" role="alert"></div>
-  <div class="toast-example" id="berhasil_hapus" aria-live="polite" data-plugin="toastr" data-message="<strong>Selamat !</strong> Anda Berhasil Menghapus Data." data-container-id="toast-top-right" data-position-class="toast-bottom-right" data-icon-class="toast-just-text toast-success toast-shadow" role="alert"></div>
-  <div class="toast-example" id="gagal_hapus" aria-live="polite" data-plugin="toastr" data-message="<strong>Maaf !</strong> Anda Gagal Menghapus Data." data-container-id="toast-top-right" data-position-class="toast-bottom-right" data-icon-class="toast-just-text toast-error toast-shadow" role="alert"></div>
-
+<body class="site-navbar-small " >
+  <?php echo $this->session->flashdata('pesan')?>
 
 <?php echo $this->load->view('common/menu', '', TRUE);?>
 
 
   <div class="page animsition">
     <div class="page-header">
-      <h1 class="page-title">Administrator</h1>
+      <h1 class="page-title">Profil</h1>
 
 
     </div>
@@ -66,43 +62,45 @@
         <div class="panel-body container-fluid">
           <div class="row row-lg">
             <div class="clearfix hidden-xs"></div>
-            <div class="col-sm-6 col-md-6">
+            <div class="col-sm-10 col-md-10">
               <!-- Example Horizontal Form -->
               <div class="example-wrap">
-                <h4 class="example-title">Administrator</h4>
+
                 <?php
-                   foreach($lihat as $admin){
+                   foreach($lihat as $mahasiswa){
                  ?>
                 <div class="example">
-                  <form class="form-horizontal" action="admin/proses_ubah_password/<?php echo $admin->username?>" method="post">
+                  <form class="form-horizontal" action="admin/proses_ubah_password?id=<?php echo $mahasiswa->npm?>" method="post">
                     <div class="form-group form-material">
+                      <div class="form-group form-material">
+                        <label class="col-sm-3 control-label">NPM</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" name="npm" readonly value="<?php echo $mahasiswa->npm ?>" placeholder="Username" autocomplete="off" required disabled>
+                        </div>
+                      </div>
                       <label class="col-sm-3 control-label">Nama Lengkap</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" name="nama_lengkap" readonly value="<?php echo $admin->nama_lengkap?>" placeholder="Full Name" autocomplete="off" required>
+                        <input type="text" class="form-control" name="nama" value="<?php echo $mahasiswa->nama?>" placeholder="Full Name" autocomplete="off" required disabled>
                       </div>
                     </div>
-                    <div class="form-group form-material">
-                      <label class="col-sm-3 control-label">Username</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" name="username" readonly value="<?php echo $admin->username ?>" placeholder="Username" autocomplete="off" required>
-                      </div>
-                    </div>
+
+
                     <div class="form-group form-material">
                       <label class="col-sm-3 control-label">Password Lama</label>
                       <div class="col-sm-9">
-                        <input type="password" class="form-control" name="password_lama" placeholder="Password" autocomplete="off" required>
+                        <input type="password" class="form-control" name="password_lama" placeholder="Masukkan Password Lama" autocomplete="off"  required>
                       </div>
                     </div>
                     <div class="form-group form-material">
-                      <label class="col-sm-3 control-label">Ulangi Password</label>
+                      <label class="col-sm-3 control-label">Password Baru</label>
                       <div class="col-sm-9">
-                        <input type="password" class="form-control" name="password_baru" placeholder="ulangi Password" autocomplete="off" required>
+                        <input type="password" class="form-control" name="password_baru" placeholder="Masukkan Password Baru" autocomplete="off"  required>
                       </div>
                     </div>
                     <div class="form-group form-material">
-                      <label class="col-sm-3 control-label">Ulangi Password</label>
+                      <label class="col-sm-3 control-label">Ulangi Password Baru</label>
                       <div class="col-sm-9">
-                        <input type="password" class="form-control" name="ulangi_password" placeholder="ulangi Password" autocomplete="off" required>
+                        <input type="password" class="form-control" name="ulangi_password_baru" placeholder="Ulangi Password Baru" autocomplete="off"  required>
                       </div>
                     </div>
                     <?php

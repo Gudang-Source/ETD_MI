@@ -62,8 +62,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       }
       public function ubah_password(){
           $id=$_GET ['id'];
-          $data['lihat'] = $this->M_Admin->admin($id);
+          $admin=$this->session->userdata('level');
+        if($admin==0){
+          $data['lihat'] = $this->M_Admin->profil($id);
+          $data['prodi'] = $this->M_Prodi->lihat();
+          $data['bidang_minat'] = $this->M_Bidang_Minat->lihat();
           $this->load->view('edit_password',$data);
+        }else{
+          $data['lihat'] = $this->M_Admin->admin($id);
+          $this->load->view('edit_password_admin',$data);
+        }
       }
 
       public function proses_ubah_profil($id){
@@ -71,25 +79,60 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $admin=($this->session->userdata('login'));
     		$cek= $this->M_Admin->ubah_profil($id,$admin);
         if($cek){
-          //$this->edit_berhasil();
+          $this->edit_berhasil();
           redirect("ubah_profil?id=$admin");
         }else{
-          //$this->edit_gagal();
+          $this->edit_gagal();
           redirect("ubah_profil?id=$admin");
         }
     	}
-     //
-    //   public function proses_ubah_password($id){
-    //     $admin=md5($this->session->userdata('admin'));
-    //     $cek= $this->M_Admin->ubah_password($id,$admin);
-    //     if($cek){
-    //       $this->edit_berhasil();
-    //       redirect('logout');
-    //     }else{
-    //       $this->edit_gagal();
-    //       redirect('admin');
-    //     }
-    //   }
+
+      public function proses_ubah_password(){
+        $id=$_GET ['id'];
+        $password_lama=md5($this->input->post('password_lama'));
+        $password_baru=md5($this->input->post('password_baru'));
+        $ulangi_password_baru=md5($this->input->post('ulangi_password_baru'));
+        if($password_baru==$ulangi_password_baru){
+          $cek= $this->M_Admin->cek_password($id,$password_lama);
+          if($cek){
+            $edit= $this->M_Admin->ubah_password($id,$password_baru);
+            if($edit){
+              echo"<script>alert('Password Berhasil Diubah, Silahkan Logi Kembali')</script>";
+              redirect('logout');
+            }else{
+              $this->edit_gagal();
+              redirect("ubah_password?id=$id");
+            }
+          }else{
+            $this->password_tidak_cocok();
+            redirect("ubah_password?id=$id");
+          }
+        }else{
+          $this->password_tidak_cocok();
+          redirect("ubah_password?id=$id");
+        }
+        // $cek= $this->M_Admin->ubah_password($id,$admin);
+        // if($cek){
+        //   $this->edit_berhasil();
+        //   redirect('logout');
+        // }else{
+        //   $this->edit_gagal();
+        //   redirect('admin');
+        // }
+
+      }
+
+      public function proses_ubah_password_admin($id){
+        $admin=md5($this->session->userdata('admin'));
+        $cek= $this->M_Admin->ubah_password($id,$admin);
+        if($cek){
+          $this->edit_berhasil();
+          redirect('logout');
+        }else{
+          $this->edit_gagal();
+          redirect('admin');
+        }
+      }
 
       function tambah_berhasil(){
        $this->session->set_flashdata('pesan', '
@@ -140,6 +183,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                <strong>Gagal!</strong> File Upload Tidak Sesuai!.
                </div>');
      }
+
+     function password_tidak_cocok(){
+      $this->session->set_flashdata('pesan', '
+              <div class="alert alert-danger fade in">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              <strong>Gagal!</strong> Password Tidak Cocok!.
+              </div>');
+    }
 
 
 
