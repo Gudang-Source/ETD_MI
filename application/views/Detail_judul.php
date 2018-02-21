@@ -151,7 +151,11 @@
                      </div>
                      <div class="form-group ">
 
-                       
+                       <?php
+                          if($ta->npm== $login=$this->session->userdata('login')){
+
+
+                       ?>
                      </div>
                      <div class="form-group ">
                        <label class="col-sm-3 control-label"><b>Laporan full</b></label>
@@ -161,6 +165,9 @@
                          </object>
                        </div>
                      </div>
+                     <?php
+                        }
+                     ?>
                      <?php
                         }
                      ?>
