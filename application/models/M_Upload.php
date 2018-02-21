@@ -45,7 +45,7 @@ class M_Upload extends CI_Model{
       if($C1){
       $C2=$this->db->update('mahasiswa',$mhs);
       }
-      if($C1&&$c2){
+      if($C1&&$C2){
       $C3=$this->db->insert('bimbing',$dosen1);
       $C4=$this->db->insert('bimbing',$dosen2);
       }

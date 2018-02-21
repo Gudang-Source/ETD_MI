@@ -71,10 +71,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $admin=($this->session->userdata('login'));
     		$cek= $this->M_Admin->ubah_profil($id,$admin);
         if($cek){
-          $this->edit_berhasil();
+          //$this->edit_berhasil();
           redirect("ubah_profil?id=$admin");
         }else{
-          $this->edit_gagal();
+          //$this->edit_gagal();
           redirect("ubah_profil?id=$admin");
         }
     	}
