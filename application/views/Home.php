@@ -109,7 +109,7 @@
                           <tfoot>
                             <tr>
                               <th></th>
-                            
+
 
                             </tr>
                           </tfoot>
@@ -125,7 +125,7 @@
                                     <li class="list-group-item">
                                       <div class="media">
                                         <div class="media-left">
-                                          <p hidden><?php echo $judul100->tgl_upload?></p>
+                                          <p hidden><?php echo $i?>></p>
                                           <div class="<?php echo $judul100->css1?>">
                                             <img src="<?php echo site_url(); ?>assets/image/<?php echo $judul100->logo?>" alt="...">
                                             <i class="avatar avatar-busy"></i>
