@@ -64,7 +64,7 @@
         </header>
         <div class="panel-body">
           <br>
-          <table class="table table-hover dataTable table-striped width-full" data-plugin="dataTable">
+          <table class="table table-hover dataTable table-striped width-full"  data-plugin="dataTable" >
             <thead>
               <tr>
                 <th>NO</th>
@@ -122,6 +122,9 @@
   <!-- Footer -->
   <?php echo $this->load->view('common/footer', '', TRUE);?>
   <!-- Core  -->
+  <script >
+  
+  </script>
   <script src="<?php echo site_url(); ?>assets/global/vendor/jquery/jquery.js"></script>
   <script src="<?php echo site_url(); ?>assets/global/vendor/bootstrap/bootstrap.js"></script>
   <script src="<?php echo site_url(); ?>assets/global/vendor/animsition/animsition.js"></script>
@@ -160,5 +163,6 @@
   <script src="<?php echo site_url(); ?>assets/assets/examples/js/uikit/icon.js"></script>
   <script src="<?php echo site_url(); ?>assets/global/vendor/toastr/toastr.js"></script>
   <script src="<?php echo site_url(); ?>assets/global/js/components/toastr.js"></script>
+
 </body>
 </html>

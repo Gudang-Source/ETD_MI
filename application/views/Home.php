@@ -98,15 +98,17 @@
                 <ul class="list-group">
               				<div class="panel">
                         <br>
-                        <table class="table table-hover dataTable table-striped width-full" >
+                        <table class="table table-hover dataTable table-striped width-full" data-plugin="dataTable">
                           <thead>
                             <tr>
+                              <th></th>
                               <th></th>
 
                             </tr>
                           </thead>
                           <tfoot>
                             <tr>
+                              <th></th>
                               <th></th>
 
                             </tr>
@@ -118,13 +120,12 @@
                                    $i++;
                                 ?>
                                 <tr>
-                                    <td hidden>
-                                      <?php echo $judul100->tgl_sidang?>
-                                    </td>
+
                                   <td>
                                     <li class="list-group-item">
                                       <div class="media">
                                         <div class="media-left">
+                                          <p hidden><?php echo $judul100->tgl_upload?></p>
                                           <div class="<?php echo $judul100->css1?>">
                                             <img src="<?php echo site_url(); ?>assets/image/<?php echo $judul100->logo?>" alt="...">
                                             <i class="avatar avatar-busy"></i>
