@@ -137,7 +137,7 @@ $(function(){
 </script>
                       <?php
                          if($ta->publikasi==2){
-
+                            $login=$this->session->unset_userdata('prodi');;
 
                       ?>
                       <div class="form-group ">
@@ -150,7 +150,11 @@ $(function(){
                       </div>
                       <div class="form-group ">
 
+                        <?php
+                          if($ta->nama_prodi==$this->session->userdata('nama_prodi')){
 
+
+                        ?>
                       </div>
                       <div class="form-group ">
                         <label class="col-sm-3 control-label"><b>Laporan full</b></label>
@@ -160,6 +164,12 @@ $(function(){
                           </object>
                         </div>
                       </div>
+
+
+                      <?php
+                         }
+                      ?>
+
                       <?php
                          }
                       ?>
