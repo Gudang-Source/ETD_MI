@@ -135,14 +135,34 @@ $(function(){
     $('#download').hide();
 });
 </script>
-                    <div class="form-group ">
-                      <label class="col-sm-3 control-label"><b>Baca</b></label>
-                      <div class="col-sm-9">
-                        <object width="100%" height="400" readonly type="application/pdf" data="<?php echo site_url();?>uploads/<?php echo $ta->pdf?>">
-                          <embed src="<?php echo site_url();?>uploads/<?php echo $ta->pdf?>" type="application/pdf" />
-                        </object>
+                      <?php
+                         if($ta->publikasi==2){
+
+
+                      ?>
+                      <div class="form-group ">
+                        <label class="col-sm-3 control-label"><b>Laporan Parsial</b></label>
+                        <div class="col-sm-9">
+                          <object width="100%" height="400" readonly type="application/pdf" data="<?php echo site_url();?>uploads/<?php echo $ta->pdf?>">
+                            <embed src="<?php echo site_url();?>uploads/<?php echo $ta->pdf?>" type="application/pdf" />
+                          </object>
+                        </div>
                       </div>
-                    </div>
+                      <div class="form-group ">
+
+
+                      </div>
+                      <div class="form-group ">
+                        <label class="col-sm-3 control-label"><b>Laporan full</b></label>
+                        <div class="col-sm-9">
+                          <object width="100%" height="400" readonly type="application/pdf" data="<?php echo site_url();?>uploads/<?php echo $ta->pdf?>">
+                            <embed src="<?php echo site_url();?>uploads/<?php echo $ta->pdf_full?>" type="application/pdf" />
+                          </object>
+                        </div>
+                      </div>
+                      <?php
+                         }
+                      ?>
                     <div class="form-group ">
                       <label class="col-sm-3 control-label"><b>Pilihan Publikasi</b></label>
                       <?php $publikasi=$ta->publikasi;

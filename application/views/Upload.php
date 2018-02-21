@@ -44,8 +44,14 @@
   <script src="<?php echo site_url(); ?>assets/jquery.min.js"></script>
   <script>
   Breakpoints();
+  function codeAddress() {
+              document.getElementById('parsial_full').style.visibility = "hidden";
+          }
+          window.onload = codeAddress;
+
   </script>
   <script type="text/javascript">
+
               $(document).ready(function() {
             $('input[type=radio][name=publikasi]').change(function() {
                 if (this.value == '3') {
@@ -55,27 +61,23 @@
                   '<div class="col-sm-9" >'+
                     '<input type="date" class="form-control" name="sampai" placeholder="Tanggal" autocomplete="off" required>'+
                   '</div>';
-                  document.getElementById('parsial_full').innerHTML="";
+                  //document.getElementById('parsial_full').innerHTML="";
                   document.getElementById('pdf').innerHTML='<label id="pdf"class="col-sm-3 control-label"><b>File PDF lengkap </b></label>';
+                  document.getElementById('parsial_full').style.visibility = "hidden";
               }else if(this.value == '2'){
                   document.getElementById('batas').innerHTML='';
 
                   document.getElementById('parsial').innerHTML='1. Cover <br>2. Lembar Pengesahan <br>3. Abstrak <br>4. Daftar Isi <br>5. Pendahuluan <br>6. Kesimpulan';
-                  document.getElementById('parsial_full').innerHTML=
-                  '<div id="upload_full_parsial" class="form-group ">'+
-                      '<label class="col-sm-3 control-label"><b>File PDF Lengkap</b></label>'+
-                      '<div class="col-sm-9">'+
-                          '<input type="file" name="pdf_full" id="fileToUpload2" required>'+
-                          '<p id="parsial"></p>'+
-                      '</div>'+
-                    '</div>';
+
                     document.getElementById('pdf').innerHTML='<label id="pdf"class="col-sm-3 control-label"><b>File PDF Parsial </b></label>';
+                    document.getElementById('parsial_full').style.visibility = "visible";
 
               }else if(this.value == '1'){
                     document.getElementById('batas').innerHTML='';
                     document.getElementById('parsial').innerHTML='';
-                    document.getElementById('parsial_full').innerHTML="";
+                    //document.getElementById('parsial_full').innerHTML="";
                     document.getElementById('pdf').innerHTML='<label id="pdf"class="col-sm-3 control-label"><b>File PDF Lengkap</b></label>';
+                    document.getElementById('parsial_full').style.visibility = "hidden";
                 }
 
             });
@@ -106,6 +108,7 @@
 
 
                 <div class="example">
+
                   <form class="form-horizontal" action="upload/proses_tambah" enctype="multipart/form-data" method="post">
                     <div class="form-group form-material">
                       <label class="col-sm-3 control-label">Judul</label>
@@ -238,9 +241,21 @@
                           </p>
                       </div>
                     </div>
-                    <p id="parsial_full">
 
-                    </p>
+
+                                          <div id="parsial_full" class="form-group ">
+                                            <p id="pdf">
+                                                <label  class="col-sm-3 control-label"><b>File PDF Lengkap</b></label>
+                                            </p>
+
+                                            <div class="col-sm-9">
+                                                <input type="file" name="pdf2" id="fileToUpload" >
+                                                <p id="parsial">
+
+                                                </p>
+                                            </div>
+                                          </div>
+
 
 
 

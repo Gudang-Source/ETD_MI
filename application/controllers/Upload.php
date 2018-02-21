@@ -41,22 +41,39 @@ defined('BASEPATH') OR exit('No direct script access allowed');
          $config['max_size']      = 20000;
          $config['max_width']     = 10240;
          $config['max_height']    = 7680;
+         $pdf2="";
 		     $new_name =$_FILES["pdf"] ['name'];
          $username=$this->session->userdata('login');
          $new_name2=$username;
 		     $config['file_name']=$new_name2;
          $this->load->library('upload', $config);
 
+
+         $pdf_full =$this->input->post('publikasi');
+         if($pdf_full==2){
+           $username1=$this->session->userdata('login');
+           $new_name1 =$_FILES["pdf2"] ['name'];
+           $new_name3="full".$username1;
+           $config2['file_name']=$new_name3;
+           $pdf2=$new_name3.".pdf";;
+           $this->load->library('upload', $config2);
+           $this->upload->do_upload('pdf2');
+
+         }
+
+
          if ( ! $this->upload->do_upload('pdf')) {
 
               $this->upload();
 			        redirect('upload');
+
+
          }
 
          else {
               $new_name2=$new_name2.".pdf";
               $this->load->model('M_Upload');
-        			$cek=$this->M_Upload->tambah($new_name2,$username);
+        			$cek=$this->M_Upload->tambah($new_name2,$username,$pdf2);
         			if($cek){
         				$this->tambah_berhasil();
         				redirect('Upload');
@@ -65,6 +82,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         				redirect('upload');
         			}
          }
+
+
 
        }
        public function batalkan()

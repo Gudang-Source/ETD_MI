@@ -10,7 +10,7 @@ class M_Upload extends CI_Model{
 
 
 
-    function tambah($pdf,$username)
+    function tambah($pdf,$username,$pdf_full)
     {
       $upload = array(
           'judul'=>$this->input->post('judul'),
@@ -19,6 +19,7 @@ class M_Upload extends CI_Model{
           'publikasi'=>$this->input->post('publikasi'),
           'sampai'=>$this->input->post('sampai'),
           'tgl_sidang'=>$this->input->post('tgl_sidang'),
+          'pdf_full'=>$pdf_full,
           'npm'=>$username,
           'pdf'=>$pdf
 
