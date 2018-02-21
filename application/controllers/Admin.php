@@ -65,18 +65,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           $data['lihat'] = $this->M_Admin->admin($id);
           $this->load->view('edit_password',$data);
       }
-     //
-    //   public function proses_ubah_profil($id){
-    //     $admin=md5($this->session->userdata('admin'));
-    // 		$cek= $this->M_Admin->ubah_profil($id,$admin);
-    //     if($cek){
-    //       $this->edit_berhasil();
-    //       redirect('logout');
-    //     }else{
-    //       $this->edit_gagal();
-    //       redirect('admin');
-    //     }
-    // 	}
+
+      public function proses_ubah_profil($id){
+        $id=$_GET ['id'];
+        $admin=($this->session->userdata('login'));
+    		$cek= $this->M_Admin->ubah_profil($id,$admin);
+        if($cek){
+          $this->edit_berhasil();
+          redirect("ubah_profil?id=$admin");
+        }else{
+          $this->edit_gagal();
+          redirect("ubah_profil?id=$admin");
+        }
+    	}
      //
     //   public function proses_ubah_password($id){
     //     $admin=md5($this->session->userdata('admin'));

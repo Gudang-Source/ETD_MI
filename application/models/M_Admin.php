@@ -41,21 +41,22 @@ class M_Admin extends CI_Model{
 
     function ubah_profil($id,$admin)
     {
-      $nama_lengkap = $this->input->post('nama_lengkap');
-      $username = $this->input->post('username');
-      $password = md5($this->input->post('password'));
-      $data = array(
-          'nama_lengkap'=>$nama_lengkap,
-          'username'=>$username
+
+      $mahasiswa = array(
+        'npm'=>$this->input->post('npm'),
+        'nama'=>$this->input->post('nama'),
+        'alamat'=>$this->input->post('alamat'),
+        'email'=>$this->input->post('email'),
+        'id_prodi'=>$this->input->post('prodi'),
+        'no_hp'=>$this->input->post('no_hp'),
+        'id_bidang_minat'=>$this->input->post('bidang_minat')
 
       );
-      if($password==$admin){
-          $this->db->where('username',$id);
-          $cek=$this->db->update('admin',$data);
+
+          $this->db->where('npm',$admin);
+          $cek=$this->db->update('mahasiswa',$mahasiswa);
           return $cek;
-      }else{
-        return false;
-      }
+
     }
 
     function ubah_password($id,$admin)

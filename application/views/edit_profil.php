@@ -74,17 +74,17 @@
                    foreach($lihat as $mahasiswa){
                  ?>
                 <div class="example">
-                  <form class="form-horizontal" action="admin/proses_ubah_profil/<?php echo $mahasiswa->npm?>" method="post">
+                  <form class="form-horizontal" action="admin/proses_ubah_profil?id=<?php echo $mahasiswa->npm ?><?php echo $mahasiswa->npm?>" method="post">
                     <div class="form-group form-material">
                       <div class="form-group form-material">
                         <label class="col-sm-3 control-label">NPM</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" name="username" value="<?php echo $mahasiswa->npm ?>" placeholder="Username" autocomplete="off" required>
+                          <input type="text" class="form-control" name="npm" readonly value="<?php echo $mahasiswa->npm ?>" placeholder="Username" autocomplete="off" required>
                         </div>
                       </div>
                       <label class="col-sm-3 control-label">Nama Lengkap</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" name="nama_lengkap" value="<?php echo $mahasiswa->nama?>" placeholder="Full Name" autocomplete="off" required>
+                        <input type="text" class="form-control" name="nama" value="<?php echo $mahasiswa->nama?>" placeholder="Full Name" autocomplete="off" required>
                       </div>
                     </div>
 
@@ -109,7 +109,7 @@
                     <div class="form-group form-material">
                       <label class="col-sm-3 control-label">Bidang Minat</label>
                       <div class="col-sm-9">
-                        <select class="form-control" id="select" required name="prodi">
+                        <select class="form-control" id="select" required name="bidang_minat">
                           <option value="<?php echo $mahasiswa->id_bidang_minat?>"><?php echo $mahasiswa->nama_bidang_minat?></option>
 
                               <?php
@@ -134,13 +134,13 @@
                     <div class="form-group form-material">
                       <label class="col-sm-3 control-label">NO HP</label>
                       <div class="col-sm-9">
-                        <input type="number" class="form-control" name="password" placeholder="Password" autocomplete="off" value="<?php echo $mahasiswa->no_hp?>" required>
+                        <input type="number" class="form-control" name="no_hp" placeholder="Password" autocomplete="off" value="<?php echo $mahasiswa->no_hp?>" required>
                       </div>
                     </div>
                     <div class="form-group form-material">
                       <label class="col-sm-3 control-label">Alamat</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" name="password" placeholder="Password" autocomplete="off" value="<?php echo $mahasiswa->alamat?>" required>
+                        <input type="text" class="form-control" name="alamat" placeholder="Password" autocomplete="off" value="<?php echo $mahasiswa->alamat?>" required>
                       </div>
                     </div>
                     <?php
