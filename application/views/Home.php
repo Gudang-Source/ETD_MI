@@ -98,7 +98,7 @@
                 <ul class="list-group">
               				<div class="panel">
                         <br>
-                        <table class="table table-hover dataTable table-striped width-full" data-plugin="dataTable">
+                        <table class="table table-hover dataTable table-striped width-full" >
                           <thead>
                             <tr>
                               <th></th>
@@ -118,7 +118,9 @@
                                    $i++;
                                 ?>
                                 <tr>
-
+                                    <td hidden>
+                                      <?php echo $judul100->tgl_sidang?>
+                                    </td>
                                   <td>
                                     <li class="list-group-item">
                                       <div class="media">

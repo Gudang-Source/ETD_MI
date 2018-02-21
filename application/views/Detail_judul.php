@@ -166,8 +166,18 @@
                        </div>
                      </div>
                      <?php
-                        }
+                   }else{
                      ?>
+                     <div class="form-group ">
+                       <label class="col-sm-3 control-label"><b>Laporan</b></label>
+                       <div class="col-sm-9">
+                         <object width="100%" height="400" readonly type="application/pdf" data="<?php echo site_url();?>uploads/<?php echo $ta->pdf?>">
+                           <embed src="<?php echo site_url();?>uploads/<?php echo $ta->pdf?>" type="application/pdf" />
+                         </object>
+                       </div>
+                     </div>
+
+
                      <?php
                         }
                      ?>
