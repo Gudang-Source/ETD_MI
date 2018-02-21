@@ -137,7 +137,7 @@ $(function(){
 </script>
                       <?php
                          if($ta->publikasi==2){
-                            $login=$this->session->unset_userdata('prodi');;
+                          
 
                       ?>
                       <div class="form-group ">
@@ -171,7 +171,22 @@ $(function(){
                       ?>
 
                       <?php
-                         }
+                    }else{
+
+
+
+                      ?>
+                      <div class="form-group ">
+                        <label class="col-sm-3 control-label"><b>Laporan full</b></label>
+                        <div class="col-sm-9">
+                          <object width="100%" height="400" readonly type="application/pdf" data="<?php echo site_url();?>uploads/<?php echo $ta->pdf?>">
+                            <embed src="<?php echo site_url();?>uploads/<?php echo $ta->pdf_full?>" type="application/pdf" />
+                          </object>
+                        </div>
+                      </div>
+                      <?php
+
+                    }
                       ?>
                     <div class="form-group ">
                       <label class="col-sm-3 control-label"><b>Pilihan Publikasi</b></label>
