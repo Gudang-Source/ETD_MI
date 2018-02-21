@@ -141,46 +141,44 @@
 
 
                      ?>
-                     <div class="form-group ">
-                       <label class="col-sm-3 control-label"><b>Laporan Parsial</b></label>
-                       <div class="col-sm-9">
-                         <object width="100%" height="400" readonly type="application/pdf" data="<?php echo site_url();?>uploads/<?php echo $ta->pdf?>">
-                           <embed src="<?php echo site_url();?>uploads/<?php echo $ta->pdf?>" type="application/pdf" />
-                         </object>
-                       </div>
-                     </div>
-                     <div class="form-group ">
+                               <div class="form-group ">
+                                 <label class="col-sm-3 control-label"><b>Laporan Parsial</b></label>
+                                 <div class="col-sm-9">
+                                   <object width="100%" height="400" readonly type="application/pdf" data="<?php echo site_url();?>uploads/<?php echo $ta->pdf?>">
+                                     <embed src="<?php echo site_url();?>uploads/<?php echo $ta->pdf?>" type="application/pdf" />
+                                   </object>
+                                 </div>
+                               </div>
+                               <div class="form-group ">
 
-                       <?php
-                          if($ta->npm== $login=$this->session->userdata('login')){
+                                 <?php
+                                    if($ta->npm== $login=$this->session->userdata('login')){
+                                 ?>
+                                           </div>
+                                           <div class="form-group ">
+                                             <label class="col-sm-3 control-label"><b>Laporan full</b></label>
+                                             <div class="col-sm-9">
+                                               <object width="100%" height="400" readonly type="application/pdf" data="<?php echo site_url();?>uploads/<?php echo $ta->pdf?>">
+                                                 <embed src="<?php echo site_url();?>uploads/<?php echo $ta->pdf_full?>" type="application/pdf" />
+                                               </object>
+                                             </div>
+                                           </div>
+                               <?php
+                             }
 
-
-                       ?>
-                     </div>
-                     <div class="form-group ">
-                       <label class="col-sm-3 control-label"><b>Laporan full</b></label>
-                       <div class="col-sm-9">
-                         <object width="100%" height="400" readonly type="application/pdf" data="<?php echo site_url();?>uploads/<?php echo $ta->pdf?>">
-                           <embed src="<?php echo site_url();?>uploads/<?php echo $ta->pdf_full?>" type="application/pdf" />
-                         </object>
-                       </div>
-                     </div>
-                     <?php
-                   }else{
-                     ?>
-                     <div class="form-group ">
-                       <label class="col-sm-3 control-label"><b>Laporan</b></label>
-                       <div class="col-sm-9">
-                         <object width="100%" height="400" readonly type="application/pdf" data="<?php echo site_url();?>uploads/<?php echo $ta->pdf?>">
-                           <embed src="<?php echo site_url();?>uploads/<?php echo $ta->pdf?>" type="application/pdf" />
-                         </object>
-                       </div>
-                     </div>
-
-
-                     <?php
-                        }
-                     ?>
+                           }else{
+                               ?>
+                                         <div class="form-group ">
+                                           <label class="col-sm-3 control-label"><b>Laporan</b></label>
+                                           <div class="col-sm-9">
+                                             <object width="100%" height="400" readonly type="application/pdf" data="<?php echo site_url();?>uploads/<?php echo $ta->pdf?>">
+                                               <embed src="<?php echo site_url();?>uploads/<?php echo $ta->pdf?>" type="application/pdf" />
+                                             </object>
+                                           </div>
+                                         </div>
+                               <?php
+                                  }
+                               ?>
 
                    <?php }else{ ?>
                      <br>
@@ -202,6 +200,7 @@
                       </p>
                     </div>
                   <?php }?>
+              
 
 
 
