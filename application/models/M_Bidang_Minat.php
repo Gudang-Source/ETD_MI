@@ -17,6 +17,11 @@ class M_Bidang_Minat extends CI_Model{
         return $query->result();
     }
 
+    function lihat_edit($id)
+    {
+        $query=$this->db->query("SELECT * FROM `bidang_minat` left join prodi on prodi.id_prodi=bidang_minat.id_prodi where id_bidang_minat='$id'");
+        return $query->result();
+    }
 
 
     function tambah()
@@ -30,23 +35,17 @@ class M_Bidang_Minat extends CI_Model{
       return $cek;
     }
 
-    function Edit($id,$admin)
+    function edit($id)
     {
-      $nama_lengkap = $this->input->post('nama_lengkap');
-      $username = $this->input->post('username');
-      $password = md5($this->input->post('password'));
-      $data = array(
-          'nama_lengkap'=>$nama_lengkap,
-          'username'=>$username
 
+      $data = array(
+          'nama_bidang_minat'=>$this->input->post('bidang_minat')
       );
-      if($password==$admin){
-          $this->db->where('username',$id);
-          $cek=$this->db->update('admin',$data);
+
+          $this->db->where('id_bidang_minat',$id);
+          $cek=$this->db->update('bidang_minat',$data);
           return $cek;
-      }else{
-        return false;
-      }
+
     }
 
 

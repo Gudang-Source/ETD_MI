@@ -83,6 +83,20 @@ class M_Admin extends CI_Model{
 
     }
 
+    function ubah_password_admin($id,$password_baru)
+    {
+
+      $data = array(
+          'password'=>$password_baru
+
+      );
+
+          $this->db->where('username',$id);
+          $cek=$this->db->update('user',$data);
+          return $cek;
+
+    }
+
     function edit_admin()
     {
       $query=$this->db->query("");

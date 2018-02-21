@@ -26,6 +26,7 @@
   <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/fonts/material-design/material-design.min.css">
   <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/fonts/brand-icons/brand-icons.min.css">
   <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
+    <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/vendor/toastr/toastr.css">
   <!--[if lt IE 9]>
     <script src="<?php echo site_url(); ?>assets/global/vendor/html5shiv/html5shiv.min.js"></script>
     <![endif]-->
@@ -116,6 +117,8 @@
   <script src="<?php echo site_url(); ?>assets/global/js/components/aspaginator.js"></script>
   <script src="<?php echo site_url(); ?>assets/global/js/plugins/responsive-tabs.js"></script>
     <script src="<?php echo site_url(); ?>assets/assets/examples/js/tables/footable.js"></script>
+    <script src="<?php echo site_url(); ?>assets/global/vendor/toastr/toastr.js"></script>
+    <script src="<?php echo site_url(); ?>assets/global/js/components/toastr.js"></script>
   <script>
   (function(document, window, $) {
     'use strict';

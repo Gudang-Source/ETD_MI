@@ -158,7 +158,7 @@
                                            <div class="form-group ">
                                              <label class="col-sm-3 control-label"><b>Laporan full</b></label>
                                              <div class="col-sm-9">
-                                               <object width="100%" height="400" readonly type="application/pdf" data="<?php echo site_url();?>uploads/<?php echo $ta->pdf?>">
+                                               <object width="100%" height="400" readonly type="application/pdf" data="<?php echo site_url();?>uploads/<?php echo $ta->pdf_full?>">
                                                  <embed src="<?php echo site_url();?>uploads/<?php echo $ta->pdf_full?>" type="application/pdf" />
                                                </object>
                                              </div>
@@ -200,7 +200,7 @@
                       </p>
                     </div>
                   <?php }?>
-              
+
 
 
 
@@ -220,7 +220,7 @@
                     ?>
                     <div class="form-group form-material">
                       <div class="col-sm-9 col-sm-offset-3">
-                        <a href="<?php echo base_url()?>upload/batalkan?id=<?php echo $ta->npm?>&&file=<?php echo $ta->pdf?>"><button type="submit" class="btn btn-warning waves-effect waves-light">Batalkan</button></a>
+                        <a href="<?php echo base_url()?>upload/batalkan?id=<?php echo $ta->npm?>&&file=<?php echo $ta->pdf?>&&file2=<?php echo $ta->pdf_full?>"><button type="submit" class="btn btn-warning waves-effect waves-light">Batalkan</button></a>
                       </div>
                     </div>
 

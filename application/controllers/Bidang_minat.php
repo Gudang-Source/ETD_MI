@@ -26,10 +26,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         public function edit()
        {
-         $data['lihat'] = $this->M_Bidang_Minat->lihat();
+         $id=$_GET ['id'];
+         $data['lihat'] = $this->M_Bidang_Minat->lihat_edit($id);
          $data['prodi'] = $this->M_Prodi->lihat();
-         $this->load->view('Bidang_minat',$data);
+         $this->load->view('Edit_bidang_minat',$data);
        }
+       public function proses_edit()
+      {
+        $id=$_GET ['id'];
+        $cek= $this->M_Bidang_Minat->edit($id);
+        if($cek){
+          $this->edit_berhasil();
+          redirect('bidang_minat');
+        }else{
+          $this->edit_gagal();
+          redirect("edit_bidang_minat?id=$id");
+        }
+      }
 
         public function proses_tambah()
        {

@@ -146,7 +146,7 @@
 
                   <?php
                     echo"<td class='center' width='10%'><a href='". site_url()."edit_prodi?id=$prodi->id_prodi' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
-                      \" title='Hapus'><button type='button' class='btn btn-danger'>Edit</button></a>
+                      \" title='Hapus'><button type='button' class='btn btn-warning'>Edit</button></a>
                       </td>";
                     ?>
                 <?php

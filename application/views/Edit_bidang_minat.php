@@ -65,88 +65,40 @@
             <div class="col-sm-8 col-md-8">
               <!-- Example Horizontal Form -->
               <div class="example-wrap">
-                <h4 class="example-title">Tambah Bidang Minat</h4>
+                <h4 class="example-title">Edit Tambah Bidang Minat</h4>
 
                 <div class="example">
-                  <form class="form-horizontal" action="Bidang_minat/proses_tambah" method="post">
 
+                    <?php
+                       $i=0;
+                       foreach($lihat as $bidang_minat){
+                       $i++;
+                     ?>
+                     <form class="form-horizontal" action="Bidang_minat/proses_edit?id=<?php echo $bidang_minat->id_bidang_minat; ?>" method="post">
                     <div class="form-group form-material">
                       <label class="col-sm-3 control-label">Bidang Minat</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" name="bidang_minat" placeholder="Bidang Minat" autocomplete="off" required>
+                        <input type="text" class="form-control" value="<?php echo $bidang_minat->nama_bidang_minat; ?>" name="bidang_minat" placeholder="Bidang Minat" autocomplete="off" required>
                       </div>
                     </div>
-
-
-
                     <div class="form-group form-material">
                       <div class="col-sm-9 col-sm-offset-3">
-                        <button type="submit" class="btn btn-primary waves-effect waves-light">Submit </button>
+                        <button type="submit" class="btn btn-primary waves-effect waves-light">Update </button>
                         <button type="reset" class="btn btn-warning waves-effect waves-light">Reset</button>
                       </div>
                     </div>
                   </form>
+                    <?php
+                  }
+                     ?>
+
+
+
                 </div>
               </div>
               <!-- End Example Horizontal Form -->
             </div>
           </div>
-        </div>
-      </div>
-      <div class="panel">
-        <header class="panel-heading">
-          <div class="panel-actions"></div>
-          <h3 class="panel-title">Semua Bidang Minat</h3>
-        </header>
-        <div class="panel-body">
-          <table class="table table-hover dataTable table-striped width-full" data-plugin="dataTable">
-            <thead>
-              <tr>
-                <th>No</th>
-
-                <th>Bidang Minat</th>
-                <th>Edit</th>
-                <th>Hapus</th>
-
-              </tr>
-            </thead>
-            <tfoot>
-              <tr>
-                <th>No</th>
-
-                <th>Bidang Minat</th>
-                <th>Edit</th>
-                <th>Hapus</th>
-              </tr>
-            </tfoot>
-            <tbody>
-              <?php
-                 $i=0;
-                 foreach($lihat as $bidang_minat){
-                 $i++;
-               ?>
-                <tr>
-                  <td><?php echo $i; ?></td>
-
-                  <td><?php echo $bidang_minat->nama_bidang_minat; ?></td>
-
-                  <?php
-                    echo"<td class='center' width='10%'><a href='". site_url()."bidang_minat/proses_edit_bidang_minat?id=$bidang_minat->id_bidang_minat' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
-                      \" title='Hapus'><button type='button' class='btn btn-danger'>Edit</button></a>
-                      </td>";
-                    ?>
-                <?php
-                  echo"<td class='center' width='10%'><a href='". site_url()."bidang_minat/proses_hapus_bidang_minat?id=$bidang_minat->id_bidang_minat' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
-                    \" title='Hapus'><button type='button' class='btn btn-danger'>Hapus</button></a>
-                    </td>";
-                  ?>
-                </tr>
-              <?php
-               }
-               ?>
-
-            </tbody>
-          </table>
         </div>
       </div>
 

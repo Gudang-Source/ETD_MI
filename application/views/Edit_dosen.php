@@ -65,20 +65,24 @@
             <div class="col-sm-6 col-md-6">
               <!-- Example Horizontal Form -->
               <div class="example-wrap">
-                <h4 class="example-title">Tambah Dosen</h4>
-
+                <h4 class="example-title">Edit Dosen</h4>
+                <?php
+                   $i=0;
+                   foreach($lihat as $dosen){
+                   $i++;
+                 ?>
                 <div class="example">
-                  <form class="form-horizontal" action="Dosen/proses_tambah" method="post">
+                  <form class="form-horizontal" action="Dosen/proses_edit?id=<?php echo $dosen->nip; ?>" method="post">
                     <div class="form-group form-material">
                       <label class="col-sm-3 control-label">NIP Dosen</label>
                       <div class="col-sm-9">
-                        <input type="number" class="form-control" name="nip" placeholder="NIP" autocomplete="off" required>
+                        <input type="number" class="form-control" value="<?php echo $dosen->nip; ?>" name="nip" placeholder="id" autocomplete="off" required>
                       </div>
                     </div>
                     <div class="form-group form-material">
                       <label class="col-sm-3 control-label">Nama Dosen</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" name="nama" placeholder="Nama Dosen" autocomplete="off" required>
+                        <input type="text" class="form-control" name="nama" value="<?php echo $dosen->nama; ?>"placeholder="Nama Dosen" autocomplete="off" required>
                       </div>
                     </div>
 
@@ -86,71 +90,19 @@
 
                     <div class="form-group form-material">
                       <div class="col-sm-9 col-sm-offset-3">
-                        <button type="submit" class="btn btn-primary waves-effect waves-light">Submit </button>
+                        <button type="submit" class="btn btn-primary waves-effect waves-light">Update </button>
                         <button type="reset" class="btn btn-warning waves-effect waves-light">Reset</button>
                       </div>
                     </div>
                   </form>
                 </div>
+                <?php
+              }
+                 ?>
               </div>
               <!-- End Example Horizontal Form -->
             </div>
           </div>
-        </div>
-      </div>
-      <div class="panel">
-        <header class="panel-heading">
-          <div class="panel-actions"></div>
-          <h3 class="panel-title">Semua Data Dosen</h3>
-        </header>
-        <div class="panel-body">
-          <table class="table table-hover dataTable table-striped width-full" data-plugin="dataTable">
-            <thead>
-              <tr>
-                <th>No</th>
-                <th>NIP</th>
-                <th>Nama Dosen</th>
-                <th>Edit</th>
-                <th>Hapus</th>
-
-              </tr>
-            </thead>
-            <tfoot>
-              <tr>
-                <th>No</th>
-                <th>NIP</th>
-                <th>Nama Dosen</th>
-                <th>Edit</th>
-                <th>Hapus</th>
-              </tr>
-            </tfoot>
-            <tbody>
-              <?php
-                 $i=0;
-                 foreach($lihat as $dosen){
-                 $i++;
-               ?>
-                <tr>
-                  <td><?php echo $i; ?></td>
-                  <td><?php echo $dosen->nip; ?></td>
-                  <td><?php echo $dosen->nama; ?></td>
-                  <?php
-                    echo"<td class='center' width='10%'><a href='". site_url()."edit_dosen?id=$dosen->nip' onclick=\"return confirm('Apakah Anda Yakin mengedit ?')
-                      \" title='Hapus'><button type='button' class='btn btn-warning'>Edit</button></a>
-                      </td>";
-                    ?>
-                <?php
-                  echo"<td class='center' width='10%'><a href='". site_url()."dosen/proses_hapus_dosen?id=$dosen->nip' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
-                    \" title='Hapus'><button type='button' class='btn btn-danger'>Hapus</button></a>
-                    </td>";
-                  ?>
-                </tr>
-              <?php
-               }
-               ?>
-
-            </tbody>
-          </table>
         </div>
       </div>
 

@@ -6,6 +6,12 @@ class M_Dosen extends CI_Model{
         return $query->result();
     }
 
+    function lihat_nip($id)
+    {
+        $query=$this->db->query("SELECT * FROM `dosen` where nip='$id'");
+        return $query->result();
+    }
+
 
 
     function tambah()
@@ -19,23 +25,18 @@ class M_Dosen extends CI_Model{
       return $cek;
     }
 
-    function Edit($id,$admin)
+    function Edit($id)
     {
-      $nama_lengkap = $this->input->post('nama_lengkap');
-      $username = $this->input->post('username');
-      $password = md5($this->input->post('password'));
       $data = array(
-          'nama_lengkap'=>$nama_lengkap,
-          'username'=>$username
+          'nip'=>$this->input->post('nip'),
+          'nama'=>$this->input->post('nama')
 
       );
-      if($password==$admin){
-          $this->db->where('username',$id);
-          $cek=$this->db->update('admin',$data);
+
+          $this->db->where('nip',$id);
+          $cek=$this->db->update('dosen',$data);
           return $cek;
-      }else{
-        return false;
-      }
+
     }
 
 

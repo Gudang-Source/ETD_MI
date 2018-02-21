@@ -111,27 +111,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           $this->password_tidak_cocok();
           redirect("ubah_password?id=$id");
         }
-        // $cek= $this->M_Admin->ubah_password($id,$admin);
-        // if($cek){
-        //   $this->edit_berhasil();
-        //   redirect('logout');
-        // }else{
-        //   $this->edit_gagal();
-        //   redirect('admin');
-        // }
+
 
       }
 
-      public function proses_ubah_password_admin($id){
-        $admin=md5($this->session->userdata('admin'));
-        $cek= $this->M_Admin->ubah_password($id,$admin);
-        if($cek){
-          $this->edit_berhasil();
-          redirect('logout');
+      public function proses_ubah_password_admin(){
+        $id=$_GET ['id'];
+        $password_lama=md5($this->input->post('password_lama'));
+        $password_baru=md5($this->input->post('password_baru'));
+        $ulangi_password_baru=md5($this->input->post('ulangi_password_baru'));
+        if($password_baru==$ulangi_password_baru){
+          $cek= $this->M_Admin->cek_password_admin($id,$password_lama);
+          if($cek){
+            $edit= $this->M_Admin->ubah_password_admin($id,$password_baru);
+            if($edit){
+              $this->edit_berhasil();
+              redirect('logout');
+            }else{
+              $this->edit_gagal();
+              redirect("ubah_password?id=$id");
+            }
+          }else{
+            $this->password_tidak_cocok();
+            redirect("ubah_password?id=$id");
+          }
         }else{
-          $this->edit_gagal();
-          redirect('admin');
+          $this->password_tidak_cocok();
+          redirect("ubah_password?id=$id");
         }
+
+
       }
 
       function tambah_berhasil(){

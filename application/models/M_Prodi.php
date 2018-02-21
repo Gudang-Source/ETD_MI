@@ -12,6 +12,12 @@ class M_Prodi extends CI_Model{
         return $query->result();
     }
 
+    function lihat_per_prodi($id)
+    {
+        $query=$this->db->query("SELECT * FROM `Prodi` where id_prodi='$id'");
+        return $query->result();
+    }
+
     function prodi($prodi)
     {
         $query=$this->db->query("SELECT * FROM `Prodi`where id_prodi='$prodi'");
@@ -33,23 +39,19 @@ class M_Prodi extends CI_Model{
       return $cek;
     }
 
-    function Edit($id,$admin)
+    function Edit($id,$new)
     {
-      $nama_lengkap = $this->input->post('nama_lengkap');
-      $username = $this->input->post('username');
-      $password = md5($this->input->post('password'));
       $data = array(
-          'nama_lengkap'=>$nama_lengkap,
-          'username'=>$username
-
+          'id_prodi'=>$id_prodi,
+          'nama_prodi'=>$nama,
+          'logo'=>$new
       );
-      if($password==$admin){
-          $this->db->where('username',$id);
-          $cek=$this->db->update('admin',$data);
+
+
+          $this->db->where('id_prodi',$id);
+          $cek=$this->db->update('prodi',$data);
           return $cek;
-      }else{
-        return false;
-      }
+
     }
 
 

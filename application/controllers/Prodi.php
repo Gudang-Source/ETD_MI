@@ -26,7 +26,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       }
 
       public function edit(){
-          $data['lihat'] = $this->M_Prodi->lihat_prodi();
+        $id=$_GET ['id'];
+        $data['lihat'] = $this->M_Prodi->lihat_per_prodi($id);
        	$this->load->view('edit_prodi',$data);
       }
 
@@ -61,6 +62,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
 
     	}
+
+      public function proses_edit_prodi(){
+          $id=$_GET ['id'];
+          $cek= $this->M_Prodi->edit($id);
+          if($cek){
+            $this->edit_berhasil();
+            redirect('prodi');
+          }else{
+            $this->edit_gagal();
+            redirect("edit_prodi?id=$id");
+          }
+      }
 
       public function proses_hapus_prodi(){
           $id=$_GET ['id'];

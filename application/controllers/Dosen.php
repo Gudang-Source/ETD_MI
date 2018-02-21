@@ -22,6 +22,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
        		$this->load->view('Dosen',$data);
        	}
 
+        public function edit_dosen()
+       {
+         $id=$_GET ['id'];
+         $data['lihat'] = $this->M_Dosen->lihat_nip($id);
+         $this->load->view('Edit_dosen',$data);
+       }
+
         public function proses_tambah()
        {
          $cek= $this->M_Dosen->tambah();
@@ -34,6 +41,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
          }
 
        }
+
+       public function proses_edit()
+      {
+         $id=$_GET ['id'];
+        $cek= $this->M_Dosen->edit($id);
+        if($cek){
+          $this->edit_berhasil();
+          redirect('Dosen');
+        }else{
+          $this->edit_gagal();
+          redirect("dosen/edit_dosen?id=$id");
+        }
+
+      }
 
        public function proses_hapus_dosen(){
            $id=$_GET ['id'];

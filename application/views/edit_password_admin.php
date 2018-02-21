@@ -29,7 +29,7 @@
   <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/fonts/material-design/material-design.min.css">
   <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/fonts/brand-icons/brand-icons.min.css">
   <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
-  <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/vendor/toastr/toastr.css">
+
   <!--[if lt IE 9]>
     <script src="<?php echo site_url(); ?>assets/global/vendor/html5shiv/html5shiv.min.js"></script>
     <![endif]-->
@@ -44,13 +44,8 @@
   Breakpoints();
   </script>
 </head>
-<body class="site-navbar-small " <?php echo $this->session->flashdata('pesan')?>>
-  <div class="toast-example" id="berhasil" aria-live="polite" data-plugin="toastr" data-message="<strong>Selamat !</strong> Anda Berhasil Menambahkan Data." data-container-id="toast-top-right" data-position-class="toast-bottom-right" data-icon-class="toast-just-text toast-success toast-shadow" role="alert"></div>
-  <div class="toast-example" id="gagal" aria-live="polite" data-plugin="toastr" data-message="<strong>Maaf !</strong> Anda Gagal Menambahkan Data." data-container-id="toast-top-right" data-position-class="toast-bottom-right" data-icon-class="toast-just-text toast-error toast-shadow" role="alert"></div>
-  <div class="toast-example" id="berhasil_hapus" aria-live="polite" data-plugin="toastr" data-message="<strong>Selamat !</strong> Anda Berhasil Menghapus Data." data-container-id="toast-top-right" data-position-class="toast-bottom-right" data-icon-class="toast-just-text toast-success toast-shadow" role="alert"></div>
-  <div class="toast-example" id="gagal_hapus" aria-live="polite" data-plugin="toastr" data-message="<strong>Maaf !</strong> Anda Gagal Menghapus Data." data-container-id="toast-top-right" data-position-class="toast-bottom-right" data-icon-class="toast-just-text toast-error toast-shadow" role="alert"></div>
-
-
+<body class="site-navbar-small " >
+  <?php echo $this->session->flashdata('pesan')?>
 <?php echo $this->load->view('common/menu', '', TRUE);?>
 
 
@@ -90,19 +85,19 @@
                     <div class="form-group form-material">
                       <label class="col-sm-3 control-label">Password Lama</label>
                       <div class="col-sm-9">
-                        <input type="password" class="form-control" name="password_lama" placeholder="Password" autocomplete="off" required>
+                        <input type="password" class="form-control" name="password_lama" placeholder="Masukkan Password Lama" autocomplete="off"  required>
                       </div>
                     </div>
                     <div class="form-group form-material">
-                      <label class="col-sm-3 control-label">Ulangi Password</label>
+                      <label class="col-sm-3 control-label">Password Baru</label>
                       <div class="col-sm-9">
-                        <input type="password" class="form-control" name="password_baru" placeholder="ulangi Password" autocomplete="off" required>
+                        <input type="password" class="form-control" name="password_baru" placeholder="Masukkan Password Baru" autocomplete="off"  required>
                       </div>
                     </div>
                     <div class="form-group form-material">
-                      <label class="col-sm-3 control-label">Ulangi Password</label>
+                      <label class="col-sm-3 control-label">Ulangi Password Baru</label>
                       <div class="col-sm-9">
-                        <input type="password" class="form-control" name="ulangi_password" placeholder="ulangi Password" autocomplete="off" required>
+                        <input type="password" class="form-control" name="ulangi_password_baru" placeholder="Ulangi Password Baru" autocomplete="off"  required>
                       </div>
                     </div>
                     <?php
