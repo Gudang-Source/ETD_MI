@@ -24,6 +24,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
        		$this->load->view('Konfirmasi',$data);
        	}
 
+        public function user()
+       {
+         $prodi=$this->session->userdata('prodi');
+         $data['lihat'] = $this->M_Judul->konfirmasi_user($prodi);
+         $this->load->view('Konfirmasi_user',$data);
+       }
+
         public function setuju()
        {
          $id=$_GET ['id'];
@@ -37,6 +44,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                }
 
        }
+       public function user_ya()
+      {
+        $id=$_GET ['id'];
+              $cek= $this->M_konfirmasi->ya($id);
+              if($cek){
+                $this->konfirmasi_berhasil();
+                redirect("konfirmasi_user");
+              }else{
+                $this->batalkan();
+              redirect("konfirmasi_user?id=$id");
+              }
+
+      }
+      public function user_no()
+     {
+       $id=$_GET ['id'];
+            $cek= $this->M_konfirmasi->no($id);
+             if($cek){
+               $this->konfirmasi_berhasil();
+               redirect("konfirmasi_user?id=$id");
+             }else{
+               $this->batalkan();
+             redirect("konfirmasi_user?id=$id");
+             }
+
+     }
        public function batalkan()
       {
               $id=$_GET ['id'];

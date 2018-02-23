@@ -144,14 +144,21 @@
           <?php
            if(!empty($admin) && $level==1  ){
           ?>
-          <li class="site-menu-item has-sub <?php $link=uri_string(); if($link =="help"){ echo "active";} ?>">
-            <a href="<?php echo site_url(); ?>Konfirmasi" data-dropdown-toggle="false">
+          <li class="site-menu-item has-sub <?php $link=uri_string(); if($link =="konfirmasi"){ echo "active";} ?>">
+            <a href="<?php echo site_url(); ?>konfirmasi" data-dropdown-toggle="false">
               <i class="site-menu-icon  icon md-badge-check" aria-hidden="true"></i>
-              <span class="site-menu-title">Konfirmasi</span>
+              <span class="site-menu-title">Konfirmasi TA/Skripsi</span>
 
             </a>
           </li>
-          <li class="site-menu-item has-sub <?php $link=uri_string(); if($link =="help"){ echo "active";} ?>">
+          <li class="site-menu-item has-sub <?php $link=uri_string(); if($link =="konfirmasi_user"){ echo "active";} ?>">
+            <a href="<?php echo site_url(); ?>konfirmasi_user" data-dropdown-toggle="false">
+              <i class="site-menu-icon  icon md-badge-check" aria-hidden="true"></i>
+              <span class="site-menu-title">Konfirmasi user</span>
+
+            </a>
+          </li>
+          <li class="site-menu-item has-sub <?php $link=uri_string(); if($link =="judul"){ echo "active";} ?>">
             <a href="<?php echo site_url(); ?>judul" data-dropdown-toggle="false">
               <i class="site-menu-icon  icon md-collection-bookmark" aria-hidden="true"></i>
               <span class="site-menu-title">Semua TA/Skripsi</span>

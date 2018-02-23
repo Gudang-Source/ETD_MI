@@ -58,7 +58,7 @@ class Login extends CI_Controller {
 	 public function proses_daftar() {
 		$cek= $this->M_Login->daftar();
 		if($cek){
-
+            $this->belum_verifikasi();
            redirect('login');
          }else{
            $this->tambah_gagal();
@@ -76,12 +76,19 @@ class Login extends CI_Controller {
       			echo $level= $mhs[0]->level;
       			echo $prodi= $mhs[0]->id_prodi;
       			echo $mhs= $mhs[0]->nama;
+      			echo $verifikasi= $mhs[0]->verifikasi;
+            if($verifikasi==1){
       			session_save_path();
-      			$this->session->set_userdata('login',$username);
-      			$this->session->set_userdata('level',$level);
-      			$this->session->set_userdata('prodi',$prodi);
-      			$this->session->set_userdata('nama',$mhs);
-			     redirect('home');
+          			$this->session->set_userdata('login',$username);
+          			$this->session->set_userdata('level',$level);
+          			$this->session->set_userdata('prodi',$prodi);
+          			$this->session->set_userdata('nama',$mhs);
+    			     redirect('home');
+            }else{
+              $this->belum_verifikasi();
+        			redirect('login');
+
+            }
 
 		}
     else if($prodi==true && $cek==true){
@@ -123,6 +130,16 @@ class Login extends CI_Controller {
                  <strong>Gagal!</strong> Proses login Gagal!.
                  </div>');
       }
+
+
+      function belum_verifikasi(){
+          $this->session->set_flashdata('pesan', '
+                  <div class="alert alert-warning fade in">
+                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                  <strong>Akun Belum Aktif!</strong> Akun Anda Belum Diverifikasi, Silahkan Hubungi Prodi Masing-Masing
+                  </div>');
+       }
+
 
 
 }

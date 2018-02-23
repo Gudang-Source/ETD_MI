@@ -13,6 +13,18 @@ class M_Konfirmasi extends CI_Model{
 
     }
 
+    function ya($id)
+    {
+      $data = array(
+          'verifikasi'=>1
+
+      );
+          $this->db->where('npm',$id);
+          $cek=$this->db->update('mahasiswa',$data);
+          return $cek;
+
+    }
+
 
 
     function batalkan($id)
@@ -28,6 +40,14 @@ class M_Konfirmasi extends CI_Model{
       }else{
         return FALSE;
       }
+    }
+
+    function no($id)
+    {
+      $query=$this->db->where('npm', $id);
+      $cek1=$this->db->delete('mahasiswa');
+
+        return $cek1;
     }
 
 

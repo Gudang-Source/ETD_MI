@@ -56,6 +56,7 @@ $route['prodi'] = 'Home/judul_prodi';
 $route['daftar'] = 'Login/register';
 $route['upload'] = 'Upload';
 $route['konfirmasi'] = 'Konfirmasi';
+$route['konfirmasi_user'] = 'Konfirmasi/user';
 $route['judul'] = 'judul';//hanya bisa lihat judul per jurusan jika adamin
 $route['judul_admin'] = 'judul/admin';
 $route['cari'] = 'Cari';

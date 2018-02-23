@@ -20,6 +20,11 @@ class M_Judul extends CI_Model{
       $query=$this->db->query("SELECT *, mahasiswa.nama as nama_mahasiswa, mahasiswa.npm as npm_mahasiswa FROM mahasiswa LEFT JOIN ta on ta.npm=mahasiswa.npm  left join prodi on prodi.id_prodi=mahasiswa.id_prodi left join bidang_minat on bidang_minat.id_bidang_minat=mahasiswa.id_bidang_minat where ta.verifikasi='0'and prodi.id_prodi='$prodi' ORDER by ta.tgl_upload");
       return $query->result();
     }
+    function konfirmasi_user($prodi)
+    {
+      $query=$this->db->query("SELECT *, mahasiswa.nama as nama_mahasiswa, mahasiswa.npm as npm_mahasiswa FROM mahasiswa  left join prodi on prodi.id_prodi=mahasiswa.id_prodi where mahasiswa.verifikasi='0'and prodi.id_prodi='$prodi'");
+      return $query->result();
+    }
     function judul100()
     {
         $query=$this->db->query("SELECT *, mahasiswa.nama as nama_mahasiswa, mahasiswa.npm as npm_mahasiswa FROM mahasiswa LEFT JOIN ta on ta.npm=mahasiswa.npm left join prodi on prodi.id_prodi=mahasiswa.id_prodi left join bidang_minat on bidang_minat.id_bidang_minat=mahasiswa.id_bidang_minat where ta.verifikasi='1' and ta.sampai is null or ta.sampai<= now() ORDER by ta.tgl_upload DESC LIMIT 100 ");
