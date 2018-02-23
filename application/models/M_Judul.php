@@ -22,7 +22,7 @@ class M_Judul extends CI_Model{
     }
     function konfirmasi_user($prodi)
     {
-      $query=$this->db->query("SELECT *, mahasiswa.nama as nama_mahasiswa, mahasiswa.npm as npm_mahasiswa FROM mahasiswa  left join prodi on prodi.id_prodi=mahasiswa.id_prodi where mahasiswa.verifikasi='0'and prodi.id_prodi='$prodi'");
+      $query=$this->db->query("SELECT *, mahasiswa.nama as nama_mahasiswa, mahasiswa.npm as npm_mahasiswa FROM mahasiswa  left join prodi on prodi.id_prodi=mahasiswa.id_prodi where mahasiswa.verifikasi='0'and prodi.id_prodi='$prodi'"); 
       return $query->result();
     }
     function judul100()
