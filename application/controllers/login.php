@@ -72,17 +72,18 @@ class Login extends CI_Controller {
 		$prodi=$this->M_Login->prodi($this->input->post('username'));
 
   		if($mhs==true && $cek==true){
-      			echo $username= $mhs[0]->npm;
-      			echo $level= $mhs[0]->level;
-      			echo $prodi= $mhs[0]->id_prodi;
-      			echo $mhs= $mhs[0]->nama;
-      			echo $verifikasi= $mhs[0]->verifikasi;
+      			$username= $mhs[0]->npm;
+      			$level= $mhs[0]->level;
+      			$prodi= $mhs[0]->id_prodi;
+      			$mhs1= $mhs[0]->nama;
+      			$verifikasi= $mhs[0]->verifikasi;
+
             if($verifikasi==1){
       			session_save_path();
           			$this->session->set_userdata('login',$username);
           			$this->session->set_userdata('level',$level);
           			$this->session->set_userdata('prodi',$prodi);
-          			$this->session->set_userdata('nama',$mhs);
+          			$this->session->set_userdata('nama',$mhs1);
     			     redirect('home');
             }else{
               $this->belum_verifikasi();
